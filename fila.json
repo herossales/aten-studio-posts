@@ -1,0 +1,73 @@
+{
+  "processados": [
+    "653162752254123615",
+    "653162752254123990",
+    "653162752254123977",
+    "653162752254124100"
+  ],
+  "fila": [
+    {
+      "promptBase": "A surreal conceptual portrait of [SUBJECT] in side profile. The top of their head is flat, supporting a miniature, highly detailed scene of a person sitting at a desk working on a laptop. Shot on a medium format camera with soft, diffused studio lighting. The background is a minimalist, out-of-focus sage green with soft geometric light shapes. Clean, high-end editorial photography.",
+      "assinatura": "creative professional",
+      "gancho": "Como funciona a mente de quem cria?",
+      "variacoes": [
+        "a focused woman with short dyed hair, wire-frame glasses, and a sharp beige blazer",
+        "a thoughtful man with curly dark hair, a dark turtleneck, and a minimalist silver earring",
+        "a stylish non-binary designer with a sleek black bob, wearing an oversized linen shirt",
+        "an elegant older creative director with salt-and-pepper hair, wearing a structured navy blue jacket"
+      ],
+      "slug": "creative-mind-surreal",
+      "saves": 40,
+      "pinId": "653162752254123990",
+      "coletadoEm": "2026-08-26T22:16:36.721Z"
+    },
+    {
+      "promptBase": "An extreme close-up portrait shot with a distorted fisheye lens, looking down at the subject with exaggerated perspective. The subject is styled in retro Y2K fashion, wearing thick tinted sunglasses. Harsh direct flash lighting with subtle rainbow chromatic aberration leaks. Cool, slightly grainy studio background, capturing a nostalgic late 90s music video aesthetic.",
+      "assinatura": "Y2K geek-chic retro-futurism",
+      "gancho": "Como dominar a estética Y2K e criar imagens com cara de videoclipe dos anos 2000.",
+      "variacoes": [
+        "A stylish young woman with spiky space buns and metallic blue eyeshadow holding a vintage flip phone",
+        "A cool skater with a backward visor and chunky headphones around his neck",
+        "A trendy designer with frosted tips and futuristic silver wrap-around shades",
+        "A creative teenager with a colorful bucket hat holding a retro digital camera"
+      ],
+      "slug": "y2k-fisheye-aesthetic",
+      "saves": 5,
+      "pinId": "653162752254123977",
+      "coletadoEm": "2026-08-26T22:16:45.459Z"
+    },
+    {
+      "promptBase": "A dramatic cinematic portrait of [SUBJECT] at the center of a chaotic crowd of paparazzi. Dozens of professional camera lenses and flash units tightly encircle the subject, pointing directly at them. Sharp, high-contrast spotlight from above illuminates the subject's face, creating deep shadows. Low-saturation color palette dominated by deep blacks and cool undertones. Shallow depth of field keeps the subject's stoic expression in sharp focus while the surrounding cameras have a soft blur, capturing an overwhelming media spotlight.",
+      "assinatura": "A-list celebrity under intense media spotlight",
+      "gancho": "Como recriar a estética dramática e de alta pressão dos holofotes dos paparazzi.",
+      "variacoes": [
+        "a chic, elegant woman in a haute couture silver gown with a poised, calm expression",
+        "a stoic, middle-aged politician in a tailored dark grey suit with a serious face",
+        "a young, edgy rockstar with messy dark hair, wearing a black leather jacket",
+        "a distinguished older actor with silver-streaked hair and a tired but dignified gaze"
+      ],
+      "slug": "paparazzi-spotlight",
+      "saves": 1,
+      "pinId": "653162752254124100",
+      "coletadoEm": "2026-08-26T22:16:55.342Z"
+    }
+  ],
+  "publicados": [
+    {
+      "promptBase": "A professional medium close-up portrait of [SUBJECT] shot on an 85mm lens. Soft, dramatic directional studio lighting from the side casts gentle shadows, creating a refined, introspective atmosphere. The background is a solid, neutral matte gray. Moody, minimalist color palette featuring rich black apparel. Shallow depth of field, sharp focus, and a clean photographic texture.",
+      "gancho": "Como transmitir autoridade e sofisticação de forma silenciosa.",
+      "variacoes": [
+        "A confident female CEO in a black turtleneck, looking thoughtfully away",
+        "A thoughtful young tech founder with hands clasped in front of them",
+        "An elegant mature writer resting their chin on their hand",
+        "A minimalist fashion designer in a black wool sweater, in a three-quarter pose"
+      ],
+      "slug": "minimalist-studio-portrait",
+      "saves": 1,
+      "pinId": "653162752254123615",
+      "coletadoEm": "2026-08-26T19:45:50.733Z",
+      "permalink": "https://www.instagram.com/p/DchRTt9nFFr/",
+      "publicadoEm": "2026-08-26T22:20:07.050Z"
+    }
+  ]
+}
