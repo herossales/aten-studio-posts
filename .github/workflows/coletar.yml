@@ -1,0 +1,71 @@
+name: Coletar referencias
+
+on:
+  schedule:
+    # Segunda, 12:00 UTC = 09:00 BRT. Semanal basta: os pins sao salvos
+    # em lote, nao de hora em hora.
+    - cron: '0 12 * * 1'
+  workflow_dispatch:
+
+# Nunca junto com uma publicacao: as duas escrevem o fila.json.
+concurrency:
+  group: fila
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  coletar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Coletar pins novos
+        id: coleta
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          PINTEREST_BOARDS: ${{ secrets.PINTEREST_BOARDS }}
+        run: |
+          node src/coletar.js
+          echo "restam=$(node -e "console.log(require('./fila.json').fila.length)")" >> "$GITHUB_OUTPUT"
+
+      - name: Guardar a fila
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add fila.json
+          # Sem pin novo nao ha o que commitar, e commit vazio falha o passo.
+          git diff --staged --quiet || git commit -m "fila: coleta semanal ($(date -u +%d/%m))"
+          git push
+
+      - name: Avisar se a fila estiver acabando
+        if: ${{ fromJSON(steps.coleta.outputs.restam) < 9 }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Uma issue aberta por vez: fila baixa em varios dias seguidos
+          # nao pode virar uma issue por dia.
+          if [ -n "$(gh issue list --label fila-baixa --state open --json number --jq '.[].number')" ]; then
+            echo "Ja existe issue aberta de fila baixa."; exit 0
+          fi
+          gh label create fila-baixa --color D93F0B --description "Fila de referencias acabando" --force
+          gh issue create \
+            --title "Fila de referencias acabando: ${{ steps.coleta.outputs.restam }} restantes" \
+            --label fila-baixa \
+            --body "@herossales
+
+          A coleta semanal rodou e a fila ficou com **${{ steps.coleta.outputs.restam }} conceitos** — menos de 3 dias a 3 posts/dia.
+
+          Salve novas referencias no board do Pinterest. A proxima coleta automatica e na segunda que vem, mas voce pode disparar na hora em **Actions > Coletar referencias > Run workflow**.
+
+          Quando a fila voltar a encher, feche esta issue."

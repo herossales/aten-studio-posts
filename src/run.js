@@ -1,4 +1,4 @@
-import { writeFileSync } from 'node:fs'
+import { appendFileSync, writeFileSync } from 'node:fs'
 import * as fila from './fila.js'
 import { gerarLaminas } from './generate.js'
 import { escalarElenco } from './elenco.js'
@@ -133,6 +133,15 @@ if (cfg.ghToken && cfg.ghRepo) {
     console.error(`\n  ATENCAO: post publicado mas a fila nao persistiu (${e.message}).`)
     console.error(`  Commite o fila.json manualmente para nao reprocessar ${conceito.slug}.`)
   }
+}
+
+// Entrega o resultado pro workflow: e com isso que ele monta o lembrete
+// de musica e decide se a fila esta acabando.
+if (process.env.GITHUB_OUTPUT) {
+  appendFileSync(
+    process.env.GITHUB_OUTPUT,
+    `permalink=${permalink}\nrestam=${dados.fila.length}\nslug=${conceito.slug}\netiqueta=${conceito.etiqueta ?? ''}\n`,
+  )
 }
 
 console.log(`\nNo ar: ${permalink}`)

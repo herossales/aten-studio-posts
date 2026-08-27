@@ -18,14 +18,15 @@ on:
         type: boolean
         default: false
 
-# Uma execucao por vez: duas em paralelo leriam a mesma fila e
-# publicariam o mesmo conceito duas vezes.
+# Uma execucao por vez, e nunca junto com a coleta: as duas escrevem
+# o fila.json.
 concurrency:
-  group: carrossel
+  group: fila
   cancel-in-progress: false
 
 permissions:
-  contents: write # necessario pro GITHUB_TOKEN commitar as laminas
+  contents: write # commitar as laminas
+  issues: write   # lembrete de musica e alerta de fila baixa
 
 jobs:
   carrossel:
@@ -41,6 +42,7 @@ jobs:
       - run: npm ci
 
       - name: Gerar e publicar
+        id: post
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
@@ -53,6 +55,45 @@ jobs:
           else
             node src/run.js
           fi
+
+      - name: Lembrar de colocar a musica
+        if: ${{ success() && steps.post.outputs.permalink }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create musica --color 1D76DB --description "Post no ar aguardando trilha" --force
+          gh issue create \
+            --title "Adicionar musica: ${{ steps.post.outputs.etiqueta }}" \
+            --label musica \
+            --body "@herossales
+
+          Novo post do @atenstudio.ai no ar. **Falta adicionar a musica** para entregar no organico.
+
+          ${{ steps.post.outputs.permalink }}
+
+          A API do Instagram nao anexa audio a carrossel (so a Reels), entao este passo e manual: abra o post no **app do celular** e use *Editar > Adicionar musica*. Pelo navegador nao aparece.
+
+          Feche esta issue quando a trilha estiver no ar."
+
+      - name: Avisar se a fila estiver acabando
+        if: ${{ success() && steps.post.outputs.restam && fromJSON(steps.post.outputs.restam) < 9 }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -n "$(gh issue list --label fila-baixa --state open --json number --jq '.[].number')" ]; then
+            echo "Ja existe issue aberta de fila baixa."; exit 0
+          fi
+          gh label create fila-baixa --color D93F0B --description "Fila de referencias acabando" --force
+          gh issue create \
+            --title "Fila de referencias acabando: ${{ steps.post.outputs.restam }} restantes" \
+            --label fila-baixa \
+            --body "@herossales
+
+          Restam **${{ steps.post.outputs.restam }} conceitos** na fila — menos de 3 dias a 3 posts/dia.
+
+          Salve novas referencias no board do Pinterest. A coleta automatica roda toda segunda, mas da pra disparar na hora em **Actions > Coletar referencias > Run workflow**.
+
+          Quando a fila voltar a encher, feche esta issue."
 
       - name: Guardar laminas como artefato
         if: always()
