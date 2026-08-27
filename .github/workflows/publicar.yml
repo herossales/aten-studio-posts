@@ -1,0 +1,63 @@
+name: Carrossel diario
+
+on:
+  schedule:
+    # Horarios em UTC. BRT = UTC-3.
+    #   10:00 UTC = 07:00 BRT
+    #   14:00 UTC = 11:00 BRT
+    #   21:00 UTC = 18:00 BRT
+    # O cron do Actions atrasa em horario de pico (as vezes 15-20 min) —
+    # nao da pra cravar o minuto. Cada execucao consome 1 item da fila.
+    - cron: '0 10 * * *'
+    - cron: '0 14 * * *'
+    - cron: '0 21 * * *'
+  workflow_dispatch:
+    inputs:
+      publicar:
+        description: 'Publicar no Instagram (senao, so gera e guarda)'
+        type: boolean
+        default: false
+
+# Uma execucao por vez: duas em paralelo leriam a mesma fila e
+# publicariam o mesmo conceito duas vezes.
+concurrency:
+  group: carrossel
+  cancel-in-progress: false
+
+permissions:
+  contents: write # necessario pro GITHUB_TOKEN commitar as laminas
+
+jobs:
+  carrossel:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Gerar e publicar
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          # GITHUB_TOKEN e GITHUB_REPOSITORY sao automaticos
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ inputs.publicar }}" = "true" ]; then
+            node src/run.js --publish
+          else
+            node src/run.js
+          fi
+
+      - name: Guardar laminas como artefato
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: carrossel-${{ github.run_number }}
+          path: out/
+          retention-days: 30

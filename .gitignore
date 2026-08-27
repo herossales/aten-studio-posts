@@ -1,0 +1,9 @@
+node_modules/
+.env
+out/
+*.log
+.DS_Store
+
+# Fonte de arte do Photoshop: pesado e nao usado em execucao.
+# O pipeline le apenas o PNG exportado.
+*.psd
