@@ -3,7 +3,36 @@
     "653162752254123615",
     "653162752254123990",
     "653162752254123977",
-    "653162752254124100"
+    "653162752254124100",
+    "653162752254136681",
+    "653162752254136669",
+    "653162752254136695",
+    "653162752254136647",
+    "653162752254136677",
+    "653162752254136701",
+    "653162752254136650",
+    "653162752254136699",
+    "653162752254136654",
+    "653162752254136733",
+    "653162752254136686",
+    "653162752254136725",
+    "653162752254136679",
+    "653162752254136700",
+    "653162752254136732",
+    "653162752254136704",
+    "653162752254136721",
+    "653162752254136692",
+    "653162752254136663",
+    "653162752254136659",
+    "653162752254136667",
+    "653162752254136658",
+    "653162752254136687",
+    "653162752254136716",
+    "653162752254136698",
+    "653162752254136668",
+    "653162752254136711",
+    "653162752254136673",
+    "653162752254136682"
   ],
   "fila": [
     {
@@ -41,6 +70,528 @@
       "imagemRef": "https://i.pinimg.com/originals/8c/5f/d8/8c5fd8c4b41ce12c3852129ffecc2b49.jpg",
       "figura": "Y2K street fashion icon",
       "etiqueta": "RETRATO Y2K FISHEYE"
+    },
+    {
+      "promptBase": "Extreme top-down 8mm circular fisheye lens portrait of a person. High-angle bird's-eye view creates massive head-and-shoulder distortion with the body rapidly shrinking towards tiny feet below. Lit by a harsh, direct overhead flash, casting deep shadows under the chin and nose, surrounded by heavy dark vignetted corners. Setting is a vintage indoor room with wood-paneled shelves, a retro boombox, and vinyl records. Neutral white balance with deep crushed blacks, heavy film grain, and slightly desaturated background tones. The subject wears an oversized retro suit and colorful tinted aviator glasses, smiling broadly and looking directly up at the lens.",
+      "assinatura": "A quirky Y2K indie creative with messy hair, wearing an oversized vintage suit and colored aviator glasses",
+      "figura": "Y2K skater culture",
+      "gancho": "A estética distorcida e analógica dos anos 2000 de volta ao topo.",
+      "variacoes": [
+        "A young female indie musician with a messy shag haircut, wearing an oversized vintage leather jacket and yellow-tinted aviator sunglasses",
+        "A cool street-style skater with a short buzzcut, wearing a baggy 90s windbreaker and red-tinted glasses",
+        "An eclectic artist with curly hair, wearing an oversized corduroy blazer and blue-tinted wireframe glasses",
+        "A retro trendsetter with middle-parted hair, wearing an oversized tweed suit jacket and amber-tinted glasses"
+      ],
+      "etiqueta": "EDITORIAL FISHEYE",
+      "slug": "editorial-fisheye-y2k",
+      "saves": 463,
+      "imagemRef": "https://i.pinimg.com/originals/1b/c2/58/1bc25807c70d4d26cd8e59a2d3d52f91.png",
+      "pinId": "653162752254136681",
+      "coletadoEm": "2026-08-27T14:26:01.900Z"
+    },
+    {
+      "promptBase": "A strict profile portrait of [SUBJECT] facing right, chest-up crop, shot on an 85mm lens at f/2.0. High-contrast, low-key studio lighting featuring a single sharp rim light from behind, creating a brilliant silver halo along the hair, profile, and glasses. The front of the face remains in deep shadow. Background is a solid, pitch-black seamless backdrop. Neutral white balance with desaturated color grading and deeply crushed blacks, camera at eye level.",
+      "assinatura": "A young man with messy textured hair, wearing thin-rimmed glasses, shown in sharp profile",
+      "figura": "",
+      "gancho": "O poder do contorno: como a luz de recorte transforma o retrato em pura escultura.",
+      "variacoes": [
+        "A mature woman with sharp cheekbones, a slicked-back high ponytail, and minimalist wire-rimmed glasses",
+        "A young Black man with a short, detailed buzz cut and a strong, defined jawline",
+        "An older distinguished man with a neatly trimmed beard, thick-rimmed glasses, and styled silver hair",
+        "A young woman with a sharp bob haircut, delicate features, and modern round glasses"
+      ],
+      "etiqueta": "RETRATO EM CONTRALUZ",
+      "slug": "retrato-contraluz-silhueta",
+      "saves": 63,
+      "imagemRef": "https://i.pinimg.com/originals/42/fc/5e/42fc5e394ec6c3a967a5396a6fb7453c.png",
+      "pinId": "653162752254136669",
+      "coletadoEm": "2026-08-27T14:26:42.099Z"
+    },
+    {
+      "promptBase": "Strict side profile portrait of a [subject] with closed eyes and a serene expression, facing left. Head-and-shoulders crop, camera at eye level, off-center composition. Solid vibrant golden-yellow background. Monochromatic yellow-gold color grading, warm 3200K white balance, deep dark brown shadows with lifted blacks. Shot on 85mm lens at f/2.8. A strong horizontal panning motion blur trails off the back of the head and hair, creating a ghostly streak effect to the right. Fine analog film grain throughout.",
+      "assinatura": "young artistic male with curly hair and black-rimmed glasses, serene profile",
+      "figura": "",
+      "gancho": "O rastro de movimento cria uma silhueta dramática e conceitual em tons dourados.",
+      "variacoes": [
+        "young woman with short cropped hair and minimalist silver earrings, serene side profile",
+        "older man with a distinguished beard and deep-set eyes, calm side profile",
+        "young non-binary person with sharp cheekbones and a nose ring, peaceful side profile",
+        "woman with long braided hair and delicate features, quiet side profile"
+      ],
+      "etiqueta": "RETRATO CONCEITUAL",
+      "slug": "retrato-silhueta-movimento-dourado",
+      "saves": 36,
+      "imagemRef": "https://i.pinimg.com/originals/c2/1f/f4/c21ff4deab045b5ebb6ddf3e4579a02d.jpg",
+      "pinId": "653162752254136695",
+      "coletadoEm": "2026-08-27T14:26:51.649Z"
+    },
+    {
+      "promptBase": "A chest-up portrait shot from a low angle looking upward at [SUBJECT]. The lighting is a dramatic orange-red key light from a 45-degree angle to the side, casting half the face in deep shadow. Background is a seamless, solid deep crimson-red backdrop. Shot on an 85mm lens at f/2.0 with a shallow depth of field, sharp focus on the face and glasses, soft roll-off on the shoulders of a dark wool coat. High-contrast color grading, deep saturated reds, with crushed pure blacks. The subject has a confident, serious expression with a slightly raised chin, looking directly down into the camera lens.",
+      "assinatura": "A stylish modern intellectual (a young man with short dark hair, wearing thick-rimmed circular black glasses and a tailored black overcoat)",
+      "figura": "",
+      "gancho": "Iluminação dramática e tons quentes em um retrato poderoso.",
+      "variacoes": [
+        "A young woman with a sharp bob cut, wearing round wire-frame glasses and a black turtleneck",
+        "A mature man in his 40s with a short beard, wearing classic horn-rimmed glasses and a heavy wool coat",
+        "A non-binary person with short silver hair, wearing bold black-rimmed glasses and a black blazer",
+        "An older woman with elegant gray hair, wearing stylish designer glasses and a structured black trench coat"
+      ],
+      "etiqueta": "RETRATO DRAMÁTICO",
+      "slug": "retrato-dramatico-vermelho",
+      "saves": 95,
+      "imagemRef": "https://i.pinimg.com/originals/af/a4/a2/afa4a2754f1c3745f6435d256e9b6fb4.png",
+      "pinId": "653162752254136647",
+      "coletadoEm": "2026-08-27T14:27:02.512Z"
+    },
+    {
+      "promptBase": "A striking black and white studio portrait of [SUBJECT]. Illumination comes from a single hard, high-contrast key light positioned above and slightly to the right, casting sharp shadows under the brow, nose, and jawline. The background is a seamless, absolute solid black studio backdrop with zero texture. Shot with a 105mm prime lens at f/4 for crisp facial details, camera positioned at direct eye level. Tight head-and-shoulders crop. Pure monochrome grading with deeply crushed blacks, bright whites, and no color cast. The subject maintains a serious, intense expression, staring directly into the camera lens.",
+      "assinatura": "Robert Pattinson, the actor (a man in his late 30s, sharp angular jawline, short buzzed dark hair, intense deep-set eyes, light stubble)",
+      "figura": "Robert Pattinson",
+      "gancho": "A força dramática de um retrato em preto e branco de alto contraste.",
+      "variacoes": [
+        "A brooding male actor in his late 30s with sharp features and stubble",
+        "An intense athletic woman in her early 30s with a close-cropped buzz cut",
+        "An older distinguished gentleman in his 60s with deeply lined skin",
+        "A young man in his mid-20s with a strong angular jawline and intense gaze"
+      ],
+      "etiqueta": "RETRATO NOIR",
+      "slug": "retrato-noir-alto-contraste",
+      "saves": 183,
+      "imagemRef": "https://i.pinimg.com/originals/c5/4e/19/c54e19a258534095995c740e8c9c5af2.jpg",
+      "pinId": "653162752254136677",
+      "coletadoEm": "2026-08-27T14:31:43.105Z"
+    },
+    {
+      "promptBase": "An upper-body portrait, chest-up crop, shot on an 85mm lens at f/2. A [SUBJECT] stands on a subway platform. Directly behind, a silver-grey train rushes past, captured with extreme horizontal motion blur and vivid electric blue and warm orange light streaks. Cool teal-blue fluorescent overhead lighting falls from above, casting soft shadows, with a sharp blue rim light on one shoulder. Camera at eye level. Sharp focus on the subject with an introspective expression looking past the lens. Cinematic color grade, 5500K white balance with a distinct teal cast in the shadows, muted saturation, and slightly lifted deep blacks.",
+      "assinatura": "A stylish urban intellectual (young adult, wavy dark hair, wearing thick-rimmed black glasses and a structured high-collar dark wool overcoat)",
+      "figura": "Dev Patel",
+      "gancho": "A estética melancólica e dinâmica do cinema urbano moderno.",
+      "variacoes": [
+        "An East Asian woman with a sharp bob haircut, thin silver glasses, and a dark wool trench coat",
+        "An athletic Black man with short dreadlocks, tortoise-shell glasses, and a structured navy blue overcoat",
+        "A Hispanic woman with long curly dark hair, clear-framed glasses, and a charcoal grey high-collar coat",
+        "A Scandinavian man with a short blonde beard, round metal glasses, and a dark green cashmere overcoat"
+      ],
+      "etiqueta": "RETRATO CINEMATOGRÁFICO",
+      "slug": "retrato-metro-motion-blur",
+      "saves": 18,
+      "imagemRef": "https://i.pinimg.com/originals/15/85/08/158508c8d58f6d0e52f1921498d12dd1.jpg",
+      "pinId": "653162752254136701",
+      "coletadoEm": "2026-08-27T14:31:55.365Z"
+    },
+    {
+      "promptBase": "A close-up portrait of a subject wearing a dark grey hoodie, captured from a low angle looking slightly up. Lit by a single hard orange-red key light from the left at 45 degrees, creating high contrast with deep shadows on the right side of the face. The background is a solid, seamless vibrant orange backdrop, softly out of focus. Photographed on an 85mm lens at f/2.2 with a shallow depth of field. Warm color grading with a highly saturated orange cast, rich black levels in the shadows, and neutral dark grey tones in the clothing. The subject has a confident, intense expression, looking directly down into the camera lens.",
+      "assinatura": "a confident young man with defined facial features, dark curly hair, and light facial stubble",
+      "figura": "streetwear model",
+      "gancho": "Iluminação dramática e tons quentes para retratos marcantes e cheios de atitude.",
+      "variacoes": [
+        "a young athletic woman with short bleached blonde hair and sharp jawline, wearing a black crewneck sweatshirt",
+        "a mid-20s East Asian man with sharp features and messy black hair, wearing a dark olive green hoodie",
+        "a young Black woman with long braids and a confident expression, wearing a charcoal grey zip-up hoodie",
+        "a young man with defined features, a buzzcut, and light stubble, wearing a dark navy blue hoodie"
+      ],
+      "etiqueta": "RETRATO STUDIO AMBER",
+      "slug": "retrato-studio-amber",
+      "saves": 24,
+      "imagemRef": "https://i.pinimg.com/originals/e1/79/b1/e179b1b157c7cd8b258763668dc10b13.jpg",
+      "pinId": "653162752254136650",
+      "coletadoEm": "2026-08-27T14:32:04.778Z"
+    },
+    {
+      "promptBase": "A chest-up, 90-degree side profile portrait of [SUBJECT] facing right, camera at eye-level. Shot with an 85mm lens at f/1.8. The subject wears a dark charcoal mock-neck turtleneck. The background is a seamless, glowing lavender-to-purple gradient with soft, dreamy ambient light. Features a dramatic horizontal motion blur effect trailing to the left, creating soft purple streaks behind the subject, while the profile of the face remains sharp and clear. Soft diffused studio lighting from the right creates gentle magenta and violet highlights. Highly saturated purple color grading, with blacks lifted slightly to prevent pure blacks, giving a sleek, futuristic editorial look.",
+      "assinatura": "young man in his mid-20s, dark curly hair, short trimmed beard, neutral expression",
+      "figura": "",
+      "gancho": "Um ensaio futurista com rastro de movimento e tons neon de roxo.",
+      "variacoes": [
+        "a young East Asian woman with sharp bob-cut black hair",
+        "a mature Black man with a close-cropped beard and wire-rim glasses",
+        "a young South Asian woman with long wavy hair and minimal silver earrings",
+        "a non-binary person with short bleached-blonde hair and light freckles"
+      ],
+      "etiqueta": "RETRATO MOVEMENT BLUR",
+      "slug": "retrato-neon-motion-blur",
+      "saves": 20,
+      "imagemRef": "https://i.pinimg.com/originals/13/2d/b3/132db3e8e240d860c69c679cb2b40cdb.jpg",
+      "pinId": "653162752254136699",
+      "coletadoEm": "2026-08-27T14:32:13.876Z"
+    },
+    {
+      "promptBase": "Low-angle bust-up portrait of [SUBJECT] looking away contemplatively with a raised chin. Camera positioned slightly below eye level. A hard key light projects sharp, diagonal blinds shadow patterns (gobo effect) across the subject’s face, body, and the background. The background is a dark charcoal-grey textured wall, captured with an 85mm lens at f/2 for a shallow depth of field. Color grade features a warm 4000K white balance, amber-gold highlights, muted color saturation about 30 percent below normal, and slightly lifted blacks. The subject wears a dark tailored blazer over a light grey crewneck t-shirt.",
+      "assinatura": "A stylish, modern man in his early thirties with a well-groomed full beard, wearing round tinted sunglasses and a tailored dark blazer",
+      "figura": "Oscar Isaac",
+      "gancho": "A dramaticidade das sombras transforma um retrato simples em cena de cinema.",
+      "variacoes": [
+        "a stylish woman in her early thirties, sharp bob haircut, wearing a tailored dark blazer and round tinted glasses",
+        "a mature man in his late forties with salt-and-pepper hair, sharp jawline, wearing a dark blazer",
+        "an elegant East Asian man in his late twenties, minimal wire-rimmed glasses, wearing a dark unstructured blazer",
+        "a Black woman with close-cropped hair, wearing a structured dark blazer and gold statement earrings"
+      ],
+      "etiqueta": "RETRATO CINEMATOGRÁFICO",
+      "slug": "retrato-sombras-gobo",
+      "saves": 60,
+      "imagemRef": "https://i.pinimg.com/originals/a9/35/35/a93535ceac239c30ed57731e82bb6862.png",
+      "pinId": "653162752254136654",
+      "coletadoEm": "2026-08-27T16:24:18.921Z"
+    },
+    {
+      "promptBase": "Chest-up studio portrait at eye level. Intense golden-white rim lighting from behind creates a bright halo contour on the dark hair and shoulders. A soft, dim key light from the front-left subtly illuminates the face, maintaining deep shadows on the right. Dark textured charcoal backdrop. Shot on 85mm lens at f/1.8, shallow depth of field. Neutral white balance, high contrast, deep blacks. The subject has a serious, intense expression looking directly at the camera.",
+      "assinatura": "Anne Hathaway, the actress (a woman in her late thirties with pale skin, long dark wavy hair, large dark brown eyes, and elegant facial features)",
+      "figura": "Anne Hathaway",
+      "gancho": "Estúdio clássico com contraluz dramático e silhueta desenhada.",
+      "variacoes": [
+        "Angelina Jolie (a woman in her late forties, sharp jawline, high cheekbones, long dark hair)",
+        "Natalie Portman (a woman in her early forties, petite features, dark brown eyes, brunette hair)",
+        "Winona Ryder (a woman in her early fifties, expressive dark eyes, short dark hair)",
+        "Keira Knightley (a woman in her late thirties, defined cheekbones, warm brown eyes, wavy brown hair)"
+      ],
+      "etiqueta": "RETRATO CINEMATOGRÁFICO",
+      "slug": "retrato-estudio-rim-light",
+      "saves": 18,
+      "imagemRef": "https://i.pinimg.com/originals/0d/32/13/0d32135c1dd350a6fe9472ba3bdf769f.jpg",
+      "pinId": "653162752254136733",
+      "coletadoEm": "2026-08-27T16:24:27.993Z"
+    },
+    {
+      "promptBase": "A close-up studio portrait of [SUBJECT], camera at eye level. Intense, sharp rim lighting from directly behind creates a bright, glowing outline around the hair and shoulders. A soft, diffuse key light from the front-left at 45 degrees illuminates the face, casting soft shadows on the opposite side. The background is a solid charcoal grey seamless backdrop, dark and out of focus. Shot with an 85mm lens at f/1.8, creating a shallow depth of field with sharp eyes and softly blurred ears. Neutral white balance with realistic, natural skin tones and normal color saturation. Deep, rich blacks anchor the low-key, moody composition. Direct, calm eye contact.",
+      "assinatura": "Andrew Garfield, the actor (a man in his late 30s, wavy thick brown hair, short neat beard, expressive brown eyes)",
+      "figura": "Andrew Garfield",
+      "gancho": "Iluminação dramática de estúdio com contorno de luz perfeito.",
+      "variacoes": [
+        "a middle-aged woman with a sharp jawline, short silver hair, and piercing blue eyes",
+        "a young Black man with sharp features, a short buzzcut, and intense dark brown eyes",
+        "an East Asian woman in her late 20s with long dark straight hair and a thoughtful gaze",
+        "a mature man in his 50s with weathered features, a salt-and-pepper beard, and deep-set grey eyes"
+      ],
+      "etiqueta": "RETRATO COM CONTRALUZ",
+      "slug": "retrato-cinematico-contraluz",
+      "saves": 53,
+      "imagemRef": "https://i.pinimg.com/originals/fb/89/9e/fb899e13a5cb14d4ff9f1f5a8e9d5dc3.jpg",
+      "pinId": "653162752254136686",
+      "coletadoEm": "2026-08-27T16:24:38.837Z"
+    },
+    {
+      "promptBase": "A chest-up portrait shot from a slightly low angle. The [SUBJECT] is looking up and away with a contemplative, serene expression. Illumination comes from a single hard key light at a high 45-degree side angle, casting sharp, dramatic diagonal geometric shadows across the subject's face and the solid terracotta-orange background two meters behind. Shot on an 85mm lens at f/2.8, capturing crisp details and skin texture. The color grading features a neutral white balance, highly saturated orange background, and rich, deep blacks. The subject wears a black ribbed turtleneck under a dark navy structured blazer.",
+      "assinatura": "A stylish, intellectual individual with a sharp, modern fashion sense.",
+      "figura": "Dev Patel",
+      "gancho": "Luz dura e sombras geométricas: o segredo do retrato minimalista de alto impacto.",
+      "variacoes": [
+        "a South Asian man in his late 20s with a neatly trimmed beard, wearing round wire-rimmed glasses",
+        "a East Asian woman in her early 30s with sharp cheekbones and short bob hair, wearing minimalist gold earrings",
+        "a Black man in his 30s with a short buzzcut and a strong jawline, wearing thick-framed black glasses",
+        "a Caucasian woman in her late 20s with freckles and wavy brown hair, wearing tortoiseshell glasses"
+      ],
+      "etiqueta": "RETRATO EDITORIAL",
+      "slug": "retrato-editorial-sombra-geometrica",
+      "saves": 103,
+      "imagemRef": "https://i.pinimg.com/originals/3d/0e/5d/3d0e5de3063a03ec6c251cacda73ac26.jpg",
+      "pinId": "653162752254136725",
+      "coletadoEm": "2026-08-27T16:24:48.900Z"
+    },
+    {
+      "promptBase": "A chest-up portrait of [SUBJECT] wearing a dark tailored blazer over a dark shirt, looking upwards and slightly to the right with a contemplative expression. The sharp, central subject is flanked by two softly blurred, horizontally smeared duplicate silhouettes of his own face on both sides, creating a cinematic triple-exposure effect. Illuminated by a strong, warm golden-orange rim light highlighting the hair and shoulders, with a soft key light on the front of the face. Set against a solid deep red studio backdrop, fading to black at the edges. Shot on an 85mm lens at f/1.4, camera at eye level, with an extremely shallow depth of field. High-contrast color grading with rich, saturated reds, warm golden highlights, and crushed deep blacks.",
+      "assinatura": "Chris Evans, athletic man in his late 30s, short dark brown hair, groomed beard, strong jawline",
+      "figura": "Chris Evans",
+      "gancho": "Efeito de tripla exposição dramática para retratos cinematográficos.",
+      "variacoes": [
+        "Michael B. Jordan, athletic man in his mid 30s, short buzzcut, neat mustache and goatee",
+        "Cillian Murphy, slim man in his late 40s, sharp high cheekbones, piercing blue eyes, clean-shaven",
+        "Zendaya, slender woman in her late 20s, warm brown skin, slicked-back dark hair, elegant features",
+        "Oscar Isaac, handsome man in his 40s, wavy dark hair with silver temples, thick beard"
+      ],
+      "etiqueta": "RETRATO CINEMÁTICO",
+      "slug": "retrato-tripla-exposicao-vermelho",
+      "saves": 26,
+      "imagemRef": "https://i.pinimg.com/originals/86/a0/e9/86a0e9a82c12582ed55dbf38ad5d32f6.png",
+      "pinId": "653162752254136679",
+      "coletadoEm": "2026-08-27T16:25:03.213Z"
+    },
+    {
+      "promptBase": "Low-angle, chest-up studio portrait. Hard key light from 45 degrees left, casting deep shadows on the face, with a subtle warm orange rim light on the neck and shoulders. Background is a vibrant red-and-orange smoky gradient backdrop, highly blurred. 85mm lens at f/1.8. Saturated warm color palette, neutral skin tones under intense orange directional glow, high contrast with deep blacks. The subject has a serious, intense expression, looking slightly upward.",
+      "assinatura": "A rugged man in his late 30s with short light brown hair, sharp blue eyes, and light stubble",
+      "figura": "Paul Walker",
+      "gancho": "Estilo editorial dramático com fundo vibrante e iluminação de alto contraste.",
+      "variacoes": [
+        "Chris Hemsworth, the actor (a muscular man in his late 30s, rugged features, short blonde hair, blue eyes, light stubble)",
+        "Michael B. Jordan, the actor (a handsome man in his mid 30s, short black hair, neat fade, expressive dark eyes, athletic build)",
+        "Oscar Isaac, the actor (a man in his early 40s, wavy dark hair, expressive dark brown eyes, rugged salt-and-pepper stubble)",
+        "Henry Cavill, the actor (a man in his late 30s, sharp jawline, dark hair, blue eyes, clean-shaven)"
+      ],
+      "etiqueta": "RETRATO EDITORIAL DRAMÁTICO",
+      "slug": "retrato-editorial-dramatico",
+      "saves": 46,
+      "imagemRef": "https://i.pinimg.com/originals/d6/da/27/d6da27ed549a1caa87906dcd52256258.png",
+      "pinId": "653162752254136700",
+      "coletadoEm": "2026-08-27T16:25:17.447Z"
+    },
+    {
+      "promptBase": "A chest-up portrait of a young man with glasses and a dark navy jacket centered at eye level, holding a vintage silver rangefinder camera up to his face. Direct, calm eye contact. The lighting is a single high-contrast key light from 45 degrees, casting sharp, dramatic shadows on the face and camera. The background is a dense, dark crowd rendered with intense horizontal motion-blur, creating a strong zoom effect. Shot on an 85mm lens at f/1.4 with ultra-shallow depth of field. Color grading is neutral white balance, no color cast, with desaturated earthy and navy tones in the background, deep crushed blacks, and high contrast. Sharp focus is locked onto the subject's face and camera.",
+      "assinatura": "A young urban photographer with short dark hair, glasses, and a calm expression",
+      "figura": "",
+      "gancho": "Foco absoluto em meio ao caos urbano.",
+      "variacoes": [
+        "a young woman with curly red hair, wearing a dark olive jacket",
+        "an older man with a grey beard and wire-rimmed glasses, wearing a black wool coat",
+        "a young East Asian woman with a sharp bob haircut, wearing a dark grey trench coat",
+        "a middle-aged man with short cropped hair, wearing a black leather jacket"
+      ],
+      "etiqueta": "Retrato de Rua",
+      "slug": "foco-no-caos-urbano",
+      "saves": 40,
+      "imagemRef": "https://i.pinimg.com/originals/77/33/9e/77339edc3e5dcd716edcc390b99860a0.png",
+      "pinId": "653162752254136732",
+      "coletadoEm": "2026-08-27T16:25:40.549Z"
+    },
+    {
+      "promptBase": "An extreme macro close-up portrait of [SUBJECT]'s face, focusing tightly on one eye and the adjacent cheek. Captured with a 100mm macro lens at f/2.8, creating an ultra-shallow depth of field where the iris and skin pores are in razor-sharp focus, while the nose and outer face fall into a soft blur. Camera positioned directly at eye level. Lighting is a single diffused soft key light from a 45-degree side angle, casting gentle shadows that define skin texture. Neutral white balance at 5500K, with slightly muted saturation 20 percent below normal. Blacks are lifted slightly. The skin shows raw, unretouched texture with visible pores and fine lines. Piercing, neutral gaze directly into the lens.",
+      "assinatura": "A man in his late 30s with piercing ice-blue eyes, sharp bone structure, and highly textured pale skin",
+      "figura": "Cillian Murphy",
+      "gancho": "A beleza crua e hiperdetalhada revelada pelo macro extremo.",
+      "variacoes": [
+        "a woman in her early 40s with deep amber eyes and subtle freckles across her cheek",
+        "an older man in his late 50s with weathered skin, deep-set grey eyes, and fine laugh lines",
+        "a young man in his mid 20s with dark brown eyes and sharp, clear skin texture",
+        "a woman in her late 20s with striking green eyes and a light dusting of freckles"
+      ],
+      "etiqueta": "RETRATO MACRO CRU",
+      "slug": "retrato-macro-cru",
+      "saves": 12,
+      "imagemRef": "https://i.pinimg.com/originals/af/53/ec/af53ec025228edbae216514d695d65b3.jpg",
+      "pinId": "653162752254136704",
+      "coletadoEm": "2026-08-27T16:25:52.372Z"
+    },
+    {
+      "promptBase": "A black and white cinematic chest-up portrait of a person walking through a crowded city street at night. The subject is in razor-sharp focus, while the surrounding crowd of pedestrians is heavily blurred in dynamic motion. Soft frontal overhead street lighting casts deep shadows under the eyes and jaw. The background features soft, glowing white bokeh circles from distant city lights. Shot on an 85mm lens at f/1.4, shallow depth of field, at eye-level. Pure monochrome grading, deep rich blacks, clean highlights, neutral grey balance with no color tint. The subject has an introspective, somber expression, looking slightly downward.",
+      "assinatura": "a young man in his early twenties, tousled dark hair, lean build, wearing a dark open overcoat over a dark button-down shirt",
+      "figura": "Timothée Chalamet",
+      "gancho": "A solidão no meio da multidão urbana.",
+      "variacoes": [
+        "a young woman in her late twenties with a sharp bob haircut, wearing a structured trench coat, looking thoughtfully into the distance",
+        "a mature man in his late forties with salt-and-pepper stubble, wearing a wool coat, with a contemplative expression",
+        "a young woman of East Asian descent, with long dark hair, wearing a dark leather jacket, looking downcast",
+        "a man in his thirties with short curly hair, wearing a heavy tweed coat, looking lost in thought"
+      ],
+      "etiqueta": "RETRATO URBANO PB",
+      "slug": "solidao-urbana-preto-e-branco",
+      "saves": 7,
+      "imagemRef": "https://i.pinimg.com/originals/b0/ee/1a/b0ee1ae19286d5c769a87ba7c18b58da.jpg",
+      "pinId": "653162752254136721",
+      "coletadoEm": "2026-08-27T16:26:01.779Z"
+    },
+    {
+      "promptBase": "A chest-up studio portrait with a dramatic dual-lighting setup. An intense electric blue light shines from the left, and a vibrant amber-orange light shines from the right, casting sharp contrasting highlights on the subject's face and plain white t-shirt. Layered with vertical motion-blur streaks and double-exposed light ghosting of cyan and orange. Deep navy blue seamless background. Shot on 85mm lens at f/1.8, shallow depth of field. Camera at eye level. Introspective, solemn expression, head tilted slightly down. High contrast, highly saturated dual-tone color grading, blacks slightly lifted with subtle film grain.",
+      "assinatura": "A young man with an introspective expression, short styled dark hair, wearing a clean white t-shirt",
+      "figura": "Young male model",
+      "gancho": "A estética cyberpunk encontra o retrato editorial de alta moda.",
+      "variacoes": [
+        "A young woman with sharp features and a high ponytail",
+        "A mature man with a short beard and intense gaze",
+        "An athletic woman with short cropped hair and a serious expression",
+        "A non-binary person with dyed silver hair and reflective expression"
+      ],
+      "etiqueta": "RETRATO GHOSTING EDITORIAL",
+      "slug": "retrato-ghosting-editorial",
+      "saves": 8,
+      "imagemRef": "https://i.pinimg.com/originals/2b/f5/43/2bf543ee0191352bf3314f71f44bd7bd.jpg",
+      "pinId": "653162752254136692",
+      "coletadoEm": "2026-08-27T16:26:11.445Z"
+    },
+    {
+      "promptBase": "A chest-up studio portrait of [SUBJECT] centered in the frame. A single soft key light from the front-right at a 45-degree angle above illuminates the subject, casting soft, moody shadows on the left side of the face. The background is a solid, pitch-black seamless backdrop with no detail. Shot at eye level with an 85mm lens at f/2.0, creating a shallow depth of field that keeps the eyes in sharp focus while the ears and shoulders gently blur. The color grading features warm skin tones against rich dark blue clothing, with neutral white balance and slightly lifted blacks for a subtle matte texture in the deepest shadows. The subject has a quiet, introspective expression, looking directly into the camera.",
+      "assinatura": "Daniel Radcliffe, the British actor (a man in his mid-thirties, fair skin, messy brown hair, short full beard and mustache, bright blue eyes)",
+      "figura": "Daniel Radcliffe",
+      "gancho": "O poder do silêncio e do olhar em um retrato intimista.",
+      "variacoes": [
+        "an elegant woman in her late twenties with dark skin, short curly black hair, and intense hazel eyes, wearing a dark green shirt",
+        "a mature man in his late forties with salt-and-pepper hair, deep-set brown eyes, and rugged features, wearing a dark charcoal knit sweater",
+        "a young man in his early twenties with fair skin, freckles, short red hair, and thoughtful green eyes, wearing a navy blue button-up shirt",
+        "a middle-aged East Asian woman with shoulder-length black hair, expressive dark eyes, and a serene expression, wearing a deep burgundy top"
+      ],
+      "etiqueta": "RETRATO DRAMÁTICO ESTÚDIO",
+      "slug": "retrato-estudio-dramatico",
+      "saves": 13,
+      "imagemRef": "https://i.pinimg.com/originals/c8/63/66/c863667f3c81576ec3b3f029fe1a4087.jpg",
+      "pinId": "653162752254136663",
+      "coletadoEm": "2026-08-27T16:26:21.177Z"
+    },
+    {
+      "promptBase": "A tight chest-up studio portrait of [SUBJECT], shot on an 85mm lens at f/2.0 with a shallow depth of field. The lighting is a dramatic dual-tone setup: a soft cyan-blue key light illuminates the face from the front-right at 45 degrees, while a highly saturated crimson-red rim light strikes from the rear-left, sharply defining the contours of the hair, neck, and shoulder. The background is a solid, pitch-black seamless backdrop with zero detail. The camera is positioned precisely at eye level. Highly stylized color grading with deep, crushed blacks at zero, a strong cool blue-teal cast over the skin tones, and intensely saturated red highlights on the edges, creating a cinematic, high-contrast look.",
+      "assinatura": "Brad Pitt (a handsome man in his late 50s, swept-back graying dark hair, blue eyes, styled silver-gray goatee, confident expression)",
+      "figura": "Brad Pitt",
+      "gancho": "Iluminação dramática bicolor que destaca a expressão com contraste cinematográfico.",
+      "variacoes": [
+        "George Clooney, the American actor (a sophisticated man in his early 60s, short salt-and-pepper hair, brown eyes, clean-shaven, intense gaze)",
+        "Idris Elba, the British actor (a powerful man in his late 40s, closely cropped salt-and-pepper hair, warm dark skin, short beard, calm expression)",
+        "Charlize Theron, the actress (a striking woman in her late 40s, sleek blonde hair pulled back, green eyes, elegant facial structure, confident expression)",
+        "Mads Mikkelsen, the Danish actor (a distinguished man in his late 50s, silver swept-back hair, sharp high cheekbones, intense deep-set eyes, subtle knowing smirk)"
+      ],
+      "etiqueta": "RETRATO NEON CINEMATOGRÁFICO",
+      "slug": "retrato-neon-cinematografico",
+      "saves": 43,
+      "imagemRef": "https://i.pinimg.com/originals/f5/20/47/f52047d34eea07e6fd6f1a262c5a719c.jpg",
+      "pinId": "653162752254136659",
+      "coletadoEm": "2026-08-27T16:26:31.662Z"
+    },
+    {
+      "promptBase": "Close-up portrait at eye level, 85mm lens at f/1.4. Out-of-focus hands in the extreme foreground frame the face. Seamless vibrant purple studio backdrop. Frontal soft key light, strong magenta backlight creating a halo rim. Cool 4500K white balance with heavy violet color cast, saturated purples, blacks lifted slightly. Intense, direct gaze.",
+      "assinatura": "A focused creative professional, male in his 30s, short dark beard, wearing a black baseball cap and hoodie.",
+      "figura": "Creative Director",
+      "gancho": "O enquadramento perfeito começa no olhar.",
+      "variacoes": [
+        "A female filmmaker in her late 20s, wearing a black beanie, intense gaze",
+        "A young music producer with short dyed blonde hair, wearing a black hoodie",
+        "A seasoned cinematographer in his 40s, with salt-and-pepper hair, focused expression",
+        "An indie female director in her early 30s, wearing glasses, sharp look"
+      ],
+      "etiqueta": "Retrato Criativo Neon",
+      "slug": "enquadramento-neon",
+      "saves": 8,
+      "imagemRef": "https://i.pinimg.com/originals/ab/a0/f4/aba0f4f7d9b8b5eb52d522bebbb0f6da.jpg",
+      "pinId": "653162752254136667",
+      "coletadoEm": "2026-08-27T16:26:40.184Z"
+    },
+    {
+      "promptBase": "A chest-up studio portrait of [SUBJECT] captured on an 85mm lens at f/2.0 with a shallow depth of field, camera at eye level. The shot features a distinct in-camera double exposure and motion blur effect, overlaying a secondary, semi-transparent warm orange-hued face over the main portrait. Lit by a strong, warm amber tungsten key light from a 45-degree angle. The background is a seamless, dark solid reddish-brown backdrop. The color grading has a strong, warm amber-red cast (approx 3000K) with deep shadows and slightly lifted blacks. The subject has a neutral, contemplative expression, looking off-camera.",
+      "assinatura": "Tom Holland, the British actor (a young man in his late twenties, short messy brown hair, clean-shaven, fair skin, looking slightly off-camera)",
+      "figura": "Tom Holland",
+      "gancho": "O efeito de dupla exposição analógica e desfoque de movimento recriado em estúdio.",
+      "variacoes": [
+        "a young East Asian man in a dark tailored suit, short black hair",
+        "a woman in her late twenties with short blonde pixie-cut hair, wearing a black leather jacket",
+        "a Hispanic man in his thirties with a short beard, wearing a charcoal grey crewneck sweater",
+        "a Black woman with close-cropped natural hair, wearing a minimalist black blazer"
+      ],
+      "etiqueta": "RETRATO DUPLA EXPOSIÇÃO",
+      "slug": "retrato-dupla-exposicao-warm",
+      "saves": 100,
+      "imagemRef": "https://i.pinimg.com/originals/2b/cd/09/2bcd0988c9fc8a752715597741388fea.jpg",
+      "pinId": "653162752254136658",
+      "coletadoEm": "2026-08-27T16:26:49.101Z"
+    },
+    {
+      "promptBase": "A tight chest-up studio portrait of [SUBJECT] looking directly into the camera with an intense, serious expression. The lighting features a powerful, crisp rim light from behind that outlines the head and shoulders, casting a dramatic bright contour. A very subtle, soft key light from the front-left gently illuminates the face, maintaining deep, moody shadows. The background is a solid charcoal black seamless backdrop with a light haze catching the backlight. Shot with an 85mm lens at f/2.2, shallow depth of field, camera at eye level. Neutral white balance with no color cast, slightly muted saturation, and deep, rich blacks.",
+      "assinatura": "Keanu Reeves, the actor (a man in his late 50s with medium-length dark hair, dark brown eyes, and a short, well-kept beard and mustache)",
+      "figura": "Keanu Reeves",
+      "gancho": "Iluminação de contorno dramática para retratos intensos de estúdio.",
+      "variacoes": [
+        "Mads Mikkelsen, the Danish actor (a man in his late 50s, sharp cheekbones, slicked-back silver-grey hair, intense expression)",
+        "Pedro Pascal, the actor (a man in his late 40s, short dark wavy hair, light mustache and beard, warm brown eyes)",
+        "Cillian Murphy, the actor (a man in his late 40s, piercing blue eyes, defined jawline, short dark hair)",
+        "Oscar Isaac, the actor (a man in his mid 40s, thick dark curly hair, trimmed beard, expressive features)"
+      ],
+      "etiqueta": "Retrato Cinematográfico",
+      "slug": "retrato-rim-light-moody",
+      "saves": 4,
+      "imagemRef": "https://i.pinimg.com/originals/86/89/7f/86897fc1534d6c5913c1f65cfb1bb2f6.jpg",
+      "pinId": "653162752254136687",
+      "coletadoEm": "2026-08-27T16:26:59.534Z"
+    },
+    {
+      "promptBase": "A tight headshot portrait of [SUBJECT] looking slightly upwards and off-camera. Shot at eye level. The lighting is a dramatic dual-source setup: a highly saturated, bright lime-green key light strikes from the right at a 45-degree angle, casting a vivid neon green glow on the side of the face, while a neutral, soft white fill light from the left keeps the opposite side's skin tones natural. The background is a solid, seamless lime-green studio backdrop, softly out of focus. Captured on an 85mm lens at f/2.2, ensuring sharp facial features with a gentle fall-off on the ears. The color grading features a neutral white balance with deep, clean blacks, contrasted by high green saturation in the highlights.",
+      "assinatura": "A middle-aged creative professional with short hair, a neat graying beard, and transparent-framed round glasses",
+      "figura": "Creative Director",
+      "gancho": "Iluminação criativa de estúdio com recorte neon para retratos profissionais modernos.",
+      "variacoes": [
+        "a young East Asian female designer with a sleek bob and thin silver-rimmed glasses",
+        "a Black male tech founder in his late 30s with a short afro and neat stubble",
+        "a middle-aged Latina female architect with curly salt-and-pepper hair and bold black frames",
+        "a young South Asian male software engineer with a sharp fade haircut and a clean-shaven face"
+      ],
+      "etiqueta": "RETRATO EDITORIAL CRIATIVO",
+      "slug": "retrato-editorial-luz-verde",
+      "saves": 4,
+      "imagemRef": "https://i.pinimg.com/originals/73/b3/1a/73b31a0b007a9c22f5c3735a4b183d23.jpg",
+      "pinId": "653162752254136716",
+      "coletadoEm": "2026-08-27T16:27:09.799Z"
+    },
+    {
+      "promptBase": "Medium studio portrait, chest-up crop, centered composition, eye-level angle. A [SUBJECT] with a calm, confident expression. They wear a rich emerald-green double-breasted suit, a white dress shirt, a red striped tie, and a heavy brown fur coat draped over their shoulders. They wear yellow-tinted aviator sunglasses and one brown leather glove on the hand adjusting their lapel. Solid deep crimson red seamless backdrop 2 meters behind, completely out of focus. Soft-box key light from front-left at 45-degrees, soft fill from the right. Neutral white balance, no color cast, vibrant saturated reds and greens, blacks slightly lifted. Captured on an 85mm lens at f/2.8, sharp focus on face and fabrics.",
+      "assinatura": "An eccentric, stylish older gentleman with a confident and wealthy mafioso aesthetic, wearing luxurious high-fashion tailoring.",
+      "figura": "Tony Soprano in a Gucci editorial",
+      "gancho": "Como recriar o visual impactante e luxuoso de um vilão de alta costura.",
+      "variacoes": [
+        "an elegant elderly East Asian man with silver hair and a neat mustache",
+        "a distinguished silver-haired Mediterranean man in his late 50s with a thick beard",
+        "a confident Black man in his 40s with a sharp buzzcut and groomed goatee",
+        "a fierce-looking older woman with short white hair and bold red lipstick"
+      ],
+      "etiqueta": "RETRATO EDITORIAL LUXO",
+      "slug": "retrato-editorial-mafia-chic",
+      "saves": 10,
+      "imagemRef": "https://i.pinimg.com/originals/35/7b/2c/357b2c20c89313622d2ff765c0f5cf07.jpg",
+      "pinId": "653162752254136698",
+      "coletadoEm": "2026-08-27T16:27:22.716Z"
+    },
+    {
+      "promptBase": "Dramatic black and white chest-up portrait of [SUBJECT] looking over their shoulder. A single hard key light from the left side at 90 degrees, casting deep shadows across the right side of the face. Solid black seamless background. 85mm lens at f/2, camera at eye level. Pure monochrome grading, neutral white balance with zero color cast, 100% desaturated, deep crushed blacks at absolute zero, high-contrast bright highlights. Intense, serious expression, direct eye contact with the camera.",
+      "assinatura": "Chris Hemsworth, the Australian actor (a rugged man in his late thirties, short textured dark hair, well-groomed thick beard, sharp jawline, intense eyes)",
+      "figura": "Chris Hemsworth",
+      "gancho": "O poder do contraste absoluto em um retrato dramático.",
+      "variacoes": [
+        "a rugged male warrior in leather armor",
+        "a serious female detective in a dark trench coat",
+        "an intense middle-aged boxer with a scarred brow",
+        "a mysterious noir actor in a sharp suit"
+      ],
+      "etiqueta": "Retrato Noir Dramático",
+      "slug": "retrato-noir-alto-contraste",
+      "saves": 0,
+      "imagemRef": "https://i.pinimg.com/originals/27/e8/df/27e8dfa8af764fa4ec91f61b0d08f226.png",
+      "pinId": "653162752254136668",
+      "coletadoEm": "2026-08-27T16:27:33.003Z"
+    },
+    {
+      "promptBase": "A chest-up cinematic portrait of [SUBJECT] captured from a slightly low angle. The scene is dominated by intense, warm golden hour backlight streaming from behind, creating a dramatic rim light and soft amber lens flares. The background is a highly de-focused, warm abstract environment resembling window reflections. Shot with an 85mm lens at f/1.4 for an extremely shallow depth of field. The color grading is saturated with deep oranges and ambers, featuring a warm white balance of 3200K, with deep shadows and soft, blooming highlights. The subject maintains an intense, direct gaze with a serious expression.",
+      "assinatura": "a handsome young male model in his early twenties with sharp facial features, messy dark hair, and an intense gaze",
+      "figura": "Timothée Chalamet",
+      "gancho": "O calor dourado e o drama do contra-luz perfeito.",
+      "variacoes": [
+        "a young woman with sharp cheekbones, light freckles, and wavy auburn hair",
+        "a stylish man in his late twenties with a short beard and sharp jawline",
+        "a young woman with a dark pixie cut and intense eyes",
+        "a charismatic man in his thirties with rugged features and slicked-back hair"
+      ],
+      "etiqueta": "RETRATO CINEMATOGRÁFICO",
+      "slug": "golden-hour-contraluz-portrait",
+      "saves": 19,
+      "imagemRef": "https://i.pinimg.com/originals/cb/62/02/cb6202ca8e32513a7c5773b75d80cd19.png",
+      "pinId": "653162752254136711",
+      "coletadoEm": "2026-08-27T16:27:45.694Z"
+    },
+    {
+      "promptBase": "A chest-up portrait of {subject} shot on an 85mm lens at f/2. The camera is at eye level, capturing a direct gaze with a subtle, relaxed smile. A hard key light projects sharp horizontal blind shadows (gobo effect) across the subject's face and upper torso. The background is a solid, clean dark indigo-blue seamless backdrop, softly out of focus. The color grading is clean with a neutral white balance, preserving natural skin tones while deep blacks are slightly lifted. The subject wears a simple black crewneck shirt and a black baseball cap.",
+      "assinatura": "Neymar Jr., the Brazilian football player (a man in his early 30s, light caramel skin, trimmed beard, neck tattoos, wearing a black baseball cap)",
+      "figura": "Neymar Jr.",
+      "gancho": "A estética marcante das sombras projetadas em retratos de estúdio.",
+      "variacoes": [
+        "Lewis Hamilton, the British racing driver (a man in his late 30s, warm brown skin, braided hair, trimmed beard, stylish earrings)",
+        "Zendaya, the American actress (a woman in her late 20s, light brown skin, long wavy dark brown hair, elegant features)",
+        "Marcus Rashford, the English footballer (a young man in his mid-20s, dark skin, short athletic haircut, clean-shaven)",
+        "Rihanna, the Barbadian singer (a woman in her late 30s, warm olive skin, green eyes, stylish black hair)"
+      ],
+      "etiqueta": "RETRATO GOBO EDITORIAL",
+      "slug": "retrato-sombras-gobo",
+      "saves": 1,
+      "imagemRef": "https://i.pinimg.com/originals/7b/e9/36/7be936e381bf8933e8a097e692a1cf14.png",
+      "pinId": "653162752254136673",
+      "coletadoEm": "2026-08-27T16:28:06.710Z"
+    },
+    {
+      "promptBase": "A dramatic low-angle medium close-up portrait of [SUBJECT]. Shot on an 85mm lens at f/1.8. Dramatic high-contrast dual-color studio lighting: an intense golden-orange rim light sharply defines one edge, while a saturated red fill light illuminates the other side, casting deep chiaroscuro shadows across the center of the face. The background is a seamless studio backdrop with a glowing, smooth orange-to-red color gradient. Highly saturated warm color grading with a 3200K white balance, deep crushed blacks, and no cool tones. The camera is positioned slightly below eye level, looking up. The subject has a serious, intense, and contemplative expression, looking up and away from the lens.",
+      "assinatura": "A distinguished mature man in his late 50s with a shaved head, well-groomed grey beard, wearing thin round metal-framed glasses.",
+      "figura": "Walter White",
+      "gancho": "Retratos de estúdio com iluminação dramática e alto contraste bicolor.",
+      "variacoes": [
+        "An elegant Black woman in her 40s with a sharp buzzcut, wearing minimalist gold earrings",
+        "A rugged middle-aged man with sharp cheekbones, light stubble, and intense dark eyes",
+        "A creative young woman in her late 20s with short silver hair and a thoughtful, piercing gaze",
+        "A distinguished Latin American woman in her 50s with long streaks of grey in her dark hair"
+      ],
+      "etiqueta": "RETRATO EDITORIAL",
+      "slug": "retrato-editorial-bicolor",
+      "saves": 1,
+      "imagemRef": "https://i.pinimg.com/originals/53/3d/1f/533d1fb30d404e92731262218b9dec90.jpg",
+      "pinId": "653162752254136682",
+      "coletadoEm": "2026-08-27T16:28:16.623Z"
     }
   ],
   "publicados": [
