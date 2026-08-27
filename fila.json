@@ -7,49 +7,40 @@
   ],
   "fila": [
     {
-      "promptBase": "A surreal conceptual portrait of [SUBJECT] in side profile. The top of their head is flat, supporting a miniature, highly detailed scene of a person sitting at a desk working on a laptop. Shot on a medium format camera with soft, diffused studio lighting. The background is a minimalist, out-of-focus sage green with soft geometric light shapes. Clean, high-end editorial photography.",
-      "assinatura": "creative professional",
-      "gancho": "Como funciona a mente de quem cria?",
+      "promptBase": "A clean, side-profile medium shot of a professional wearing a tailored suit. In a surreal composition, the top of their head is horizontally sliced open like a flat platform, revealing a miniature scene: a tiny, identical version of the person sitting at a small wooden desk in an ergonomic black chair, working on a laptop. The lighting is soft, diffused studio light from a 45-degree angle, creating gentle highlights on the face and soft shadows on the neck. The background is a heavily out-of-focus abstract pattern of sage green and soft white geometric shapes. Shot with an 85mm lens at f/2.8, chest-up crop, eye-level camera. Muted color palette with natural contrast.",
+      "assinatura": "A sharp, modern professional with glasses, representing focused mental workload.",
+      "gancho": "Por dentro da mente de um criativo.",
       "variacoes": [
-        "a focused woman with short dyed hair, wire-frame glasses, and a sharp beige blazer",
-        "a thoughtful man with curly dark hair, a dark turtleneck, and a minimalist silver earring",
-        "a stylish non-binary designer with a sleek black bob, wearing an oversized linen shirt",
-        "an elegant older creative director with salt-and-pepper hair, wearing a structured navy blue jacket"
+        "a woman in her late 30s with a sharp bob haircut and wire-rimmed glasses wearing a beige blazer",
+        "a young Black man with a neat fade haircut wearing a minimalist charcoal turtleneck",
+        "an East Asian woman in her 40s with elegant updo hair wearing a structured navy blazer",
+        "a man in his late 20s with short curly hair and a light beard wearing an olive green modern suit jacket"
       ],
-      "slug": "creative-mind-surreal",
+      "slug": "surrealismo-corporativo-mente-criativa",
       "saves": 40,
       "pinId": "653162752254123990",
-      "coletadoEm": "2026-08-26T22:16:36.721Z"
+      "coletadoEm": "2026-08-26T22:16:36.721Z",
+      "imagemRef": "https://i.pinimg.com/originals/48/67/16/4867161b39b00ac7a733fdcd25f95df8.jpg",
+      "figura": "Focused creative designer or corporate executive",
+      "etiqueta": "RETRATO CONCEITUAL"
     },
     {
-      "promptBase": "An extreme close-up portrait shot with a distorted fisheye lens, looking down at the subject with exaggerated perspective. The subject is styled in retro Y2K fashion, wearing thick tinted sunglasses. Harsh direct flash lighting with subtle rainbow chromatic aberration leaks. Cool, slightly grainy studio background, capturing a nostalgic late 90s music video aesthetic.",
-      "assinatura": "Y2K geek-chic retro-futurism",
-      "gancho": "Como dominar a estética Y2K e criar imagens com cara de videoclipe dos anos 2000.",
+      "promptBase": "An extreme close-up fisheye portrait of [SUBJECT] looking directly into the camera. Shot on a 15mm ultra-wide lens placed very close to the face, causing a dramatic bulbous distortion where the eyes and nose are prominent, and shoulders recede. The subject wears retro purple-tinted rectangular sunglasses and holds a vintage metallic flip phone to their ear. Lit by a soft, diffused circular ring light directly in front, creating subtle circular catchlights. The background is a light grey studio backdrop framed by a dark, circular vignette. Vibrant color grading with warm tones, a hint of retro film grain, and slight chromatic aberration at the edges.",
+      "assinatura": "A stylish youth from the early 2000s fashion scene, wearing retro purple-tinted sunglasses and holding a vintage flip phone",
+      "gancho": "Recrie a estética marcante e distorcida dos anos 2000 em seus retratos.",
       "variacoes": [
-        "A stylish young woman with spiky space buns and metallic blue eyeshadow holding a vintage flip phone",
-        "A cool skater with a backward visor and chunky headphones around his neck",
-        "A trendy designer with frosted tips and futuristic silver wrap-around shades",
-        "A creative teenager with a colorful bucket hat holding a retro digital camera"
+        "a young woman with spiky space buns and metallic silver eyeshadow",
+        "a cool guy with a bleach-blonde buzzcut and a silver chain necklace",
+        "a young skater with a backwards red cap and beaded choker",
+        "a trendy woman with thin eyebrows and a blue denim jacket"
       ],
-      "slug": "y2k-fisheye-aesthetic",
+      "slug": "y2k-fisheye-portrait",
       "saves": 5,
       "pinId": "653162752254123977",
-      "coletadoEm": "2026-08-26T22:16:45.459Z"
-    },
-    {
-      "promptBase": "A dramatic cinematic portrait of [SUBJECT] at the center of a chaotic crowd of paparazzi. Dozens of professional camera lenses and flash units tightly encircle the subject, pointing directly at them. Sharp, high-contrast spotlight from above illuminates the subject's face, creating deep shadows. Low-saturation color palette dominated by deep blacks and cool undertones. Shallow depth of field keeps the subject's stoic expression in sharp focus while the surrounding cameras have a soft blur, capturing an overwhelming media spotlight.",
-      "assinatura": "A-list celebrity under intense media spotlight",
-      "gancho": "Como recriar a estética dramática e de alta pressão dos holofotes dos paparazzi.",
-      "variacoes": [
-        "a chic, elegant woman in a haute couture silver gown with a poised, calm expression",
-        "a stoic, middle-aged politician in a tailored dark grey suit with a serious face",
-        "a young, edgy rockstar with messy dark hair, wearing a black leather jacket",
-        "a distinguished older actor with silver-streaked hair and a tired but dignified gaze"
-      ],
-      "slug": "paparazzi-spotlight",
-      "saves": 1,
-      "pinId": "653162752254124100",
-      "coletadoEm": "2026-08-26T22:16:55.342Z"
+      "coletadoEm": "2026-08-26T22:16:45.459Z",
+      "imagemRef": "https://i.pinimg.com/originals/8c/5f/d8/8c5fd8c4b41ce12c3852129ffecc2b49.jpg",
+      "figura": "Y2K street fashion icon",
+      "etiqueta": "RETRATO Y2K FISHEYE"
     }
   ],
   "publicados": [
@@ -68,6 +59,26 @@
       "coletadoEm": "2026-08-26T19:45:50.733Z",
       "permalink": "https://www.instagram.com/p/DchRTt9nFFr/",
       "publicadoEm": "2026-08-26T22:20:07.050Z"
+    },
+    {
+      "promptBase": "A chest-up portrait of [SUBJECT], centered, looking directly into the camera with a calm, confident expression. The subject is surrounded by roughly twelve professional DSLR cameras with large telephoto lenses held by unseen hands, packed tightly in an overlapping semi-circle framing the face. Lit by a single hard overhead key light at a 45-degree downward angle, casting deep shadows under the brow, nose, and chin. Pitch-black background. Shot on an 85mm lens at f/2.8, shallow depth of field softly blurring the outer lenses. Desaturated, high-contrast color grading with a neutral 5500K white balance, crushed deep blacks, and muted skin tones with no color cast.",
+      "assinatura": "Dwayne 'The Rock' Johnson, a bald, highly muscular man in his early 50s with a strong, broad jawline, clean-shaven face, and intense, calm eyes",
+      "gancho": "O estilo paparazzi definitivo: controle absoluto sob os holofotes.",
+      "variacoes": [
+        "A charismatic Hollywood actress in her late 20s, with sharp features, elegant dark hair tied back, and a confident gaze",
+        "A world-famous soccer player in his mid 30s, athletic build, short stubble, looking calm and determined",
+        "A legendary fashion designer in her 60s, with silver hair, chic dark-framed glasses, and a poised expression",
+        "An enigmatic pop star in her early 20s, bold makeup, silver dyed hair, with an indifferent look"
+      ],
+      "slug": "retrato-paparazzi-estilo-editorial",
+      "saves": 1,
+      "pinId": "653162752254124100",
+      "coletadoEm": "2026-08-26T22:16:55.342Z",
+      "figura": "Dwayne 'The Rock' Johnson",
+      "imagemRef": "https://i.pinimg.com/originals/e3/a8/81/e3a881844a097942a02660fbc86a4126.jpg",
+      "etiqueta": "RETRATO PAPARAZZI",
+      "permalink": "https://www.instagram.com/p/Dci9bcCnxKy/",
+      "publicadoEm": "2026-08-27T14:04:54.187Z"
     }
   ]
 }
