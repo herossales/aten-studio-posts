@@ -1,4 +1,4 @@
-import { appendFileSync, writeFileSync } from 'node:fs'
+import { appendFileSync, mkdirSync, writeFileSync } from 'node:fs'
 import * as fila from './fila.js'
 import { gerarLaminas } from './generate.js'
 import { escalarElenco } from './elenco.js'
@@ -83,6 +83,9 @@ const laminas = await Promise.all(
 )
 
 // Sempre grava local: da pra revisar antes de publicar.
+// A pasta esta no .gitignore, entao no runner do Actions ela nao existe —
+// sem isto o writeFileSync quebra com ENOENT depois de gerar tudo.
+mkdirSync('out', { recursive: true })
 laminas.forEach((buf, i) => {
   const arq = `out/${conceito.slug}-${String(i + 1).padStart(2, '0')}.png`
   writeFileSync(arq, buf)
