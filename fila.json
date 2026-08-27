@@ -32,7 +32,14 @@
     "653162752254136668",
     "653162752254136711",
     "653162752254136673",
-    "653162752254136682"
+    "653162752254136682",
+    "653162752254139275",
+    "653162752254139358",
+    "653162752254139284",
+    "653162752254139335",
+    "653162752254139269",
+    "653162752254139322",
+    "653162752254139328"
   ],
   "fila": [
     {
@@ -592,6 +599,132 @@
       "imagemRef": "https://i.pinimg.com/originals/53/3d/1f/533d1fb30d404e92731262218b9dec90.jpg",
       "pinId": "653162752254136682",
       "coletadoEm": "2026-08-27T16:28:16.623Z"
+    },
+    {
+      "promptBase": "A tight close-up portrait of {subject} shot through blurry warm foreground foliage. Looking down with a serious expression, wearing round gold-framed dark sunglasses. Hard, warm golden-hour sunlight at a 45-degree angle creates sharp, high-contrast dappled leaf shadows across the face. Extremely shallow depth of field, shot on 85mm lens at f/1.4. The background is a warm, heavily blurred dark brown-beige texture. Warm color grading with a 5800K white balance, saturated golden highlights, deep rich shadows with blacks lifted slightly.",
+      "assinatura": "a stylish young creative with an artistic aura, defined facial features, and textured hair",
+      "figura": "",
+      "gancho": "O mistério das sombras douradas em um retrato intimista e cinematográfico.",
+      "variacoes": [
+        "a young woman with short copper-colored wavy hair and freckles",
+        "a young man of East Asian descent with a sharp jawline and messy black hair",
+        "a young Black woman with short natural curls and defined cheekbones",
+        "a young man with light stubble and curly dark brown hair"
+      ],
+      "etiqueta": "Retrato Golden Hour",
+      "slug": "retrato-golden-hour-sombras",
+      "saves": 40,
+      "imagemRef": "https://i.pinimg.com/originals/eb/19/4a/eb194a0d374a9342c845fe9a7d5a1bd0.webp",
+      "pinId": "653162752254139275",
+      "coletadoEm": "2026-08-27T16:51:52.009Z"
+    },
+    {
+      "promptBase": "Full-body studio portrait captured with an 8mm fisheye lens from a high angle looking down at a 75-degree tilt. Extreme perspective distortion makes the head and upper body massive while the legs and feet taper to a tiny scale. The subject leans forward, looking up into the lens, lowering round black wire-frame sunglasses with one hand. Studio ring flash provides bright, direct frontal lighting with soft under-chin shadows. Background is a vibrant crimson red seamless studio backdrop with a subtle dark vignette around the circular frame. Color grading features a neutral 5500K white balance, highly saturated reds, crisp white details, and deep rich blacks with no color cast.",
+      "assinatura": "a trendy urban individual in their late 20s or early 30s, wearing retro streetwear or a athletic track jacket, with an expressive gaze",
+      "figura": "",
+      "gancho": "O efeito olho de peixe que marcou os clipes dos anos 90 e 2000 está de volta.",
+      "variacoes": [
+        "a stylish Black man in his late 20s with a short buzzcut, wearing a bright yellow track jacket",
+        "a young Japanese woman with colorful neon hair, wearing a blue vintage windbreaker",
+        "a trendy creative woman in her late 20s with a bob cut, wearing an oversized green bomber jacket",
+        "a confident skateboarder in his early 20s with curly blonde hair, wearing a purple hoodie"
+      ],
+      "etiqueta": "RETRATO FISHEYE URBANO",
+      "slug": "fisheye-red-studio-portrait",
+      "saves": 12,
+      "imagemRef": "https://i.pinimg.com/originals/94/e9/75/94e975b9148677586e59bbed222e1176.jpg",
+      "pinId": "653162752254139358",
+      "coletadoEm": "2026-08-27T16:52:02.761Z"
+    },
+    {
+      "promptBase": "A half-body portrait of [SUBJECT] wearing a matte black oversized hoodie. The setting is a minimalist dark space with glossy black wall panels reflecting soft light. A single large, rectangular white softbox is directly overhead, creating clean downward shadows. Shot through a dark, out-of-focus foreground element on an 85mm lens at f/1.8, creating shallow depth of field. Camera is at eye level. Neutral 5500K white balance with no color cast, muted color saturation, and slightly lifted deep blacks for rich contrast. Direct, confident gaze.",
+      "assinatura": "A young athletic man in his early twenties with styled dark hair, sharp jawline, and serious expression",
+      "figura": "Male fashion model",
+      "gancho": "Estética minimalista urbana com luz dramática de estúdio.",
+      "variacoes": [
+        "A young East Asian man with sharp features and messy black hair",
+        "A young Biracial man with light brown skin and a closely cropped fade haircut",
+        "A young blonde man with sharp facial features and textured swept-back hair",
+        "A young Hispanic man with a clean beard trim and dark styled hair"
+      ],
+      "etiqueta": "RETRATO URBAN MOOD",
+      "slug": "retrato-urban-mood-hoodie",
+      "saves": 11,
+      "imagemRef": "https://i.pinimg.com/originals/3a/47/41/3a47418e51e1a196ac625ac3876a0f83.jpg",
+      "pinId": "653162752254139284",
+      "coletadoEm": "2026-08-27T16:52:11.762Z"
+    },
+    {
+      "promptBase": "A chest-up portrait of [subject], shot at eye level. The scene features high-contrast dual-tone studio lighting: a sharp, hard magenta rim light from the back-right at 135 degrees, and a soft purple-blue fill light from the front-left at 45 degrees, creating smooth shadows on the face. The background is a solid, seamless ultraviolet purple backdrop, heavily blurred. Shot with an 85mm lens at f/2.2 for a shallow depth of field. The color grading is highly saturated with vibrant violet and hot pink tones, with blacks lifted slightly at 5%. The subject looks directly at the camera with a confident, calm expression.",
+      "assinatura": "modern creative professional with glasses, confident and stylish",
+      "figura": "",
+      "gancho": "Estética marcante com luzes neon e visual moderno.",
+      "variacoes": [
+        "a young Black woman with a short blonde buzzcut, wearing a black mock-neck shirt and thin silver-rimmed glasses",
+        "an East Asian man in his late 30s with slicked-back hair, wearing clear-framed glasses and a black t-shirt",
+        "a Latina woman in her late 20s with long wavy dark hair, wearing thick black-rimmed glasses and a dark blazer",
+        "a middle-aged man with salt-and-pepper hair, wearing round wire-frame glasses and a black linen shirt"
+      ],
+      "etiqueta": "Retrato Estúdio Neon",
+      "slug": "retrato-estudio-neon",
+      "saves": 8,
+      "imagemRef": "https://i.pinimg.com/originals/f2/5b/1e/f25b1e880575033dde82d634887e61c6.jpg",
+      "pinId": "653162752254139335",
+      "coletadoEm": "2026-08-27T16:52:22.449Z"
+    },
+    {
+      "promptBase": "A top-down, high-angle portrait looking straight down at [SUBJECT] squatting on the ground, looking directly up at the camera with wide, engaging eyes. The camera is positioned high above, using a 24mm lens at f/4 to capture the dramatic perspective. The background is a textured light-grey concrete wall covered in abstract black and vibrant orange spray paint splatters with dripping paint. Lit by a bright, diffused overhead key light creating soft under-eye shadows. The color grade features a neutral 5500K white balance with high contrast, rich blacks, and highly saturated mustard-orange tones from the subject's boiler suit and yellow over-ear headphones. The subject's hands cup their chin, adorned with multiple gold rings, a gold watch, and stacked gold bracelets.",
+      "assinatura": "A stylish urban youth with an edgy, streetwear-inspired look, wearing a monochrome boiler suit, chunky headphones, and layered gold jewelry.",
+      "figura": "Streetwear influencer",
+      "gancho": "O impacto visual da perspectiva olho no olho em ângulo zenital.",
+      "variacoes": [
+        "a young East Asian woman with short bleached hair and a nose piercing",
+        "a young Black man with a sharp fade haircut and a groomed beard",
+        "a young Hispanic woman with long dark braids and bold graphic eyeliner",
+        "a young creative professional with curly brown hair and minimalist round glasses"
+      ],
+      "etiqueta": "Retrato Streetwear",
+      "slug": "retrato-streetwear-high-angle",
+      "saves": 1,
+      "imagemRef": "https://i.pinimg.com/originals/d4/e7/68/d4e768c88a5d00aef0a610d55dc04a6b.jpg",
+      "pinId": "653162752254139269",
+      "coletadoEm": "2026-08-27T16:52:31.712Z"
+    },
+    {
+      "promptBase": "A close-up profile portrait, camera at eye level, capturing the subject's face in a three-quarter turn. Dramatic low-key chiaroscuro lighting uses a single hard rim light from behind at a 135-degree angle to sharply illuminate the outer profile edge, brow, nose, beard, and neck, while casting the front of the face into deep shadow. The background is a pitch-black seamless backdrop with zero light spill. Shot on an 85mm prime lens at f/2.8. High-contrast black and white photography with a neutral white balance, crushed blacks at absolute zero, and crisp white highlights. The subject has a stern, contemplative expression, looking intently off-camera.",
+      "assinatura": "rugged man in his late 30s, short textured blonde hair, thick trimmed beard, sharp jawline, intense light eyes",
+      "figura": "Chris Hemsworth",
+      "gancho": "A força do contraste absoluto em retratos dramáticos.",
+      "variacoes": [
+        "a rugged middle-aged sea captain with a thick grey beard and deeply weathered skin",
+        "a focused professional boxer with short cropped hair and intense scars near his brow",
+        "an elegant older classical composer with long swept-back silver hair and sharp cheekbones",
+        "a young intense stage actor with a shaved head and sharp, defined facial features"
+      ],
+      "etiqueta": "RETRATO CHIAROSCURO",
+      "slug": "retrato-chiaroscuro-baixo-tom",
+      "saves": 1,
+      "imagemRef": "https://i.pinimg.com/originals/76/2b/37/762b3727272a80b4bb087fad26c6ba9b.jpg",
+      "pinId": "653162752254139322",
+      "coletadoEm": "2026-08-27T16:52:41.129Z"
+    },
+    {
+      "promptBase": "A chest-up portrait shot, camera positioned slightly below eye level looking up at the subject who has a confident, detached expression. The subject wears a high-visibility, neon acid-green hooded technical jacket with the hood up, a black crewneck t-shirt, a chunky silver curb-chain necklace, and sleek, dark-tinted futuristic wrap-around sunglasses. Behind them is a flat, seamless neon acid-green studio backdrop matching the jacket. Lit by a soft key light from 45 degrees above front, creating clean, defined shadows under the chin. Shot on an 85mm lens at f/2.8 with sharp focus on the face. Neutral white balance preserving natural skin tones, with hyper-saturated lime-green tones throughout and deep crushed blacks in the clothing.",
+      "assinatura": "A stylish young streetwear model with an edgy, confident expression, dark hair, and defined facial features.",
+      "figura": "",
+      "gancho": "O contraste absoluto do verde neon dita a atitude do streetwear contemporâneo.",
+      "variacoes": [
+        "A young East Asian woman with sharp features, a sleek black bob haircut, and a cool demeanor.",
+        "A Black man in his mid-20s with a clean buzz cut fade, sharp jawline, and confident gaze.",
+        "A Hispanic woman with long dark wavy hair, bold defined eyebrows, and a piercing look.",
+        "A Caucasian man with a bleached-blonde buzz cut, light stubble, and an intense, direct expression."
+      ],
+      "etiqueta": "EDITORIAL STREETWEAR",
+      "slug": "editorial-streetwear-neon",
+      "saves": 3,
+      "imagemRef": "https://i.pinimg.com/originals/75/5d/f1/755df133d41b78c3ca988eb5e8c03264.jpg",
+      "pinId": "653162752254139328",
+      "coletadoEm": "2026-08-27T16:52:51.879Z"
     }
   ],
   "publicados": [
