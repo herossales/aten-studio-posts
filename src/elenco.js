@@ -6,6 +6,19 @@ import { marca } from './brand.js'
 const INSTRUCAO = `Voce e diretor de elenco. Recebe a direcao de arte de um
 ensaio fotografico e decide QUEM aparece nele.
 
+=== REGRA 0: LEIA A REFERENCIA ANTES DE ESCALAR ===
+Se vier uma imagem junto, olhe primeiro. Ela costuma citar algo reconhecivel —
+uma serie, um filme, uma capa de disco, uma estetica com dono. Identifique o
+que e ANTES de escolher qualquer nome.
+
+Reconheceu? O elenco sai de dentro daquele universo, nesta ordem:
+  1. o proprio elenco da obra citada
+  2. quem estrelou obras do mesmo tema (ex: se a referencia fala de mente e
+     realidade, gente de "A Origem", "Clube da Luta", "Matrix")
+  3. so entao a regra geral abaixo
+
+Isso e o que faz o post conversar com a referencia em vez de so imitar a luz.
+
 === REGRA 1: A BARRA DE FAMA ===
 O elenco existe pra ancorar o olhar em quem o publico reconhece NO PRIMEIRO
 SEGUNDO. Nome que precisa de explicacao nao ancora nada.
@@ -58,6 +71,7 @@ descrever de novo faz cada lamina divergir. Descreva SO a pessoa.
 Responda em JSON, sem nada antes ou depois:
 {
   "categoria": "a categoria escolhida",
+  "referencia": "a obra ou estetica que a imagem cita, ou null se nao houver",
   "justificativa": "uma linha dizendo por que cada escolha esta em alta agora",
   "elenco": ["5 entradas no formato nome + tracos, em INGLES, uma por pessoa"],
   "figuras": ["os 5 nomes correspondentes, so como anotacao, em ordem"]
@@ -68,8 +82,12 @@ Responda em JSON, sem nada antes ou depois:
  *
  * Roda na hora de gerar, nao na coleta: quem esta em alta muda por semana e
  * um conceito pode ficar dias parado na fila antes de ir ao ar.
+ *
+ * A imagem do pin entra no briefing porque so o texto nao basta — a analise
+ * da referencia descreve a luz e o enquadramento, nunca "isto e Ruptura".
+ * Sem ver, o diretor nao tem como puxar o elenco do universo certo.
  */
-export async function escalarElenco({ promptBase, gancho, assinatura }) {
+export async function escalarElenco({ promptBase, gancho, assinatura, referencia, vetados = [] }) {
   exigir('geminiKey')
   const ai = new GoogleGenAI({ apiKey: cfg.geminiKey })
 
@@ -80,17 +98,37 @@ export async function escalarElenco({ promptBase, gancho, assinatura }) {
       `forte visualmente (ex: em vez de politicos, jornalistas e apresentadores).`
     : ''
 
+  // Sem isto o modelo converge sempre nos mesmos poucos nomes: a barra de fama
+  // alta deixa o conjunto de candidatos obvios pequeno, e ele nao lembra dos
+  // posts anteriores. O veto amplia a busca a forca.
+  const repetidos = vetados.length
+    ? `\n\n=== JA APARECERAM NOS ULTIMOS POSTS — PROIBIDO REPETIR ===\n` +
+      `${vetados.join(', ')}.\n` +
+      `Nenhum destes pode entrar. Ha estrela global de sobra: se o primeiro nome\n` +
+      `que te veio a cabeca esta na lista, procure outro do mesmo calibre em vez\n` +
+      `de baixar a barra de fama.`
+    : ''
+
   const briefing = [
     `DIRECAO DE ARTE: ${promptBase}`,
     gancho ? `TEMA DO POST: ${gancho}` : '',
     assinatura ? `TIPO QUE A REFERENCIA ORIGINAL RETRATAVA: ${assinatura}` : '',
+    referencia ? 'A IMAGEM ANEXA E A REFERENCIA ORIGINAL DO ENSAIO. Leia antes de escalar.' : '',
   ]
     .filter(Boolean)
     .join('\n\n')
 
+  const partes = []
+  if (referencia) {
+    partes.push({
+      inlineData: { mimeType: referencia.mime, data: referencia.buffer.toString('base64') },
+    })
+  }
+  partes.push({ text: `${INSTRUCAO}${veto}${repetidos}\n\n---\n\n${briefing}` })
+
   const r = await ai.models.generateContent({
     model: 'gemini-3.5-flash',
-    contents: `${INSTRUCAO}${veto}\n\n---\n\n${briefing}`,
+    contents: [{ role: 'user', parts: partes }],
     // Busca ligada: sem grounding ele escala por memoria de treino e erra
     // quem esta em alta. Com googleSearch a API recusa responseMimeType json,
     // entao o JSON sai no meio do texto e o extrator pesca.
@@ -101,5 +139,12 @@ export async function escalarElenco({ promptBase, gancho, assinatura }) {
   if (!Array.isArray(dados.elenco) || dados.elenco.length < 2) {
     throw new Error('elenco incompleto')
   }
+
+  // O veto e instrucao, nao garantia — o modelo as vezes repete assim mesmo.
+  // Avisa em vez de derrubar: elenco quase certo vale mais que post nenhum.
+  const proibidos = new Set(vetados.map((v) => v.toLowerCase()))
+  const furos = (dados.figuras ?? []).filter((f) => proibidos.has(String(f).toLowerCase()))
+  if (furos.length) dados.furos = furos
+
   return dados
 }

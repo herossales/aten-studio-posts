@@ -2,9 +2,10 @@ name: Coletar referencias
 
 on:
   schedule:
-    # Segunda, 12:00 UTC = 09:00 BRT. Semanal basta: os pins sao salvos
-    # em lote, nao de hora em hora.
-    - cron: '0 12 * * 1'
+    # Segunda, 12:37 UTC = 09:37 BRT. Semanal basta: os pins sao salvos
+    # em lote, nao de hora em hora. Minuto quebrado pelo mesmo motivo do
+    # publicar.yml: em :00 o run corre risco de ser descartado.
+    - cron: '37 12 * * 1'
   workflow_dispatch:
 
 # Nunca junto com uma publicacao: as duas escrevem o fila.json.

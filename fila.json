@@ -744,7 +744,14 @@
       "imagemRef": "https://i.pinimg.com/originals/e3/a8/81/e3a881844a097942a02660fbc86a4126.jpg",
       "etiqueta": "RETRATO PAPARAZZI",
       "permalink": "https://www.instagram.com/p/Dci9bcCnxKy/",
-      "publicadoEm": "2026-08-27T14:04:54.187Z"
+      "publicadoEm": "2026-08-27T14:04:54.187Z",
+      "figuras": [
+        "Zendaya",
+        "Pedro Pascal",
+        "Margot Robbie",
+        "Idris Elba",
+        "Timothee Chalamet"
+      ]
     },
     {
       "promptBase": "A clean, side-profile medium shot of a professional wearing a tailored suit. In a surreal composition, the top of their head is horizontally sliced open like a flat platform, revealing a miniature scene: a tiny, identical version of the person sitting at a small wooden desk in an ergonomic black chair, working on a laptop. The lighting is soft, diffused studio light from a 45-degree angle, creating gentle highlights on the face and soft shadows on the neck. The background is a heavily out-of-focus abstract pattern of sage green and soft white geometric shapes. Shot with an 85mm lens at f/2.8, chest-up crop, eye-level camera. Muted color palette with natural contrast.",
@@ -764,7 +771,14 @@
       "figura": "Focused creative designer or corporate executive",
       "etiqueta": "RETRATO CONCEITUAL",
       "permalink": "https://www.instagram.com/p/DcjRuE7nZWt/",
-      "publicadoEm": "2026-08-27T17:02:09.766Z"
+      "publicadoEm": "2026-08-27T17:02:09.766Z",
+      "figuras": [
+        "Pedro Pascal",
+        "Cillian Murphy",
+        "Jenna Ortega",
+        "Zendaya",
+        "Idris Elba"
+      ]
     }
   ]
 }

@@ -35,6 +35,12 @@ export const marca = {
   // prompt sozinho se sustenta.
   usarReferenciaDoPin: true,
 
+  // Quantos posts para tras entram na lista de veto do elenco. A 3 posts/dia,
+  // 8 cobre os ultimos dois dias e meio — o suficiente pra ninguem se repetir
+  // dentro da mesma rolagem de feed. Subir demais estrangula: sao 5 nomes por
+  // post, e a barra de fama alta ja deixa o conjunto de candidatos pequeno.
+  postsSemRepetirElenco: 8,
+
   // Categorias que o diretor de elenco nao pode escalar. Politica sai por
   // padrao: em ano eleitoral, imagem fotorrealista de candidato real cai na
   // regra do TSE sobre conteudo sintetico, e uma lamina printada fora do

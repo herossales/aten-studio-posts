@@ -40,8 +40,24 @@ export function descartarJaPublicados(d) {
 /** Proximo da fila, sem remover — so sai quando publicar der certo. */
 export const proximo = (d) => d.fila[0] ?? null
 
-export function marcarPublicado(d, permalink) {
+export function marcarPublicado(d, permalink, extra = {}) {
   const c = d.fila.shift()
-  d.publicados.push({ ...c, permalink, publicadoEm: new Date().toISOString() })
+  d.publicados.push({ ...c, ...extra, permalink, publicadoEm: new Date().toISOString() })
   return d
+}
+
+/**
+ * Quem ja apareceu nos ultimos posts, pra vetar no proximo elenco.
+ *
+ * Le do historico e nao de um campo proprio: `publicados` ja e a memoria do
+ * que foi ao ar, e uma lista paralela sairia do ar com ela na primeira falha
+ * de gravacao.
+ */
+export function figurasRecentes(d, posts) {
+  const nomes = d.publicados
+    .slice(-posts)
+    .flatMap((p) => p.figuras ?? [])
+    .map((f) => String(f).trim())
+    .filter(Boolean)
+  return [...new Set(nomes)]
 }

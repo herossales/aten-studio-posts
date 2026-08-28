@@ -36,25 +36,13 @@ if (conceito.assinatura) console.log(`Assinatura: ${conceito.assinatura}`)
 console.log(`Laminas: ${conceito.variacoes.length + 1}`)
 console.log(`Restam na fila: ${dados.fila.length}\n`)
 
-console.log('1. Escalando elenco (noticiario atual)...')
-let elenco
-let figuras = []
-try {
-  const escalado = await escalarElenco(conceito)
-  elenco = escalado.elenco
-  figuras = escalado.figuras ?? []
-  console.log(`  categoria: ${escalado.categoria}`)
-  escalado.figuras?.forEach((f, i) => console.log(`  ${i + 1}. ${f}`))
-} catch (e) {
-  // Elenco e melhoria, nao requisito: sem ele o post sai com os sujeitos
-  // genericos que a analise da referencia ja tinha proposto.
-  console.log(`  ! falhou (${e.message}), seguindo com as variacoes do conceito`)
-}
-
-// Referencia visual do pin: melhora cor e acabamento, ao custo de parte do
-// resultado nao vir do prompt. Chave em brand.js.
+// Carregada antes do elenco de proposito: o diretor e o redator precisam VER
+// o pin. So o texto da analise nunca diz "isto e Ruptura" — descreve luz e
+// enquadramento — e sem reconhecer a obra citada o elenco vira estrela global
+// generica e a legenda vira ficha tecnica.
+console.log('1. Carregando a referencia do pin...')
 let referencia
-if (marca.usarReferenciaDoPin && conceito.imagemRef) {
+if (conceito.imagemRef) {
   try {
     const r = await fetch(conceito.imagemRef)
     if (!r.ok) throw new Error(`HTTP ${r.status}`)
@@ -62,16 +50,49 @@ if (marca.usarReferenciaDoPin && conceito.imagemRef) {
       buffer: Buffer.from(await r.arrayBuffer()),
       mime: r.headers.get('content-type') || 'image/jpeg',
     }
-    console.log('  referencia do pin carregada')
+    console.log('  carregada')
   } catch (e) {
-    console.log(`  ! referencia do pin indisponivel (${e.message}), seguindo so com o prompt`)
+    console.log(`  ! indisponivel (${e.message}), seguindo so com o texto`)
   }
 }
 
-console.log('\n2. Gerando imagens (Nano Banana)...')
-const brutas = await gerarLaminas({ ...conceito, elenco, referencia, encadear: marca.encadearNaPrimeira })
+console.log('\n2. Escalando elenco (noticiario atual)...')
+const vetados = fila.figurasRecentes(dados, marca.postsSemRepetirElenco)
+if (vetados.length) console.log(`  vetados (${vetados.length}): ${vetados.join(', ')}`)
 
-console.log('\n3. Compondo laminas...')
+let elenco
+let figuras = []
+let referenciaCultural
+try {
+  const escalado = await escalarElenco({ ...conceito, referencia, vetados })
+  elenco = escalado.elenco
+  figuras = escalado.figuras ?? []
+  referenciaCultural = escalado.referencia
+  console.log(`  categoria: ${escalado.categoria}`)
+  if (referenciaCultural) console.log(`  referencia: ${referenciaCultural}`)
+  figuras.forEach((f, i) => console.log(`  ${i + 1}. ${f}`))
+  // Nao derruba o post: o veto e instrucao, e o modelo as vezes fura. Mas
+  // registra, pra dar pra ver se a lista esta sendo ignorada com frequencia.
+  if (escalado.furos?.length) {
+    console.log(`  ! repetiu mesmo com o veto: ${escalado.furos.join(', ')}`)
+  }
+} catch (e) {
+  // Elenco e melhoria, nao requisito: sem ele o post sai com os sujeitos
+  // genericos que a analise da referencia ja tinha proposto.
+  console.log(`  ! falhou (${e.message}), seguindo com as variacoes do conceito`)
+}
+
+console.log('\n3. Gerando imagens (Nano Banana)...')
+const brutas = await gerarLaminas({
+  ...conceito,
+  elenco,
+  // Como anexo de geracao a referencia e opcional: melhora cor e acabamento,
+  // mas parte do resultado deixa de vir do prompt que a pessoa recebe.
+  referencia: marca.usarReferenciaDoPin ? referencia : undefined,
+  encadear: marca.encadearNaPrimeira,
+})
+
+console.log('\n4. Compondo laminas...')
 const niveladas = marca.nivelarGrade ? await igualarGrade(brutas) : brutas
 const ultima = niveladas.length - 1
 const laminas = await Promise.all(
@@ -94,7 +115,7 @@ laminas.forEach((buf, i) => {
 
 let texto = conceito.gancho
 try {
-  texto = await escreverLegenda({ ...conceito, figuras })
+  texto = await escreverLegenda({ ...conceito, figuras, referencia, referenciaCultural })
 } catch (e) {
   // Legenda e melhoria, nao requisito: sem ela usa o gancho da analise.
   console.log(`  ! legenda automatica falhou (${e.message}), usando o gancho`)
@@ -112,10 +133,10 @@ if (!publicar) {
   process.exit(0)
 }
 
-console.log('\n4. Subindo pro Supabase...')
+console.log('\n5. Subindo as laminas...')
 const urls = await subir(laminas, `${conceito.slug}-${Date.now()}`)
 
-console.log('\n5. Publicando...')
+console.log('\n6. Publicando...')
 const cota = await cotaRestante()
 if (cota < 1) throw new Error('Cota de 50 posts/24h esgotada')
 
@@ -123,7 +144,8 @@ const { permalink } = await publicarCarrossel(urls, legenda)
 
 // So agora o conceito sai da fila — se qualquer passo acima falhar, ele
 // continua na frente e a proxima execucao tenta de novo.
-fila.marcarPublicado(dados, permalink)
+// figuras vao junto: e a partir delas que o proximo post monta o veto.
+fila.marcarPublicado(dados, permalink, { figuras, referenciaCultural })
 fila.gravar(dados)
 
 if (cfg.ghToken && cfg.ghRepo) {
