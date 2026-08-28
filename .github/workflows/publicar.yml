@@ -1,19 +1,15 @@
 name: Carrossel diario
 
+# Sem `schedule` de proposito. O cron do Actions nunca entregou UMA execucao
+# neste repo: tres janelas agendadas, zero runs com event=schedule, com a
+# configuracao toda correta (repo publico, nao-fork, main como default,
+# workflow active) e o workflow_dispatch do mesmo arquivo funcionando sempre.
+#
+# Quem dispara agora e um agendador externo (cron-job.org) chamando este
+# workflow_dispatch as 09:32, 14:17 e 20:34 UTC — 06:32, 11:17 e 17:34 BRT.
+# Se o `schedule` fosse mantido "por garantia" e o GitHub voltasse a honra-lo,
+# os dois gatilhos somariam e sairiam seis posts por dia.
 on:
-  schedule:
-    # Horarios em UTC. BRT = UTC-3.
-    #   09:32 UTC = 06:32 BRT
-    #   14:17 UTC = 11:17 BRT
-    #   20:34 UTC = 17:34 BRT
-    # Minutos quebrados de proposito. O cron do Actions e melhor esforco, nao
-    # garantia: no minuto cheio a fila da plataforma lota — todo mundo agenda
-    # em :00 — e o run atrasa ou e simplesmente descartado, que foi o que
-    # aconteceu em 27/08 com '0 21'. Fora do pico a chance cai muito.
-    # Cada execucao consome 1 item da fila.
-    - cron: '32 9 * * *'
-    - cron: '17 14 * * *'
-    - cron: '34 20 * * *'
   workflow_dispatch:
     inputs:
       publicar:
@@ -53,7 +49,7 @@ jobs:
           # GITHUB_TOKEN e GITHUB_REPOSITORY sao automaticos
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ inputs.publicar }}" = "true" ]; then
+          if [ "${{ inputs.publicar }}" = "true" ]; then
             node src/run.js --publish
           else
             node src/run.js
