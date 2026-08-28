@@ -43,24 +43,6 @@
   ],
   "fila": [
     {
-      "promptBase": "Strict side profile portrait of a [subject] with closed eyes and a serene expression, facing left. Head-and-shoulders crop, camera at eye level, off-center composition. Solid vibrant golden-yellow background. Monochromatic yellow-gold color grading, warm 3200K white balance, deep dark brown shadows with lifted blacks. Shot on 85mm lens at f/2.8. A strong horizontal panning motion blur trails off the back of the head and hair, creating a ghostly streak effect to the right. Fine analog film grain throughout.",
-      "assinatura": "young artistic male with curly hair and black-rimmed glasses, serene profile",
-      "figura": "",
-      "gancho": "O rastro de movimento cria uma silhueta dramática e conceitual em tons dourados.",
-      "variacoes": [
-        "young woman with short cropped hair and minimalist silver earrings, serene side profile",
-        "older man with a distinguished beard and deep-set eyes, calm side profile",
-        "young non-binary person with sharp cheekbones and a nose ring, peaceful side profile",
-        "woman with long braided hair and delicate features, quiet side profile"
-      ],
-      "etiqueta": "RETRATO CONCEITUAL",
-      "slug": "retrato-silhueta-movimento-dourado",
-      "saves": 36,
-      "imagemRef": "https://i.pinimg.com/originals/c2/1f/f4/c21ff4deab045b5ebb6ddf3e4579a02d.jpg",
-      "pinId": "653162752254136695",
-      "coletadoEm": "2026-08-27T14:26:51.649Z"
-    },
-    {
       "promptBase": "A chest-up portrait shot from a low angle looking upward at [SUBJECT]. The lighting is a dramatic orange-red key light from a 45-degree angle to the side, casting half the face in deep shadow. Background is a seamless, solid deep crimson-red backdrop. Shot on an 85mm lens at f/2.0 with a shallow depth of field, sharp focus on the face and glasses, soft roll-off on the shoulders of a dark wool coat. High-contrast color grading, deep saturated reds, with crushed pure blacks. The subject has a confident, serious expression with a slightly raised chin, looking directly down into the camera lens.",
       "assinatura": "A stylish modern intellectual (a young man with short dark hair, wearing thick-rimmed circular black glasses and a tailored black overcoat)",
       "figura": "",
@@ -809,6 +791,34 @@
       "referenciaCultural": null,
       "permalink": "https://www.instagram.com/p/DclzyIjm8-9/",
       "publicadoEm": "2026-08-28T16:38:19.289Z"
+    },
+    {
+      "promptBase": "Strict side profile portrait of a [subject] with closed eyes and a serene expression, facing left. Head-and-shoulders crop, camera at eye level, off-center composition. Solid vibrant golden-yellow background. Monochromatic yellow-gold color grading, warm 3200K white balance, deep dark brown shadows with lifted blacks. Shot on 85mm lens at f/2.8. A strong horizontal panning motion blur trails off the back of the head and hair, creating a ghostly streak effect to the right. Fine analog film grain throughout.",
+      "assinatura": "young artistic male with curly hair and black-rimmed glasses, serene profile",
+      "figura": "",
+      "gancho": "O rastro de movimento cria uma silhueta dramática e conceitual em tons dourados.",
+      "variacoes": [
+        "young woman with short cropped hair and minimalist silver earrings, serene side profile",
+        "older man with a distinguished beard and deep-set eyes, calm side profile",
+        "young non-binary person with sharp cheekbones and a nose ring, peaceful side profile",
+        "woman with long braided hair and delicate features, quiet side profile"
+      ],
+      "etiqueta": "RETRATO CONCEITUAL",
+      "slug": "retrato-silhueta-movimento-dourado",
+      "saves": 36,
+      "imagemRef": "https://i.pinimg.com/originals/c2/1f/f4/c21ff4deab045b5ebb6ddf3e4579a02d.jpg",
+      "pinId": "653162752254136695",
+      "coletadoEm": "2026-08-27T14:26:51.649Z",
+      "figuras": [
+        "Brad Pitt",
+        "Sydney Sweeney",
+        "Jacob Elordi",
+        "Lupita Nyong'o",
+        "Leonardo DiCaprio"
+      ],
+      "referenciaCultural": null,
+      "permalink": "https://www.instagram.com/p/DcmPJYek2yo/",
+      "publicadoEm": "2026-08-28T20:37:25.920Z"
     }
   ]
 }
