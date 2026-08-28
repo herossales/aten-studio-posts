@@ -43,24 +43,6 @@
   ],
   "fila": [
     {
-      "promptBase": "An extreme close-up fisheye portrait of [SUBJECT] looking directly into the camera. Shot on a 15mm ultra-wide lens placed very close to the face, causing a dramatic bulbous distortion where the eyes and nose are prominent, and shoulders recede. The subject wears retro purple-tinted rectangular sunglasses and holds a vintage metallic flip phone to their ear. Lit by a soft, diffused circular ring light directly in front, creating subtle circular catchlights. The background is a light grey studio backdrop framed by a dark, circular vignette. Vibrant color grading with warm tones, a hint of retro film grain, and slight chromatic aberration at the edges.",
-      "assinatura": "A stylish youth from the early 2000s fashion scene, wearing retro purple-tinted sunglasses and holding a vintage flip phone",
-      "gancho": "Recrie a estética marcante e distorcida dos anos 2000 em seus retratos.",
-      "variacoes": [
-        "a young woman with spiky space buns and metallic silver eyeshadow",
-        "a cool guy with a bleach-blonde buzzcut and a silver chain necklace",
-        "a young skater with a backwards red cap and beaded choker",
-        "a trendy woman with thin eyebrows and a blue denim jacket"
-      ],
-      "slug": "y2k-fisheye-portrait",
-      "saves": 5,
-      "pinId": "653162752254123977",
-      "coletadoEm": "2026-08-26T22:16:45.459Z",
-      "imagemRef": "https://i.pinimg.com/originals/8c/5f/d8/8c5fd8c4b41ce12c3852129ffecc2b49.jpg",
-      "figura": "Y2K street fashion icon",
-      "etiqueta": "RETRATO Y2K FISHEYE"
-    },
-    {
       "promptBase": "Extreme top-down 8mm circular fisheye lens portrait of a person. High-angle bird's-eye view creates massive head-and-shoulder distortion with the body rapidly shrinking towards tiny feet below. Lit by a harsh, direct overhead flash, casting deep shadows under the chin and nose, surrounded by heavy dark vignetted corners. Setting is a vintage indoor room with wood-paneled shelves, a retro boombox, and vinyl records. Neutral white balance with deep crushed blacks, heavy film grain, and slightly desaturated background tones. The subject wears an oversized retro suit and colorful tinted aviator glasses, smiling broadly and looking directly up at the lens.",
       "assinatura": "A quirky Y2K indie creative with messy hair, wearing an oversized vintage suit and colored aviator glasses",
       "figura": "Y2K skater culture",
@@ -779,6 +761,34 @@
         "Zendaya",
         "Idris Elba"
       ]
+    },
+    {
+      "promptBase": "An extreme close-up fisheye portrait of [SUBJECT] looking directly into the camera. Shot on a 15mm ultra-wide lens placed very close to the face, causing a dramatic bulbous distortion where the eyes and nose are prominent, and shoulders recede. The subject wears retro purple-tinted rectangular sunglasses and holds a vintage metallic flip phone to their ear. Lit by a soft, diffused circular ring light directly in front, creating subtle circular catchlights. The background is a light grey studio backdrop framed by a dark, circular vignette. Vibrant color grading with warm tones, a hint of retro film grain, and slight chromatic aberration at the edges.",
+      "assinatura": "A stylish youth from the early 2000s fashion scene, wearing retro purple-tinted sunglasses and holding a vintage flip phone",
+      "gancho": "Recrie a estética marcante e distorcida dos anos 2000 em seus retratos.",
+      "variacoes": [
+        "a young woman with spiky space buns and metallic silver eyeshadow",
+        "a cool guy with a bleach-blonde buzzcut and a silver chain necklace",
+        "a young skater with a backwards red cap and beaded choker",
+        "a trendy woman with thin eyebrows and a blue denim jacket"
+      ],
+      "slug": "y2k-fisheye-portrait",
+      "saves": 5,
+      "pinId": "653162752254123977",
+      "coletadoEm": "2026-08-26T22:16:45.459Z",
+      "imagemRef": "https://i.pinimg.com/originals/8c/5f/d8/8c5fd8c4b41ce12c3852129ffecc2b49.jpg",
+      "figura": "Y2K street fashion icon",
+      "etiqueta": "RETRATO Y2K FISHEYE",
+      "figuras": [
+        "Billie Eilish",
+        "Travis Scott",
+        "Dua Lipa",
+        "Eminem",
+        "Olivia Rodrigo"
+      ],
+      "referenciaCultural": "A estética Y2K dos videoclipes de hip-hop em lente fisheye do início dos anos 2000 (popularizada por diretores como Hype Williams) misturada ao design de capas de jogos da era PlayStation 2",
+      "permalink": "https://www.instagram.com/p/DckI-wVoG-s/",
+      "publicadoEm": "2026-08-28T01:05:05.815Z"
     }
   ]
 }
