@@ -43,24 +43,6 @@
   ],
   "fila": [
     {
-      "promptBase": "Extreme top-down 8mm circular fisheye lens portrait of a person. High-angle bird's-eye view creates massive head-and-shoulder distortion with the body rapidly shrinking towards tiny feet below. Lit by a harsh, direct overhead flash, casting deep shadows under the chin and nose, surrounded by heavy dark vignetted corners. Setting is a vintage indoor room with wood-paneled shelves, a retro boombox, and vinyl records. Neutral white balance with deep crushed blacks, heavy film grain, and slightly desaturated background tones. The subject wears an oversized retro suit and colorful tinted aviator glasses, smiling broadly and looking directly up at the lens.",
-      "assinatura": "A quirky Y2K indie creative with messy hair, wearing an oversized vintage suit and colored aviator glasses",
-      "figura": "Y2K skater culture",
-      "gancho": "A estética distorcida e analógica dos anos 2000 de volta ao topo.",
-      "variacoes": [
-        "A young female indie musician with a messy shag haircut, wearing an oversized vintage leather jacket and yellow-tinted aviator sunglasses",
-        "A cool street-style skater with a short buzzcut, wearing a baggy 90s windbreaker and red-tinted glasses",
-        "An eclectic artist with curly hair, wearing an oversized corduroy blazer and blue-tinted wireframe glasses",
-        "A retro trendsetter with middle-parted hair, wearing an oversized tweed suit jacket and amber-tinted glasses"
-      ],
-      "etiqueta": "EDITORIAL FISHEYE",
-      "slug": "editorial-fisheye-y2k",
-      "saves": 463,
-      "imagemRef": "https://i.pinimg.com/originals/1b/c2/58/1bc25807c70d4d26cd8e59a2d3d52f91.png",
-      "pinId": "653162752254136681",
-      "coletadoEm": "2026-08-27T14:26:01.900Z"
-    },
-    {
       "promptBase": "A strict profile portrait of [SUBJECT] facing right, chest-up crop, shot on an 85mm lens at f/2.0. High-contrast, low-key studio lighting featuring a single sharp rim light from behind, creating a brilliant silver halo along the hair, profile, and glasses. The front of the face remains in deep shadow. Background is a solid, pitch-black seamless backdrop. Neutral white balance with desaturated color grading and deeply crushed blacks, camera at eye level.",
       "assinatura": "A young man with messy textured hair, wearing thin-rimmed glasses, shown in sharp profile",
       "figura": "",
@@ -789,6 +771,34 @@
       "referenciaCultural": "A estética Y2K dos videoclipes de hip-hop em lente fisheye do início dos anos 2000 (popularizada por diretores como Hype Williams) misturada ao design de capas de jogos da era PlayStation 2",
       "permalink": "https://www.instagram.com/p/DckI-wVoG-s/",
       "publicadoEm": "2026-08-28T01:05:05.815Z"
+    },
+    {
+      "promptBase": "Extreme top-down 8mm circular fisheye lens portrait of a person. High-angle bird's-eye view creates massive head-and-shoulder distortion with the body rapidly shrinking towards tiny feet below. Lit by a harsh, direct overhead flash, casting deep shadows under the chin and nose, surrounded by heavy dark vignetted corners. Setting is a vintage indoor room with wood-paneled shelves, a retro boombox, and vinyl records. Neutral white balance with deep crushed blacks, heavy film grain, and slightly desaturated background tones. The subject wears an oversized retro suit and colorful tinted aviator glasses, smiling broadly and looking directly up at the lens.",
+      "assinatura": "A quirky Y2K indie creative with messy hair, wearing an oversized vintage suit and colored aviator glasses",
+      "figura": "Y2K skater culture",
+      "gancho": "A estética distorcida e analógica dos anos 2000 de volta ao topo.",
+      "variacoes": [
+        "A young female indie musician with a messy shag haircut, wearing an oversized vintage leather jacket and yellow-tinted aviator sunglasses",
+        "A cool street-style skater with a short buzzcut, wearing a baggy 90s windbreaker and red-tinted glasses",
+        "An eclectic artist with curly hair, wearing an oversized corduroy blazer and blue-tinted wireframe glasses",
+        "A retro trendsetter with middle-parted hair, wearing an oversized tweed suit jacket and amber-tinted glasses"
+      ],
+      "etiqueta": "EDITORIAL FISHEYE",
+      "slug": "editorial-fisheye-y2k",
+      "saves": 463,
+      "imagemRef": "https://i.pinimg.com/originals/1b/c2/58/1bc25807c70d4d26cd8e59a2d3d52f91.png",
+      "pinId": "653162752254136681",
+      "coletadoEm": "2026-08-27T14:26:01.900Z",
+      "figuras": [
+        "Tyler, the Creator",
+        "Sabrina Carpenter",
+        "Anitta",
+        "Harry Styles",
+        "Bad Bunny"
+      ],
+      "referenciaCultural": "Estética dos videoclipes de fisheye e revistas de skate da era MTV/Y2K",
+      "permalink": "https://www.instagram.com/p/DclIFsAIPld/",
+      "publicadoEm": "2026-08-28T10:16:30.556Z"
     }
   ]
 }
