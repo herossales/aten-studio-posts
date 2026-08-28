@@ -10,6 +10,8 @@ import { montarLegenda, marca } from './brand.js'
 import { cfg } from './config.js'
 
 const publicar = process.argv.includes('--publish')
+// Fura a trava de intervalo. Pra republicar de proposito no mesmo dia.
+const forcar = process.argv.includes('--forcar')
 
 // A fila do Pinterest e a unica fonte de conteudo. Sem reserva local de
 // proposito: publicar um conceito antigo mascara a fila vazia justamente
@@ -20,6 +22,20 @@ const repetidos = fila.descartarJaPublicados(dados)
 if (repetidos) {
   console.log(`${repetidos} conceito(s) ja publicado(s) descartado(s) da fila.`)
   fila.gravar(dados)
+}
+
+// Trava antes de qualquer geracao: dois agendadores apontando pro mesmo
+// workflow disparam os dois, e sem isto o segundo gastaria cinco imagens pra
+// so entao descobrir que o dia ja tinha post. Sai com 0 — nao e falha, e o
+// comportamento correto do disparo redundante.
+const desdeUltimo = fila.horasDesdeUltimoPost(dados)
+if (publicar && !forcar && desdeUltimo < marca.horasEntrePosts) {
+  console.log(
+    `\nUltimo post foi ha ${desdeUltimo.toFixed(1)}h, ` +
+      `abaixo da janela de ${marca.horasEntrePosts}h. Nada a fazer.`,
+  )
+  console.log('Use --forcar para publicar assim mesmo.\n')
+  process.exit(0)
 }
 
 const conceito = fila.proximo(dados)

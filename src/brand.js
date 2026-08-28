@@ -35,6 +35,13 @@ export const marca = {
   // prompt sozinho se sustenta.
   usarReferenciaDoPin: true,
 
+  // Janela minima entre publicacoes, em horas. Existe pra que mais de um
+  // agendador possa apontar pro mesmo workflow sem risco de post duplicado:
+  // o primeiro publica, o segundo bate na trava e sai sem gastar geracao.
+  // Como os slots mais proximos sao 06:32 e 11:17 (4h45), 3h da folga
+  // suficiente sem nunca barrar um post legitimo.
+  horasEntrePosts: 3,
+
   // Quantos posts para tras entram na lista de veto do elenco. A 3 posts/dia,
   // 8 cobre os ultimos dois dias e meio — o suficiente pra ninguem se repetir
   // dentro da mesma rolagem de feed. Subir demais estrangula: sao 5 nomes por

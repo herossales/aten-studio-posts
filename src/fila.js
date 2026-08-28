@@ -37,6 +37,19 @@ export function descartarJaPublicados(d) {
   return antes - d.fila.length
 }
 
+/**
+ * Horas desde a ultima publicacao, ou Infinity se nunca publicou.
+ *
+ * Base da trava anti-duplicata: com mais de um agendador apontando pro mesmo
+ * workflow, o segundo disparo precisa saber que o primeiro ja resolveu o dia.
+ */
+export function horasDesdeUltimoPost(d) {
+  const ultimo = d.publicados.at(-1)?.publicadoEm
+  if (!ultimo) return Infinity
+  const t = Date.parse(ultimo)
+  return Number.isNaN(t) ? Infinity : (Date.now() - t) / 3_600_000
+}
+
 /** Proximo da fila, sem remover — so sai quando publicar der certo. */
 export const proximo = (d) => d.fila[0] ?? null
 
