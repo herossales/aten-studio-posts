@@ -43,24 +43,6 @@
   ],
   "fila": [
     {
-      "promptBase": "A strict profile portrait of [SUBJECT] facing right, chest-up crop, shot on an 85mm lens at f/2.0. High-contrast, low-key studio lighting featuring a single sharp rim light from behind, creating a brilliant silver halo along the hair, profile, and glasses. The front of the face remains in deep shadow. Background is a solid, pitch-black seamless backdrop. Neutral white balance with desaturated color grading and deeply crushed blacks, camera at eye level.",
-      "assinatura": "A young man with messy textured hair, wearing thin-rimmed glasses, shown in sharp profile",
-      "figura": "",
-      "gancho": "O poder do contorno: como a luz de recorte transforma o retrato em pura escultura.",
-      "variacoes": [
-        "A mature woman with sharp cheekbones, a slicked-back high ponytail, and minimalist wire-rimmed glasses",
-        "A young Black man with a short, detailed buzz cut and a strong, defined jawline",
-        "An older distinguished man with a neatly trimmed beard, thick-rimmed glasses, and styled silver hair",
-        "A young woman with a sharp bob haircut, delicate features, and modern round glasses"
-      ],
-      "etiqueta": "RETRATO EM CONTRALUZ",
-      "slug": "retrato-contraluz-silhueta",
-      "saves": 63,
-      "imagemRef": "https://i.pinimg.com/originals/42/fc/5e/42fc5e394ec6c3a967a5396a6fb7453c.png",
-      "pinId": "653162752254136669",
-      "coletadoEm": "2026-08-27T14:26:42.099Z"
-    },
-    {
       "promptBase": "Strict side profile portrait of a [subject] with closed eyes and a serene expression, facing left. Head-and-shoulders crop, camera at eye level, off-center composition. Solid vibrant golden-yellow background. Monochromatic yellow-gold color grading, warm 3200K white balance, deep dark brown shadows with lifted blacks. Shot on 85mm lens at f/2.8. A strong horizontal panning motion blur trails off the back of the head and hair, creating a ghostly streak effect to the right. Fine analog film grain throughout.",
       "assinatura": "young artistic male with curly hair and black-rimmed glasses, serene profile",
       "figura": "",
@@ -799,6 +781,34 @@
       "referenciaCultural": "Estética dos videoclipes de fisheye e revistas de skate da era MTV/Y2K",
       "permalink": "https://www.instagram.com/p/DclIFsAIPld/",
       "publicadoEm": "2026-08-28T10:16:30.556Z"
+    },
+    {
+      "promptBase": "A strict profile portrait of [SUBJECT] facing right, chest-up crop, shot on an 85mm lens at f/2.0. High-contrast, low-key studio lighting featuring a single sharp rim light from behind, creating a brilliant silver halo along the hair, profile, and glasses. The front of the face remains in deep shadow. Background is a solid, pitch-black seamless backdrop. Neutral white balance with desaturated color grading and deeply crushed blacks, camera at eye level.",
+      "assinatura": "A young man with messy textured hair, wearing thin-rimmed glasses, shown in sharp profile",
+      "figura": "",
+      "gancho": "O poder do contorno: como a luz de recorte transforma o retrato em pura escultura.",
+      "variacoes": [
+        "A mature woman with sharp cheekbones, a slicked-back high ponytail, and minimalist wire-rimmed glasses",
+        "A young Black man with a short, detailed buzz cut and a strong, defined jawline",
+        "An older distinguished man with a neatly trimmed beard, thick-rimmed glasses, and styled silver hair",
+        "A young woman with a sharp bob haircut, delicate features, and modern round glasses"
+      ],
+      "etiqueta": "RETRATO EM CONTRALUZ",
+      "slug": "retrato-contraluz-silhueta",
+      "saves": 63,
+      "imagemRef": "https://i.pinimg.com/originals/42/fc/5e/42fc5e394ec6c3a967a5396a6fb7453c.png",
+      "pinId": "653162752254136669",
+      "coletadoEm": "2026-08-27T14:26:42.099Z",
+      "figuras": [
+        "Tom Holland",
+        "Austin Butler",
+        "Florence Pugh",
+        "Anya Taylor-Joy",
+        "Mads Mikkelsen"
+      ],
+      "referenciaCultural": null,
+      "permalink": "https://www.instagram.com/p/DclzyIjm8-9/",
+      "publicadoEm": "2026-08-28T16:38:19.289Z"
     }
   ]
 }
