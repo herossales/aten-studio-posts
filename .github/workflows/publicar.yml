@@ -3,17 +3,17 @@ name: Carrossel diario
 on:
   schedule:
     # Horarios em UTC. BRT = UTC-3.
-    #   10:13 UTC = 07:13 BRT
-    #   14:23 UTC = 11:23 BRT
-    #   21:17 UTC = 18:17 BRT
+    #   09:32 UTC = 06:32 BRT
+    #   14:17 UTC = 11:17 BRT
+    #   20:34 UTC = 17:34 BRT
     # Minutos quebrados de proposito. O cron do Actions e melhor esforco, nao
     # garantia: no minuto cheio a fila da plataforma lota — todo mundo agenda
     # em :00 — e o run atrasa ou e simplesmente descartado, que foi o que
     # aconteceu em 27/08 com '0 21'. Fora do pico a chance cai muito.
     # Cada execucao consome 1 item da fila.
-    - cron: '13 10 * * *'
-    - cron: '23 14 * * *'
-    - cron: '17 21 * * *'
+    - cron: '32 9 * * *'
+    - cron: '17 14 * * *'
+    - cron: '34 20 * * *'
   workflow_dispatch:
     inputs:
       publicar:
