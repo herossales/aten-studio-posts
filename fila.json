@@ -43,24 +43,6 @@
   ],
   "fila": [
     {
-      "promptBase": "A chest-up portrait shot from a low angle looking upward at [SUBJECT]. The lighting is a dramatic orange-red key light from a 45-degree angle to the side, casting half the face in deep shadow. Background is a seamless, solid deep crimson-red backdrop. Shot on an 85mm lens at f/2.0 with a shallow depth of field, sharp focus on the face and glasses, soft roll-off on the shoulders of a dark wool coat. High-contrast color grading, deep saturated reds, with crushed pure blacks. The subject has a confident, serious expression with a slightly raised chin, looking directly down into the camera lens.",
-      "assinatura": "A stylish modern intellectual (a young man with short dark hair, wearing thick-rimmed circular black glasses and a tailored black overcoat)",
-      "figura": "",
-      "gancho": "Iluminação dramática e tons quentes em um retrato poderoso.",
-      "variacoes": [
-        "A young woman with a sharp bob cut, wearing round wire-frame glasses and a black turtleneck",
-        "A mature man in his 40s with a short beard, wearing classic horn-rimmed glasses and a heavy wool coat",
-        "A non-binary person with short silver hair, wearing bold black-rimmed glasses and a black blazer",
-        "An older woman with elegant gray hair, wearing stylish designer glasses and a structured black trench coat"
-      ],
-      "etiqueta": "RETRATO DRAMÁTICO",
-      "slug": "retrato-dramatico-vermelho",
-      "saves": 95,
-      "imagemRef": "https://i.pinimg.com/originals/af/a4/a2/afa4a2754f1c3745f6435d256e9b6fb4.png",
-      "pinId": "653162752254136647",
-      "coletadoEm": "2026-08-27T14:27:02.512Z"
-    },
-    {
       "promptBase": "A striking black and white studio portrait of [SUBJECT]. Illumination comes from a single hard, high-contrast key light positioned above and slightly to the right, casting sharp shadows under the brow, nose, and jawline. The background is a seamless, absolute solid black studio backdrop with zero texture. Shot with a 105mm prime lens at f/4 for crisp facial details, camera positioned at direct eye level. Tight head-and-shoulders crop. Pure monochrome grading with deeply crushed blacks, bright whites, and no color cast. The subject maintains a serious, intense expression, staring directly into the camera lens.",
       "assinatura": "Robert Pattinson, the actor (a man in his late 30s, sharp angular jawline, short buzzed dark hair, intense deep-set eyes, light stubble)",
       "figura": "Robert Pattinson",
@@ -819,6 +801,34 @@
       "referenciaCultural": null,
       "permalink": "https://www.instagram.com/p/DcmPJYek2yo/",
       "publicadoEm": "2026-08-28T20:37:25.920Z"
+    },
+    {
+      "promptBase": "A chest-up portrait shot from a low angle looking upward at [SUBJECT]. The lighting is a dramatic orange-red key light from a 45-degree angle to the side, casting half the face in deep shadow. Background is a seamless, solid deep crimson-red backdrop. Shot on an 85mm lens at f/2.0 with a shallow depth of field, sharp focus on the face and glasses, soft roll-off on the shoulders of a dark wool coat. High-contrast color grading, deep saturated reds, with crushed pure blacks. The subject has a confident, serious expression with a slightly raised chin, looking directly down into the camera lens.",
+      "assinatura": "A stylish modern intellectual (a young man with short dark hair, wearing thick-rimmed circular black glasses and a tailored black overcoat)",
+      "figura": "",
+      "gancho": "Iluminação dramática e tons quentes em um retrato poderoso.",
+      "variacoes": [
+        "A young woman with a sharp bob cut, wearing round wire-frame glasses and a black turtleneck",
+        "A mature man in his 40s with a short beard, wearing classic horn-rimmed glasses and a heavy wool coat",
+        "A non-binary person with short silver hair, wearing bold black-rimmed glasses and a black blazer",
+        "An older woman with elegant gray hair, wearing stylish designer glasses and a structured black trench coat"
+      ],
+      "etiqueta": "RETRATO DRAMÁTICO",
+      "slug": "retrato-dramatico-vermelho",
+      "saves": 95,
+      "imagemRef": "https://i.pinimg.com/originals/af/a4/a2/afa4a2754f1c3745f6435d256e9b6fb4.png",
+      "pinId": "653162752254136647",
+      "coletadoEm": "2026-08-27T14:27:02.512Z",
+      "figuras": [
+        "Robert Pattinson",
+        "Dev Patel",
+        "Ayo Edebiri",
+        "HoYeon Jung",
+        "Jeremy Allen White"
+      ],
+      "referenciaCultural": null,
+      "permalink": "https://www.instagram.com/p/DcnoNhuH6xx/",
+      "publicadoEm": "2026-08-29T09:35:41.386Z"
     }
   ]
 }
