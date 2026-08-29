@@ -43,24 +43,6 @@
   ],
   "fila": [
     {
-      "promptBase": "A striking black and white studio portrait of [SUBJECT]. Illumination comes from a single hard, high-contrast key light positioned above and slightly to the right, casting sharp shadows under the brow, nose, and jawline. The background is a seamless, absolute solid black studio backdrop with zero texture. Shot with a 105mm prime lens at f/4 for crisp facial details, camera positioned at direct eye level. Tight head-and-shoulders crop. Pure monochrome grading with deeply crushed blacks, bright whites, and no color cast. The subject maintains a serious, intense expression, staring directly into the camera lens.",
-      "assinatura": "Robert Pattinson, the actor (a man in his late 30s, sharp angular jawline, short buzzed dark hair, intense deep-set eyes, light stubble)",
-      "figura": "Robert Pattinson",
-      "gancho": "A força dramática de um retrato em preto e branco de alto contraste.",
-      "variacoes": [
-        "A brooding male actor in his late 30s with sharp features and stubble",
-        "An intense athletic woman in her early 30s with a close-cropped buzz cut",
-        "An older distinguished gentleman in his 60s with deeply lined skin",
-        "A young man in his mid-20s with a strong angular jawline and intense gaze"
-      ],
-      "etiqueta": "RETRATO NOIR",
-      "slug": "retrato-noir-alto-contraste",
-      "saves": 183,
-      "imagemRef": "https://i.pinimg.com/originals/c5/4e/19/c54e19a258534095995c740e8c9c5af2.jpg",
-      "pinId": "653162752254136677",
-      "coletadoEm": "2026-08-27T14:31:43.105Z"
-    },
-    {
       "promptBase": "An upper-body portrait, chest-up crop, shot on an 85mm lens at f/2. A [SUBJECT] stands on a subway platform. Directly behind, a silver-grey train rushes past, captured with extreme horizontal motion blur and vivid electric blue and warm orange light streaks. Cool teal-blue fluorescent overhead lighting falls from above, casting soft shadows, with a sharp blue rim light on one shoulder. Camera at eye level. Sharp focus on the subject with an introspective expression looking past the lens. Cinematic color grade, 5500K white balance with a distinct teal cast in the shadows, muted saturation, and slightly lifted deep blacks.",
       "assinatura": "A stylish urban intellectual (young adult, wavy dark hair, wearing thick-rimmed black glasses and a structured high-collar dark wool overcoat)",
       "figura": "Dev Patel",
@@ -829,6 +811,34 @@
       "referenciaCultural": null,
       "permalink": "https://www.instagram.com/p/DcnoNhuH6xx/",
       "publicadoEm": "2026-08-29T09:35:41.386Z"
+    },
+    {
+      "promptBase": "A striking black and white studio portrait of [SUBJECT]. Illumination comes from a single hard, high-contrast key light positioned above and slightly to the right, casting sharp shadows under the brow, nose, and jawline. The background is a seamless, absolute solid black studio backdrop with zero texture. Shot with a 105mm prime lens at f/4 for crisp facial details, camera positioned at direct eye level. Tight head-and-shoulders crop. Pure monochrome grading with deeply crushed blacks, bright whites, and no color cast. The subject maintains a serious, intense expression, staring directly into the camera lens.",
+      "assinatura": "Robert Pattinson, the actor (a man in his late 30s, sharp angular jawline, short buzzed dark hair, intense deep-set eyes, light stubble)",
+      "figura": "Robert Pattinson",
+      "gancho": "A força dramática de um retrato em preto e branco de alto contraste.",
+      "variacoes": [
+        "A brooding male actor in his late 30s with sharp features and stubble",
+        "An intense athletic woman in her early 30s with a close-cropped buzz cut",
+        "An older distinguished gentleman in his 60s with deeply lined skin",
+        "A young man in his mid-20s with a strong angular jawline and intense gaze"
+      ],
+      "etiqueta": "RETRATO NOIR",
+      "slug": "retrato-noir-alto-contraste",
+      "saves": 183,
+      "imagemRef": "https://i.pinimg.com/originals/c5/4e/19/c54e19a258534095995c740e8c9c5af2.jpg",
+      "pinId": "653162752254136677",
+      "coletadoEm": "2026-08-27T14:31:43.105Z",
+      "figuras": [
+        "Willem Dafoe",
+        "Mia Goth",
+        "Zoë Kravitz",
+        "Barry Keoghan",
+        "John David Washington"
+      ],
+      "referenciaCultural": "A filmografia de prestígio de Robert Pattinson, evocando a estética dramática e intimista de produções como O Farol (The Lighthouse), High Life e Batman.",
+      "permalink": "https://www.instagram.com/p/DcoIxlokmGH/",
+      "publicadoEm": "2026-08-29T14:20:13.010Z"
     }
   ]
 }
