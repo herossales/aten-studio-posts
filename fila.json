@@ -43,24 +43,6 @@
   ],
   "fila": [
     {
-      "promptBase": "An upper-body portrait, chest-up crop, shot on an 85mm lens at f/2. A [SUBJECT] stands on a subway platform. Directly behind, a silver-grey train rushes past, captured with extreme horizontal motion blur and vivid electric blue and warm orange light streaks. Cool teal-blue fluorescent overhead lighting falls from above, casting soft shadows, with a sharp blue rim light on one shoulder. Camera at eye level. Sharp focus on the subject with an introspective expression looking past the lens. Cinematic color grade, 5500K white balance with a distinct teal cast in the shadows, muted saturation, and slightly lifted deep blacks.",
-      "assinatura": "A stylish urban intellectual (young adult, wavy dark hair, wearing thick-rimmed black glasses and a structured high-collar dark wool overcoat)",
-      "figura": "Dev Patel",
-      "gancho": "A estética melancólica e dinâmica do cinema urbano moderno.",
-      "variacoes": [
-        "An East Asian woman with a sharp bob haircut, thin silver glasses, and a dark wool trench coat",
-        "An athletic Black man with short dreadlocks, tortoise-shell glasses, and a structured navy blue overcoat",
-        "A Hispanic woman with long curly dark hair, clear-framed glasses, and a charcoal grey high-collar coat",
-        "A Scandinavian man with a short blonde beard, round metal glasses, and a dark green cashmere overcoat"
-      ],
-      "etiqueta": "RETRATO CINEMATOGRÁFICO",
-      "slug": "retrato-metro-motion-blur",
-      "saves": 18,
-      "imagemRef": "https://i.pinimg.com/originals/15/85/08/158508c8d58f6d0e52f1921498d12dd1.jpg",
-      "pinId": "653162752254136701",
-      "coletadoEm": "2026-08-27T14:31:55.365Z"
-    },
-    {
       "promptBase": "A close-up portrait of a subject wearing a dark grey hoodie, captured from a low angle looking slightly up. Lit by a single hard orange-red key light from the left at 45 degrees, creating high contrast with deep shadows on the right side of the face. The background is a solid, seamless vibrant orange backdrop, softly out of focus. Photographed on an 85mm lens at f/2.2 with a shallow depth of field. Warm color grading with a highly saturated orange cast, rich black levels in the shadows, and neutral dark grey tones in the clothing. The subject has a confident, intense expression, looking directly down into the camera lens.",
       "assinatura": "a confident young man with defined facial features, dark curly hair, and light facial stubble",
       "figura": "streetwear model",
@@ -839,6 +821,34 @@
       "referenciaCultural": "A filmografia de prestígio de Robert Pattinson, evocando a estética dramática e intimista de produções como O Farol (The Lighthouse), High Life e Batman.",
       "permalink": "https://www.instagram.com/p/DcoIxlokmGH/",
       "publicadoEm": "2026-08-29T14:20:13.010Z"
+    },
+    {
+      "promptBase": "An upper-body portrait, chest-up crop, shot on an 85mm lens at f/2. A [SUBJECT] stands on a subway platform. Directly behind, a silver-grey train rushes past, captured with extreme horizontal motion blur and vivid electric blue and warm orange light streaks. Cool teal-blue fluorescent overhead lighting falls from above, casting soft shadows, with a sharp blue rim light on one shoulder. Camera at eye level. Sharp focus on the subject with an introspective expression looking past the lens. Cinematic color grade, 5500K white balance with a distinct teal cast in the shadows, muted saturation, and slightly lifted deep blacks.",
+      "assinatura": "A stylish urban intellectual (young adult, wavy dark hair, wearing thick-rimmed black glasses and a structured high-collar dark wool overcoat)",
+      "figura": "Dev Patel",
+      "gancho": "A estética melancólica e dinâmica do cinema urbano moderno.",
+      "variacoes": [
+        "An East Asian woman with a sharp bob haircut, thin silver glasses, and a dark wool trench coat",
+        "An athletic Black man with short dreadlocks, tortoise-shell glasses, and a structured navy blue overcoat",
+        "A Hispanic woman with long curly dark hair, clear-framed glasses, and a charcoal grey high-collar coat",
+        "A Scandinavian man with a short blonde beard, round metal glasses, and a dark green cashmere overcoat"
+      ],
+      "etiqueta": "RETRATO CINEMATOGRÁFICO",
+      "slug": "retrato-metro-motion-blur",
+      "saves": 18,
+      "imagemRef": "https://i.pinimg.com/originals/15/85/08/158508c8d58f6d0e52f1921498d12dd1.jpg",
+      "pinId": "653162752254136701",
+      "coletadoEm": "2026-08-27T14:31:55.365Z",
+      "figuras": [
+        "Wagner Moura",
+        "Ana de Armas",
+        "Keanu Reeves",
+        "Steven Yeun",
+        "Tessa Thompson"
+      ],
+      "referenciaCultural": null,
+      "permalink": "https://www.instagram.com/p/Dcoz8LgkRq3/",
+      "publicadoEm": "2026-08-29T20:37:24.626Z"
     }
   ]
 }
