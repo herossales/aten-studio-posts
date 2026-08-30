@@ -43,24 +43,6 @@
   ],
   "fila": [
     {
-      "promptBase": "A chest-up, 90-degree side profile portrait of [SUBJECT] facing right, camera at eye-level. Shot with an 85mm lens at f/1.8. The subject wears a dark charcoal mock-neck turtleneck. The background is a seamless, glowing lavender-to-purple gradient with soft, dreamy ambient light. Features a dramatic horizontal motion blur effect trailing to the left, creating soft purple streaks behind the subject, while the profile of the face remains sharp and clear. Soft diffused studio lighting from the right creates gentle magenta and violet highlights. Highly saturated purple color grading, with blacks lifted slightly to prevent pure blacks, giving a sleek, futuristic editorial look.",
-      "assinatura": "young man in his mid-20s, dark curly hair, short trimmed beard, neutral expression",
-      "figura": "",
-      "gancho": "Um ensaio futurista com rastro de movimento e tons neon de roxo.",
-      "variacoes": [
-        "a young East Asian woman with sharp bob-cut black hair",
-        "a mature Black man with a close-cropped beard and wire-rim glasses",
-        "a young South Asian woman with long wavy hair and minimal silver earrings",
-        "a non-binary person with short bleached-blonde hair and light freckles"
-      ],
-      "etiqueta": "RETRATO MOVEMENT BLUR",
-      "slug": "retrato-neon-motion-blur",
-      "saves": 20,
-      "imagemRef": "https://i.pinimg.com/originals/13/2d/b3/132db3e8e240d860c69c679cb2b40cdb.jpg",
-      "pinId": "653162752254136699",
-      "coletadoEm": "2026-08-27T14:32:13.876Z"
-    },
-    {
       "promptBase": "Low-angle bust-up portrait of [SUBJECT] looking away contemplatively with a raised chin. Camera positioned slightly below eye level. A hard key light projects sharp, diagonal blinds shadow patterns (gobo effect) across the subject’s face, body, and the background. The background is a dark charcoal-grey textured wall, captured with an 85mm lens at f/2 for a shallow depth of field. Color grade features a warm 4000K white balance, amber-gold highlights, muted color saturation about 30 percent below normal, and slightly lifted blacks. The subject wears a dark tailored blazer over a light grey crewneck t-shirt.",
       "assinatura": "A stylish, modern man in his early thirties with a well-groomed full beard, wearing round tinted sunglasses and a tailored dark blazer",
       "figura": "Oscar Isaac",
@@ -859,6 +841,34 @@
       "referenciaCultural": null,
       "permalink": "https://www.instagram.com/p/DcqM8haoGGC/",
       "publicadoEm": "2026-08-30T09:35:07.257Z"
+    },
+    {
+      "promptBase": "A chest-up, 90-degree side profile portrait of [SUBJECT] facing right, camera at eye-level. Shot with an 85mm lens at f/1.8. The subject wears a dark charcoal mock-neck turtleneck. The background is a seamless, glowing lavender-to-purple gradient with soft, dreamy ambient light. Features a dramatic horizontal motion blur effect trailing to the left, creating soft purple streaks behind the subject, while the profile of the face remains sharp and clear. Soft diffused studio lighting from the right creates gentle magenta and violet highlights. Highly saturated purple color grading, with blacks lifted slightly to prevent pure blacks, giving a sleek, futuristic editorial look.",
+      "assinatura": "young man in his mid-20s, dark curly hair, short trimmed beard, neutral expression",
+      "figura": "",
+      "gancho": "Um ensaio futurista com rastro de movimento e tons neon de roxo.",
+      "variacoes": [
+        "a young East Asian woman with sharp bob-cut black hair",
+        "a mature Black man with a close-cropped beard and wire-rim glasses",
+        "a young South Asian woman with long wavy hair and minimal silver earrings",
+        "a non-binary person with short bleached-blonde hair and light freckles"
+      ],
+      "etiqueta": "RETRATO MOVEMENT BLUR",
+      "slug": "retrato-neon-motion-blur",
+      "saves": 20,
+      "imagemRef": "https://i.pinimg.com/originals/13/2d/b3/132db3e8e240d860c69c679cb2b40cdb.jpg",
+      "pinId": "653162752254136699",
+      "coletadoEm": "2026-08-27T14:32:13.876Z",
+      "figuras": [
+        "Zendaya",
+        "Hunter Schafer",
+        "Zayn Malik",
+        "Jungkook",
+        "Rihanna"
+      ],
+      "referenciaCultural": "Estética de neon roxo e rastro de movimento da série Euphoria",
+      "permalink": "https://www.instagram.com/p/DcqtoMIiQmg/",
+      "publicadoEm": "2026-08-30T14:20:42.167Z"
     }
   ]
 }
