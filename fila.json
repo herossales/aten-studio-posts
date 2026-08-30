@@ -43,24 +43,6 @@
   ],
   "fila": [
     {
-      "promptBase": "A close-up portrait of a subject wearing a dark grey hoodie, captured from a low angle looking slightly up. Lit by a single hard orange-red key light from the left at 45 degrees, creating high contrast with deep shadows on the right side of the face. The background is a solid, seamless vibrant orange backdrop, softly out of focus. Photographed on an 85mm lens at f/2.2 with a shallow depth of field. Warm color grading with a highly saturated orange cast, rich black levels in the shadows, and neutral dark grey tones in the clothing. The subject has a confident, intense expression, looking directly down into the camera lens.",
-      "assinatura": "a confident young man with defined facial features, dark curly hair, and light facial stubble",
-      "figura": "streetwear model",
-      "gancho": "Iluminação dramática e tons quentes para retratos marcantes e cheios de atitude.",
-      "variacoes": [
-        "a young athletic woman with short bleached blonde hair and sharp jawline, wearing a black crewneck sweatshirt",
-        "a mid-20s East Asian man with sharp features and messy black hair, wearing a dark olive green hoodie",
-        "a young Black woman with long braids and a confident expression, wearing a charcoal grey zip-up hoodie",
-        "a young man with defined features, a buzzcut, and light stubble, wearing a dark navy blue hoodie"
-      ],
-      "etiqueta": "RETRATO STUDIO AMBER",
-      "slug": "retrato-studio-amber",
-      "saves": 24,
-      "imagemRef": "https://i.pinimg.com/originals/e1/79/b1/e179b1b157c7cd8b258763668dc10b13.jpg",
-      "pinId": "653162752254136650",
-      "coletadoEm": "2026-08-27T14:32:04.778Z"
-    },
-    {
       "promptBase": "A chest-up, 90-degree side profile portrait of [SUBJECT] facing right, camera at eye-level. Shot with an 85mm lens at f/1.8. The subject wears a dark charcoal mock-neck turtleneck. The background is a seamless, glowing lavender-to-purple gradient with soft, dreamy ambient light. Features a dramatic horizontal motion blur effect trailing to the left, creating soft purple streaks behind the subject, while the profile of the face remains sharp and clear. Soft diffused studio lighting from the right creates gentle magenta and violet highlights. Highly saturated purple color grading, with blacks lifted slightly to prevent pure blacks, giving a sleek, futuristic editorial look.",
       "assinatura": "young man in his mid-20s, dark curly hair, short trimmed beard, neutral expression",
       "figura": "",
@@ -849,6 +831,34 @@
       "referenciaCultural": null,
       "permalink": "https://www.instagram.com/p/Dcoz8LgkRq3/",
       "publicadoEm": "2026-08-29T20:37:24.626Z"
+    },
+    {
+      "promptBase": "A close-up portrait of a subject wearing a dark grey hoodie, captured from a low angle looking slightly up. Lit by a single hard orange-red key light from the left at 45 degrees, creating high contrast with deep shadows on the right side of the face. The background is a solid, seamless vibrant orange backdrop, softly out of focus. Photographed on an 85mm lens at f/2.2 with a shallow depth of field. Warm color grading with a highly saturated orange cast, rich black levels in the shadows, and neutral dark grey tones in the clothing. The subject has a confident, intense expression, looking directly down into the camera lens.",
+      "assinatura": "a confident young man with defined facial features, dark curly hair, and light facial stubble",
+      "figura": "streetwear model",
+      "gancho": "Iluminação dramática e tons quentes para retratos marcantes e cheios de atitude.",
+      "variacoes": [
+        "a young athletic woman with short bleached blonde hair and sharp jawline, wearing a black crewneck sweatshirt",
+        "a mid-20s East Asian man with sharp features and messy black hair, wearing a dark olive green hoodie",
+        "a young Black woman with long braids and a confident expression, wearing a charcoal grey zip-up hoodie",
+        "a young man with defined features, a buzzcut, and light stubble, wearing a dark navy blue hoodie"
+      ],
+      "etiqueta": "RETRATO STUDIO AMBER",
+      "slug": "retrato-studio-amber",
+      "saves": 24,
+      "imagemRef": "https://i.pinimg.com/originals/e1/79/b1/e179b1b157c7cd8b258763668dc10b13.jpg",
+      "pinId": "653162752254136650",
+      "coletadoEm": "2026-08-27T14:32:04.778Z",
+      "figuras": [
+        "The Weeknd",
+        "Taylor Swift",
+        "Kendrick Lamar",
+        "Chappell Roan",
+        "Rosalía"
+      ],
+      "referenciaCultural": null,
+      "permalink": "https://www.instagram.com/p/DcqM8haoGGC/",
+      "publicadoEm": "2026-08-30T09:35:07.257Z"
     }
   ]
 }
