@@ -43,24 +43,6 @@
   ],
   "fila": [
     {
-      "promptBase": "Low-angle bust-up portrait of [SUBJECT] looking away contemplatively with a raised chin. Camera positioned slightly below eye level. A hard key light projects sharp, diagonal blinds shadow patterns (gobo effect) across the subject’s face, body, and the background. The background is a dark charcoal-grey textured wall, captured with an 85mm lens at f/2 for a shallow depth of field. Color grade features a warm 4000K white balance, amber-gold highlights, muted color saturation about 30 percent below normal, and slightly lifted blacks. The subject wears a dark tailored blazer over a light grey crewneck t-shirt.",
-      "assinatura": "A stylish, modern man in his early thirties with a well-groomed full beard, wearing round tinted sunglasses and a tailored dark blazer",
-      "figura": "Oscar Isaac",
-      "gancho": "A dramaticidade das sombras transforma um retrato simples em cena de cinema.",
-      "variacoes": [
-        "a stylish woman in her early thirties, sharp bob haircut, wearing a tailored dark blazer and round tinted glasses",
-        "a mature man in his late forties with salt-and-pepper hair, sharp jawline, wearing a dark blazer",
-        "an elegant East Asian man in his late twenties, minimal wire-rimmed glasses, wearing a dark unstructured blazer",
-        "a Black woman with close-cropped hair, wearing a structured dark blazer and gold statement earrings"
-      ],
-      "etiqueta": "RETRATO CINEMATOGRÁFICO",
-      "slug": "retrato-sombras-gobo",
-      "saves": 60,
-      "imagemRef": "https://i.pinimg.com/originals/a9/35/35/a93535ceac239c30ed57731e82bb6862.png",
-      "pinId": "653162752254136654",
-      "coletadoEm": "2026-08-27T16:24:18.921Z"
-    },
-    {
       "promptBase": "Chest-up studio portrait at eye level. Intense golden-white rim lighting from behind creates a bright halo contour on the dark hair and shoulders. A soft, dim key light from the front-left subtly illuminates the face, maintaining deep shadows on the right. Dark textured charcoal backdrop. Shot on 85mm lens at f/1.8, shallow depth of field. Neutral white balance, high contrast, deep blacks. The subject has a serious, intense expression looking directly at the camera.",
       "assinatura": "Anne Hathaway, the actress (a woman in her late thirties with pale skin, long dark wavy hair, large dark brown eyes, and elegant facial features)",
       "figura": "Anne Hathaway",
@@ -869,6 +851,34 @@
       "referenciaCultural": "Estética de neon roxo e rastro de movimento da série Euphoria",
       "permalink": "https://www.instagram.com/p/DcqtoMIiQmg/",
       "publicadoEm": "2026-08-30T14:20:42.167Z"
+    },
+    {
+      "promptBase": "Low-angle bust-up portrait of [SUBJECT] looking away contemplatively with a raised chin. Camera positioned slightly below eye level. A hard key light projects sharp, diagonal blinds shadow patterns (gobo effect) across the subject’s face, body, and the background. The background is a dark charcoal-grey textured wall, captured with an 85mm lens at f/2 for a shallow depth of field. Color grade features a warm 4000K white balance, amber-gold highlights, muted color saturation about 30 percent below normal, and slightly lifted blacks. The subject wears a dark tailored blazer over a light grey crewneck t-shirt.",
+      "assinatura": "A stylish, modern man in his early thirties with a well-groomed full beard, wearing round tinted sunglasses and a tailored dark blazer",
+      "figura": "Oscar Isaac",
+      "gancho": "A dramaticidade das sombras transforma um retrato simples em cena de cinema.",
+      "variacoes": [
+        "a stylish woman in her early thirties, sharp bob haircut, wearing a tailored dark blazer and round tinted glasses",
+        "a mature man in his late forties with salt-and-pepper hair, sharp jawline, wearing a dark blazer",
+        "an elegant East Asian man in his late twenties, minimal wire-rimmed glasses, wearing a dark unstructured blazer",
+        "a Black woman with close-cropped hair, wearing a structured dark blazer and gold statement earrings"
+      ],
+      "etiqueta": "RETRATO CINEMATOGRÁFICO",
+      "slug": "retrato-sombras-gobo",
+      "saves": 60,
+      "imagemRef": "https://i.pinimg.com/originals/a9/35/35/a93535ceac239c30ed57731e82bb6862.png",
+      "pinId": "653162752254136654",
+      "coletadoEm": "2026-08-27T16:24:18.921Z",
+      "figuras": [
+        "Cillian Murphy",
+        "Margot Robbie",
+        "Daniel Kaluuya",
+        "Jenna Ortega",
+        "Pedro Pascal"
+      ],
+      "referenciaCultural": null,
+      "permalink": "https://www.instagram.com/p/DcrYxq3IOoo/",
+      "publicadoEm": "2026-08-30T20:37:45.373Z"
     }
   ]
 }
