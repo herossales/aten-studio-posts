@@ -39,7 +39,9 @@
     "653162752254139335",
     "653162752254139269",
     "653162752254139322",
-    "653162752254139328"
+    "653162752254139328",
+    "653162752254139680",
+    "653162752254139677"
   ],
   "fila": [
     {
@@ -491,6 +493,42 @@
       "imagemRef": "https://i.pinimg.com/originals/75/5d/f1/755df133d41b78c3ca988eb5e8c03264.jpg",
       "pinId": "653162752254139328",
       "coletadoEm": "2026-08-27T16:52:51.879Z"
+    },
+    {
+      "promptBase": "A chest-up portrait at eye level of [SUBJECT]. Shot on an 85mm lens at f/1.4, creating an extremely shallow depth of field. Soft diffuse key light from front-left at 45 degrees, with a warm orange edge-light flare illuminating the left side of the face. Highly blurred background of a creative studio featuring a monitor with glowing vertical retro graphics in teal and orange, and a shelf with colorful art above. Color balance around 5800K, with subtle teal undertones in the lifted, matte shadows. Serious and confident expression, looking directly into the lens.",
+      "assinatura": "A young creative professional in his late 20s, light brown skin, short curly black hair, wearing round tortoiseshell glasses, a thin mustache, and short stubble",
+      "figura": "",
+      "gancho": "Como recriar o retrato profissional definitivo para a comunidade tech e criativa.",
+      "variacoes": [
+        "a woman in her early 30s, sharp dark bob haircut, silver-framed glasses, wearing a dark grey t-shirt",
+        "a man in his mid 30s with dreadlocks tied back, wire-rimmed glasses, wearing a black crewneck sweater",
+        "a non-binary person in their mid 20s, short dyed platinum hair, clear acetate glasses, wearing a black t-shirt",
+        "a woman in her late 20s with curly dark hair, gold round glasses, wearing a dark navy t-shirt"
+      ],
+      "etiqueta": "RETRATO TECH",
+      "slug": "retrato-estudio-tech-criativo",
+      "saves": 13,
+      "imagemRef": "https://i.pinimg.com/originals/0d/30/72/0d3072e6115f6080b022d6279419b832.jpg",
+      "pinId": "653162752254139680",
+      "coletadoEm": "2026-08-31T19:13:39.649Z"
+    },
+    {
+      "promptBase": "A chest-up studio portrait of [SUBJECT] at eye level, captured in a sharp side-profile. The subject has a calm, composed expression, adjusting the collar of their formal suit with one hand. Lit by a dual-tone setup: a soft white key light illuminating the front of the face, and an intense deep blue rim light defining the hair and shoulder. The background is a clean, seamless gradient backdrop fading from deep royal blue to pale icy blue, completely out of focus. Shot on an 85mm lens at f/2.8. Cool white balance at 6500K, with a strong blue cast in the shadows, rich saturation, and slightly lifted blacks.",
+      "assinatura": "A stylish young man with well-groomed facial hair, curly hair, and sleek rimless sunglasses",
+      "figura": "Luxury fashion model",
+      "gancho": "O estilo moderno encontra o mistério em um retrato minimalista de estúdio.",
+      "variacoes": [
+        "a sleek young woman with short cropped hair and geometric silver earrings wearing a tailored black blazer",
+        "a handsome East Asian man with a sharp jawline wearing rimless glasses and a charcoal grey suit",
+        "a stylish Latin American woman with slicked-back hair wearing a sharp navy blue blazer",
+        "a suave Black man with a neatly trimmed beard wearing a tailored dark suit"
+      ],
+      "etiqueta": "RETRATO EDITORIAL AZUL",
+      "slug": "retrato-editorial-azul-studio",
+      "saves": 0,
+      "imagemRef": "https://i.pinimg.com/originals/b6/d9/85/b6d985f7b61fa326f6389caf82cd87c2.jpg",
+      "pinId": "653162752254139677",
+      "coletadoEm": "2026-08-31T19:13:51.081Z"
     }
   ],
   "publicados": [
