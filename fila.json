@@ -45,24 +45,6 @@
   ],
   "fila": [
     {
-      "promptBase": "A chest-up portrait shot from a slightly low angle. The [SUBJECT] is looking up and away with a contemplative, serene expression. Illumination comes from a single hard key light at a high 45-degree side angle, casting sharp, dramatic diagonal geometric shadows across the subject's face and the solid terracotta-orange background two meters behind. Shot on an 85mm lens at f/2.8, capturing crisp details and skin texture. The color grading features a neutral white balance, highly saturated orange background, and rich, deep blacks. The subject wears a black ribbed turtleneck under a dark navy structured blazer.",
-      "assinatura": "A stylish, intellectual individual with a sharp, modern fashion sense.",
-      "figura": "Dev Patel",
-      "gancho": "Luz dura e sombras geométricas: o segredo do retrato minimalista de alto impacto.",
-      "variacoes": [
-        "a South Asian man in his late 20s with a neatly trimmed beard, wearing round wire-rimmed glasses",
-        "a East Asian woman in her early 30s with sharp cheekbones and short bob hair, wearing minimalist gold earrings",
-        "a Black man in his 30s with a short buzzcut and a strong jawline, wearing thick-framed black glasses",
-        "a Caucasian woman in her late 20s with freckles and wavy brown hair, wearing tortoiseshell glasses"
-      ],
-      "etiqueta": "RETRATO EDITORIAL",
-      "slug": "retrato-editorial-sombra-geometrica",
-      "saves": 103,
-      "imagemRef": "https://i.pinimg.com/originals/3d/0e/5d/3d0e5de3063a03ec6c251cacda73ac26.jpg",
-      "pinId": "653162752254136725",
-      "coletadoEm": "2026-08-27T16:24:48.900Z"
-    },
-    {
       "promptBase": "A chest-up portrait of [SUBJECT] wearing a dark tailored blazer over a dark shirt, looking upwards and slightly to the right with a contemplative expression. The sharp, central subject is flanked by two softly blurred, horizontally smeared duplicate silhouettes of his own face on both sides, creating a cinematic triple-exposure effect. Illuminated by a strong, warm golden-orange rim light highlighting the hair and shoulders, with a soft key light on the front of the face. Set against a solid deep red studio backdrop, fading to black at the edges. Shot on an 85mm lens at f/1.4, camera at eye level, with an extremely shallow depth of field. High-contrast color grading with rich, saturated reds, warm golden highlights, and crushed deep blacks.",
       "assinatura": "Chris Evans, athletic man in his late 30s, short dark brown hair, groomed beard, strong jawline",
       "figura": "Chris Evans",
@@ -937,6 +919,34 @@
       "referenciaCultural": "Universo de Spider-Man / Homem-Aranha (coestrelas de Andrew Garfield)",
       "permalink": "https://www.instagram.com/p/DctSc7hkwwk/",
       "publicadoEm": "2026-08-31T14:20:58.206Z"
+    },
+    {
+      "promptBase": "A chest-up portrait shot from a slightly low angle. The [SUBJECT] is looking up and away with a contemplative, serene expression. Illumination comes from a single hard key light at a high 45-degree side angle, casting sharp, dramatic diagonal geometric shadows across the subject's face and the solid terracotta-orange background two meters behind. Shot on an 85mm lens at f/2.8, capturing crisp details and skin texture. The color grading features a neutral white balance, highly saturated orange background, and rich, deep blacks. The subject wears a black ribbed turtleneck under a dark navy structured blazer.",
+      "assinatura": "A stylish, intellectual individual with a sharp, modern fashion sense.",
+      "figura": "Dev Patel",
+      "gancho": "Luz dura e sombras geométricas: o segredo do retrato minimalista de alto impacto.",
+      "variacoes": [
+        "a South Asian man in his late 20s with a neatly trimmed beard, wearing round wire-rimmed glasses",
+        "a East Asian woman in her early 30s with sharp cheekbones and short bob hair, wearing minimalist gold earrings",
+        "a Black man in his 30s with a short buzzcut and a strong jawline, wearing thick-framed black glasses",
+        "a Caucasian woman in her late 20s with freckles and wavy brown hair, wearing tortoiseshell glasses"
+      ],
+      "etiqueta": "RETRATO EDITORIAL",
+      "slug": "retrato-editorial-sombra-geometrica",
+      "saves": 103,
+      "imagemRef": "https://i.pinimg.com/originals/3d/0e/5d/3d0e5de3063a03ec6c251cacda73ac26.jpg",
+      "pinId": "653162752254136725",
+      "coletadoEm": "2026-08-27T16:24:48.900Z",
+      "figuras": [
+        "Austin Butler",
+        "Oscar Isaac",
+        "Florence Pugh",
+        "Jacob Elordi",
+        "Lupita Nyong'o"
+      ],
+      "referenciaCultural": null,
+      "permalink": "https://www.instagram.com/p/Dct9iZgmogF/",
+      "publicadoEm": "2026-08-31T20:37:28.858Z"
     }
   ]
 }
