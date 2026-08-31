@@ -43,24 +43,6 @@
   ],
   "fila": [
     {
-      "promptBase": "Chest-up studio portrait at eye level. Intense golden-white rim lighting from behind creates a bright halo contour on the dark hair and shoulders. A soft, dim key light from the front-left subtly illuminates the face, maintaining deep shadows on the right. Dark textured charcoal backdrop. Shot on 85mm lens at f/1.8, shallow depth of field. Neutral white balance, high contrast, deep blacks. The subject has a serious, intense expression looking directly at the camera.",
-      "assinatura": "Anne Hathaway, the actress (a woman in her late thirties with pale skin, long dark wavy hair, large dark brown eyes, and elegant facial features)",
-      "figura": "Anne Hathaway",
-      "gancho": "Estúdio clássico com contraluz dramático e silhueta desenhada.",
-      "variacoes": [
-        "Angelina Jolie (a woman in her late forties, sharp jawline, high cheekbones, long dark hair)",
-        "Natalie Portman (a woman in her early forties, petite features, dark brown eyes, brunette hair)",
-        "Winona Ryder (a woman in her early fifties, expressive dark eyes, short dark hair)",
-        "Keira Knightley (a woman in her late thirties, defined cheekbones, warm brown eyes, wavy brown hair)"
-      ],
-      "etiqueta": "RETRATO CINEMATOGRÁFICO",
-      "slug": "retrato-estudio-rim-light",
-      "saves": 18,
-      "imagemRef": "https://i.pinimg.com/originals/0d/32/13/0d32135c1dd350a6fe9472ba3bdf769f.jpg",
-      "pinId": "653162752254136733",
-      "coletadoEm": "2026-08-27T16:24:27.993Z"
-    },
-    {
       "promptBase": "A close-up studio portrait of [SUBJECT], camera at eye level. Intense, sharp rim lighting from directly behind creates a bright, glowing outline around the hair and shoulders. A soft, diffuse key light from the front-left at 45 degrees illuminates the face, casting soft shadows on the opposite side. The background is a solid charcoal grey seamless backdrop, dark and out of focus. Shot with an 85mm lens at f/1.8, creating a shallow depth of field with sharp eyes and softly blurred ears. Neutral white balance with realistic, natural skin tones and normal color saturation. Deep, rich blacks anchor the low-key, moody composition. Direct, calm eye contact.",
       "assinatura": "Andrew Garfield, the actor (a man in his late 30s, wavy thick brown hair, short neat beard, expressive brown eyes)",
       "figura": "Andrew Garfield",
@@ -879,6 +861,34 @@
       "referenciaCultural": null,
       "permalink": "https://www.instagram.com/p/DcrYxq3IOoo/",
       "publicadoEm": "2026-08-30T20:37:45.373Z"
+    },
+    {
+      "promptBase": "Chest-up studio portrait at eye level. Intense golden-white rim lighting from behind creates a bright halo contour on the dark hair and shoulders. A soft, dim key light from the front-left subtly illuminates the face, maintaining deep shadows on the right. Dark textured charcoal backdrop. Shot on 85mm lens at f/1.8, shallow depth of field. Neutral white balance, high contrast, deep blacks. The subject has a serious, intense expression looking directly at the camera.",
+      "assinatura": "Anne Hathaway, the actress (a woman in her late thirties with pale skin, long dark wavy hair, large dark brown eyes, and elegant facial features)",
+      "figura": "Anne Hathaway",
+      "gancho": "Estúdio clássico com contraluz dramático e silhueta desenhada.",
+      "variacoes": [
+        "Angelina Jolie (a woman in her late forties, sharp jawline, high cheekbones, long dark hair)",
+        "Natalie Portman (a woman in her early forties, petite features, dark brown eyes, brunette hair)",
+        "Winona Ryder (a woman in her early fifties, expressive dark eyes, short dark hair)",
+        "Keira Knightley (a woman in her late thirties, defined cheekbones, warm brown eyes, wavy brown hair)"
+      ],
+      "etiqueta": "RETRATO CINEMATOGRÁFICO",
+      "slug": "retrato-estudio-rim-light",
+      "saves": 18,
+      "imagemRef": "https://i.pinimg.com/originals/0d/32/13/0d32135c1dd350a6fe9472ba3bdf769f.jpg",
+      "pinId": "653162752254136733",
+      "coletadoEm": "2026-08-27T16:24:27.993Z",
+      "figuras": [
+        "Idris Elba",
+        "Jessica Chastain",
+        "Timothée Chalamet",
+        "Gemma Chan",
+        "Ryan Gosling"
+      ],
+      "referenciaCultural": "Retrato clássico de estúdio de Anne Hathaway no estilo de fotografia editorial com luz de contra (rim light)",
+      "permalink": "https://www.instagram.com/p/DcsxxJAoOVR/",
+      "publicadoEm": "2026-08-31T09:35:24.057Z"
     }
   ]
 }
