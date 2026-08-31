@@ -43,24 +43,6 @@
   ],
   "fila": [
     {
-      "promptBase": "A close-up studio portrait of [SUBJECT], camera at eye level. Intense, sharp rim lighting from directly behind creates a bright, glowing outline around the hair and shoulders. A soft, diffuse key light from the front-left at 45 degrees illuminates the face, casting soft shadows on the opposite side. The background is a solid charcoal grey seamless backdrop, dark and out of focus. Shot with an 85mm lens at f/1.8, creating a shallow depth of field with sharp eyes and softly blurred ears. Neutral white balance with realistic, natural skin tones and normal color saturation. Deep, rich blacks anchor the low-key, moody composition. Direct, calm eye contact.",
-      "assinatura": "Andrew Garfield, the actor (a man in his late 30s, wavy thick brown hair, short neat beard, expressive brown eyes)",
-      "figura": "Andrew Garfield",
-      "gancho": "Iluminação dramática de estúdio com contorno de luz perfeito.",
-      "variacoes": [
-        "a middle-aged woman with a sharp jawline, short silver hair, and piercing blue eyes",
-        "a young Black man with sharp features, a short buzzcut, and intense dark brown eyes",
-        "an East Asian woman in her late 20s with long dark straight hair and a thoughtful gaze",
-        "a mature man in his 50s with weathered features, a salt-and-pepper beard, and deep-set grey eyes"
-      ],
-      "etiqueta": "RETRATO COM CONTRALUZ",
-      "slug": "retrato-cinematico-contraluz",
-      "saves": 53,
-      "imagemRef": "https://i.pinimg.com/originals/fb/89/9e/fb899e13a5cb14d4ff9f1f5a8e9d5dc3.jpg",
-      "pinId": "653162752254136686",
-      "coletadoEm": "2026-08-27T16:24:38.837Z"
-    },
-    {
       "promptBase": "A chest-up portrait shot from a slightly low angle. The [SUBJECT] is looking up and away with a contemplative, serene expression. Illumination comes from a single hard key light at a high 45-degree side angle, casting sharp, dramatic diagonal geometric shadows across the subject's face and the solid terracotta-orange background two meters behind. Shot on an 85mm lens at f/2.8, capturing crisp details and skin texture. The color grading features a neutral white balance, highly saturated orange background, and rich, deep blacks. The subject wears a black ribbed turtleneck under a dark navy structured blazer.",
       "assinatura": "A stylish, intellectual individual with a sharp, modern fashion sense.",
       "figura": "Dev Patel",
@@ -889,6 +871,34 @@
       "referenciaCultural": "Retrato clássico de estúdio de Anne Hathaway no estilo de fotografia editorial com luz de contra (rim light)",
       "permalink": "https://www.instagram.com/p/DcsxxJAoOVR/",
       "publicadoEm": "2026-08-31T09:35:24.057Z"
+    },
+    {
+      "promptBase": "A close-up studio portrait of [SUBJECT], camera at eye level. Intense, sharp rim lighting from directly behind creates a bright, glowing outline around the hair and shoulders. A soft, diffuse key light from the front-left at 45 degrees illuminates the face, casting soft shadows on the opposite side. The background is a solid charcoal grey seamless backdrop, dark and out of focus. Shot with an 85mm lens at f/1.8, creating a shallow depth of field with sharp eyes and softly blurred ears. Neutral white balance with realistic, natural skin tones and normal color saturation. Deep, rich blacks anchor the low-key, moody composition. Direct, calm eye contact.",
+      "assinatura": "Andrew Garfield, the actor (a man in his late 30s, wavy thick brown hair, short neat beard, expressive brown eyes)",
+      "figura": "Andrew Garfield",
+      "gancho": "Iluminação dramática de estúdio com contorno de luz perfeito.",
+      "variacoes": [
+        "a middle-aged woman with a sharp jawline, short silver hair, and piercing blue eyes",
+        "a young Black man with sharp features, a short buzzcut, and intense dark brown eyes",
+        "an East Asian woman in her late 20s with long dark straight hair and a thoughtful gaze",
+        "a mature man in his 50s with weathered features, a salt-and-pepper beard, and deep-set grey eyes"
+      ],
+      "etiqueta": "RETRATO COM CONTRALUZ",
+      "slug": "retrato-cinematico-contraluz",
+      "saves": 53,
+      "imagemRef": "https://i.pinimg.com/originals/fb/89/9e/fb899e13a5cb14d4ff9f1f5a8e9d5dc3.jpg",
+      "pinId": "653162752254136686",
+      "coletadoEm": "2026-08-27T16:24:38.837Z",
+      "figuras": [
+        "Tom Holland",
+        "Emma Stone",
+        "Jamie Foxx",
+        "Benedict Cumberbatch",
+        "Marisa Tomei"
+      ],
+      "referenciaCultural": "Universo de Spider-Man / Homem-Aranha (coestrelas de Andrew Garfield)",
+      "permalink": "https://www.instagram.com/p/DctSc7hkwwk/",
+      "publicadoEm": "2026-08-31T14:20:58.206Z"
     }
   ]
 }
