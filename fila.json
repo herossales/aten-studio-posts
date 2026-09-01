@@ -45,24 +45,6 @@
   ],
   "fila": [
     {
-      "promptBase": "Low-angle, chest-up studio portrait. Hard key light from 45 degrees left, casting deep shadows on the face, with a subtle warm orange rim light on the neck and shoulders. Background is a vibrant red-and-orange smoky gradient backdrop, highly blurred. 85mm lens at f/1.8. Saturated warm color palette, neutral skin tones under intense orange directional glow, high contrast with deep blacks. The subject has a serious, intense expression, looking slightly upward.",
-      "assinatura": "A rugged man in his late 30s with short light brown hair, sharp blue eyes, and light stubble",
-      "figura": "Paul Walker",
-      "gancho": "Estilo editorial dramático com fundo vibrante e iluminação de alto contraste.",
-      "variacoes": [
-        "Chris Hemsworth, the actor (a muscular man in his late 30s, rugged features, short blonde hair, blue eyes, light stubble)",
-        "Michael B. Jordan, the actor (a handsome man in his mid 30s, short black hair, neat fade, expressive dark eyes, athletic build)",
-        "Oscar Isaac, the actor (a man in his early 40s, wavy dark hair, expressive dark brown eyes, rugged salt-and-pepper stubble)",
-        "Henry Cavill, the actor (a man in his late 30s, sharp jawline, dark hair, blue eyes, clean-shaven)"
-      ],
-      "etiqueta": "RETRATO EDITORIAL DRAMÁTICO",
-      "slug": "retrato-editorial-dramatico",
-      "saves": 46,
-      "imagemRef": "https://i.pinimg.com/originals/d6/da/27/d6da27ed549a1caa87906dcd52256258.png",
-      "pinId": "653162752254136700",
-      "coletadoEm": "2026-08-27T16:25:17.447Z"
-    },
-    {
       "promptBase": "A chest-up portrait of a young man with glasses and a dark navy jacket centered at eye level, holding a vintage silver rangefinder camera up to his face. Direct, calm eye contact. The lighting is a single high-contrast key light from 45 degrees, casting sharp, dramatic shadows on the face and camera. The background is a dense, dark crowd rendered with intense horizontal motion-blur, creating a strong zoom effect. Shot on an 85mm lens at f/1.4 with ultra-shallow depth of field. Color grading is neutral white balance, no color cast, with desaturated earthy and navy tones in the background, deep crushed blacks, and high contrast. Sharp focus is locked onto the subject's face and camera.",
       "assinatura": "A young urban photographer with short dark hair, glasses, and a calm expression",
       "figura": "",
@@ -957,6 +939,34 @@
       "referenciaCultural": "Universo Cinematográfico da Marvel (MCU)",
       "permalink": "https://www.instagram.com/p/DcvWiEyIDu-/",
       "publicadoEm": "2026-09-01T09:35:03.972Z"
+    },
+    {
+      "promptBase": "Low-angle, chest-up studio portrait. Hard key light from 45 degrees left, casting deep shadows on the face, with a subtle warm orange rim light on the neck and shoulders. Background is a vibrant red-and-orange smoky gradient backdrop, highly blurred. 85mm lens at f/1.8. Saturated warm color palette, neutral skin tones under intense orange directional glow, high contrast with deep blacks. The subject has a serious, intense expression, looking slightly upward.",
+      "assinatura": "A rugged man in his late 30s with short light brown hair, sharp blue eyes, and light stubble",
+      "figura": "Paul Walker",
+      "gancho": "Estilo editorial dramático com fundo vibrante e iluminação de alto contraste.",
+      "variacoes": [
+        "Chris Hemsworth, the actor (a muscular man in his late 30s, rugged features, short blonde hair, blue eyes, light stubble)",
+        "Michael B. Jordan, the actor (a handsome man in his mid 30s, short black hair, neat fade, expressive dark eyes, athletic build)",
+        "Oscar Isaac, the actor (a man in his early 40s, wavy dark hair, expressive dark brown eyes, rugged salt-and-pepper stubble)",
+        "Henry Cavill, the actor (a man in his late 30s, sharp jawline, dark hair, blue eyes, clean-shaven)"
+      ],
+      "etiqueta": "RETRATO EDITORIAL DRAMÁTICO",
+      "slug": "retrato-editorial-dramatico",
+      "saves": 46,
+      "imagemRef": "https://i.pinimg.com/originals/d6/da/27/d6da27ed549a1caa87906dcd52256258.png",
+      "pinId": "653162752254136700",
+      "coletadoEm": "2026-08-27T16:25:17.447Z",
+      "figuras": [
+        "Vin Diesel",
+        "Michelle Rodriguez",
+        "Sung Kang",
+        "Charlize Theron",
+        "Tyrese Gibson"
+      ],
+      "referenciaCultural": "Velozes e Furiosos (Fast & Furious)",
+      "permalink": "https://www.instagram.com/p/Dcv3Xh_FIQ0/",
+      "publicadoEm": "2026-09-01T14:21:59.346Z"
     }
   ]
 }
