@@ -45,24 +45,6 @@
   ],
   "fila": [
     {
-      "promptBase": "A chest-up portrait of a young man with glasses and a dark navy jacket centered at eye level, holding a vintage silver rangefinder camera up to his face. Direct, calm eye contact. The lighting is a single high-contrast key light from 45 degrees, casting sharp, dramatic shadows on the face and camera. The background is a dense, dark crowd rendered with intense horizontal motion-blur, creating a strong zoom effect. Shot on an 85mm lens at f/1.4 with ultra-shallow depth of field. Color grading is neutral white balance, no color cast, with desaturated earthy and navy tones in the background, deep crushed blacks, and high contrast. Sharp focus is locked onto the subject's face and camera.",
-      "assinatura": "A young urban photographer with short dark hair, glasses, and a calm expression",
-      "figura": "",
-      "gancho": "Foco absoluto em meio ao caos urbano.",
-      "variacoes": [
-        "a young woman with curly red hair, wearing a dark olive jacket",
-        "an older man with a grey beard and wire-rimmed glasses, wearing a black wool coat",
-        "a young East Asian woman with a sharp bob haircut, wearing a dark grey trench coat",
-        "a middle-aged man with short cropped hair, wearing a black leather jacket"
-      ],
-      "etiqueta": "Retrato de Rua",
-      "slug": "foco-no-caos-urbano",
-      "saves": 40,
-      "imagemRef": "https://i.pinimg.com/originals/77/33/9e/77339edc3e5dcd716edcc390b99860a0.png",
-      "pinId": "653162752254136732",
-      "coletadoEm": "2026-08-27T16:25:40.549Z"
-    },
-    {
       "promptBase": "An extreme macro close-up portrait of [SUBJECT]'s face, focusing tightly on one eye and the adjacent cheek. Captured with a 100mm macro lens at f/2.8, creating an ultra-shallow depth of field where the iris and skin pores are in razor-sharp focus, while the nose and outer face fall into a soft blur. Camera positioned directly at eye level. Lighting is a single diffused soft key light from a 45-degree side angle, casting gentle shadows that define skin texture. Neutral white balance at 5500K, with slightly muted saturation 20 percent below normal. Blacks are lifted slightly. The skin shows raw, unretouched texture with visible pores and fine lines. Piercing, neutral gaze directly into the lens.",
       "assinatura": "A man in his late 30s with piercing ice-blue eyes, sharp bone structure, and highly textured pale skin",
       "figura": "Cillian Murphy",
@@ -967,6 +949,34 @@
       "referenciaCultural": "Velozes e Furiosos (Fast & Furious)",
       "permalink": "https://www.instagram.com/p/Dcv3Xh_FIQ0/",
       "publicadoEm": "2026-09-01T14:21:59.346Z"
+    },
+    {
+      "promptBase": "A chest-up portrait of a young man with glasses and a dark navy jacket centered at eye level, holding a vintage silver rangefinder camera up to his face. Direct, calm eye contact. The lighting is a single high-contrast key light from 45 degrees, casting sharp, dramatic shadows on the face and camera. The background is a dense, dark crowd rendered with intense horizontal motion-blur, creating a strong zoom effect. Shot on an 85mm lens at f/1.4 with ultra-shallow depth of field. Color grading is neutral white balance, no color cast, with desaturated earthy and navy tones in the background, deep crushed blacks, and high contrast. Sharp focus is locked onto the subject's face and camera.",
+      "assinatura": "A young urban photographer with short dark hair, glasses, and a calm expression",
+      "figura": "",
+      "gancho": "Foco absoluto em meio ao caos urbano.",
+      "variacoes": [
+        "a young woman with curly red hair, wearing a dark olive jacket",
+        "an older man with a grey beard and wire-rimmed glasses, wearing a black wool coat",
+        "a young East Asian woman with a sharp bob haircut, wearing a dark grey trench coat",
+        "a middle-aged man with short cropped hair, wearing a black leather jacket"
+      ],
+      "etiqueta": "Retrato de Rua",
+      "slug": "foco-no-caos-urbano",
+      "saves": 40,
+      "imagemRef": "https://i.pinimg.com/originals/77/33/9e/77339edc3e5dcd716edcc390b99860a0.png",
+      "pinId": "653162752254136732",
+      "coletadoEm": "2026-08-27T16:25:40.549Z",
+      "figuras": [
+        "Jeremy Allen White",
+        "Sydney Sweeney",
+        "Dev Patel",
+        "Anya Taylor-Joy",
+        "Donald Glover"
+      ],
+      "referenciaCultural": null,
+      "permalink": "https://www.instagram.com/p/DcwiU0cm9LG/",
+      "publicadoEm": "2026-09-01T20:37:23.572Z"
     }
   ]
 }
