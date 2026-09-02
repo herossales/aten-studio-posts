@@ -1,5 +1,13 @@
 // ============================================================
 //  BANCO DE CONCEITOS DOS REELS
+//
+//  Boards do Pinterest que alimentam as direcoes de arte de cada faixa
+//  (ainda nao ligados ao coletor — hoje o banco abaixo e escrito a mao):
+//    profissional  https://www.pinterest.com/heros27ar/poses-profissionais-femininas/
+//    lifestyle     https://www.pinterest.com/heros27ar/ensaios-life-style-femininas/
+//    autoral       https://www.pinterest.com/heros27ar/posts-aten-studio/  (o mesmo dos carrosseis)
+// ============================================================
+
 //  Cada conceito vira um Reel: gancho na tela, direcao de arte
 //  para as 4 fotos dela, e a selfie "antes" correspondente.
 // ============================================================

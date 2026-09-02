@@ -24,7 +24,7 @@ const gh = (caminho, opcoes = {}) =>
  * dele — entao isto e entrega, nao hospedagem. Release em vez de commit
  * porque binario commitado fica no historico do git para sempre.
  */
-export async function subirParaRelease(arquivo) {
+export async function subirParaRelease(arquivo, tipo = 'video/mp4') {
   let r = await gh(`/repos/${cfg.ghRepo}/releases/tags/${TAG}`)
   let release = r.ok ? await r.json() : null
   if (!release) {
@@ -44,7 +44,7 @@ export async function subirParaRelease(arquivo) {
   }
 
   const up = `${release.upload_url.split('{')[0]}?name=${encodeURIComponent(nome)}`
-  r = await gh(up, { method: 'POST', headers: { 'Content-Type': 'video/mp4' }, body: readFileSync(arquivo) })
+  r = await gh(up, { method: 'POST', headers: { 'Content-Type': tipo }, body: readFileSync(arquivo) })
   if (!r.ok) throw new Error(`upload: ${r.status} ${await r.text()}`)
   return (await r.json()).browser_download_url
 }
@@ -92,17 +92,22 @@ async function esperarPronto(id, tentativas = 60) {
  * mesma pagina de audio da conta. A API nao permite escolher som do Instagram
  * em nenhum formato, e Reel nao aceita troca de audio depois de publicado.
  */
-export async function publicarReel({ arquivo, legenda, audioName }) {
+export async function publicarReel({ arquivo, capa, legenda, audioName }) {
   exigir('igUserId', 'metaToken', 'ghToken', 'ghRepo')
 
   const videoUrl = await subirParaRelease(arquivo)
-  console.log(`  no ar para a Meta baixar: ${videoUrl}`)
+  console.log(`  video no ar para a Meta baixar`)
+  // A capa sobe junto e vive o mesmo tempo: a Meta baixa as duas na criacao
+  // do container e depois nao precisa de nenhuma.
+  const capaUrl = capa ? await subirParaRelease(capa, 'image/jpeg') : null
+  if (capaUrl) console.log(`  capa no ar`)
 
   const { id } = await meta(`${cfg.igUserId}/media`, {
     media_type: 'REELS',
     video_url: videoUrl,
     caption: legenda,
     share_to_feed: marca.reelNoFeed ? 'true' : 'false',
+    ...(capaUrl ? { cover_url: capaUrl } : {}),
     ...(audioName ? { audio_name: audioName } : {}),
   })
   console.log(`  container ${id}, processando...`)
@@ -114,5 +119,6 @@ export async function publicarReel({ arquivo, legenda, audioName }) {
 
   // O arquivo ja cumpriu o papel: a Meta baixou e guardou. Nao deixa lixo.
   await apagarDoRelease(arquivo)
+  if (capa) await apagarDoRelease(capa)
   return { mediaId, permalink }
 }

@@ -86,7 +86,10 @@ function segmentoAcelerado(saida, entrada, fator) {
  * unico: com oito entradas o grafo fica ilegivel e um erro em qualquer ponto
  * derruba tudo sem dizer onde. Assim da pra abrir o pedaco que saiu errado.
  */
-export async function montarReel({ bases, fotos, selfie, gancho, textoSelfie, cta, trilha, tutorialFator = 2, saida, tmp }) {
+export async function montarReel({
+  bases, fotos, selfie, gancho, textoSelfie, cta, trilha, arteCapa,
+  tutorialFator = 1, segundosPorInsert = 2.5, saida, tmp,
+}) {
   mkdirSync(tmp, { recursive: true })
   const p = (n) => join(tmp, n)
 
@@ -117,7 +120,9 @@ export async function montarReel({ bases, fotos, selfie, gancho, textoSelfie, ct
   segmentoDeVideo(p('4.mp4'), bases.selfie, p('t-selfie.png')); add('4.mp4')
   segmentoDeFoto(p('5.mp4'), selfie, 1); add('5.mp4')
   segmentoAcelerado(p('6.mp4'), bases.tutorial, tutorialFator); add('6.mp4')
-  fotos.slice(1).forEach((f, i) => { segmentoDeFoto(p(`7${i}.mp4`), f, 1); add(`7${i}.mp4`) })
+  // Os tres inserts do ensaio sao o pagamento do video — a 1s cada nao dava
+  // tempo de olhar a foto antes de ela sumir.
+  fotos.slice(1).forEach((f, i) => { segmentoDeFoto(p(`7${i}.mp4`), f, segundosPorInsert); add(`7${i}.mp4`) })
   segmentoDeVideo(p('8.mp4'), bases.cta, p('t-cta.png')); add('8.mp4')
 
   // Caminho absoluto: o concat resolve o que esta na lista em relacao a pasta
@@ -143,5 +148,19 @@ export async function montarReel({ bases, fotos, selfie, gancho, textoSelfie, ct
         '-af', `afade=t=in:st=0:d=0.4,afade=t=out:st=${fim.toFixed(2)}:d=1.2`,
         '-shortest', '-movflags', '+faststart', saida])
   }
-  return saida
+
+  // Capa do grid: a foto heroina com a arte da marca por cima. Sem ela o
+  // Instagram escolhe um quadro qualquer do video, e o primeiro quadro e a
+  // personagem de camiseta preta — nao diz nada sobre o post.
+  let capa
+  if (arteCapa) {
+    capa = saida.replace(/\.mp4$/, '-capa.jpg')
+    const fundo = await sharp(fotos[0]).resize(L, A, { fit: 'cover' }).toBuffer()
+    const arte = await sharp(arteCapa).resize(L, A, { fit: 'cover' }).png().toBuffer()
+    // JPEG, nao PNG: a Meta baixa a capa e um PNG de 1080x1920 passa de 2MB
+    // sem ganho nenhum numa imagem que e foto.
+    await sharp(fundo).composite([{ input: arte, top: 0, left: 0 }]).jpeg({ quality: 90 }).toFile(capa)
+  }
+
+  return { video: saida, capa }
 }

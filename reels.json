@@ -1,6 +1,13 @@
 {
   "publicados": [
     {
+      "slug": "advogada",
+      "faixa": "profissional",
+      "permalink": "https://www.instagram.com/reel/DcxhMggjLvM/",
+      "publicadoEm": "2026-09-02T05:47:00.000Z",
+      "nota": "publicado pelo prototipo, fora do run.js — lancado depois para o rodizio nao repetir"
+    },
+    {
       "slug": "santorini",
       "faixa": "lifestyle",
       "permalink": "https://www.instagram.com/reel/DcyG1IUD8jO/",
