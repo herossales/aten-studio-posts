@@ -45,24 +45,6 @@
   ],
   "fila": [
     {
-      "promptBase": "A chest-up studio portrait with a dramatic dual-lighting setup. An intense electric blue light shines from the left, and a vibrant amber-orange light shines from the right, casting sharp contrasting highlights on the subject's face and plain white t-shirt. Layered with vertical motion-blur streaks and double-exposed light ghosting of cyan and orange. Deep navy blue seamless background. Shot on 85mm lens at f/1.8, shallow depth of field. Camera at eye level. Introspective, solemn expression, head tilted slightly down. High contrast, highly saturated dual-tone color grading, blacks slightly lifted with subtle film grain.",
-      "assinatura": "A young man with an introspective expression, short styled dark hair, wearing a clean white t-shirt",
-      "figura": "Young male model",
-      "gancho": "A estética cyberpunk encontra o retrato editorial de alta moda.",
-      "variacoes": [
-        "A young woman with sharp features and a high ponytail",
-        "A mature man with a short beard and intense gaze",
-        "An athletic woman with short cropped hair and a serious expression",
-        "A non-binary person with dyed silver hair and reflective expression"
-      ],
-      "etiqueta": "RETRATO GHOSTING EDITORIAL",
-      "slug": "retrato-ghosting-editorial",
-      "saves": 8,
-      "imagemRef": "https://i.pinimg.com/originals/2b/f5/43/2bf543ee0191352bf3314f71f44bd7bd.jpg",
-      "pinId": "653162752254136692",
-      "coletadoEm": "2026-08-27T16:26:11.445Z"
-    },
-    {
       "promptBase": "A chest-up studio portrait of [SUBJECT] centered in the frame. A single soft key light from the front-right at a 45-degree angle above illuminates the subject, casting soft, moody shadows on the left side of the face. The background is a solid, pitch-black seamless backdrop with no detail. Shot at eye level with an 85mm lens at f/2.0, creating a shallow depth of field that keeps the eyes in sharp focus while the ears and shoulders gently blur. The color grading features warm skin tones against rich dark blue clothing, with neutral white balance and slightly lifted blacks for a subtle matte texture in the deepest shadows. The subject has a quiet, introspective expression, looking directly into the camera.",
       "assinatura": "Daniel Radcliffe, the British actor (a man in his mid-thirties, fair skin, messy brown hair, short full beard and mustache, bright blue eyes)",
       "figura": "Daniel Radcliffe",
@@ -997,6 +979,34 @@
       "referenciaCultural": null,
       "permalink": "https://www.instagram.com/p/DcycBlQm4s6/",
       "publicadoEm": "2026-09-02T14:20:47.415Z"
+    },
+    {
+      "promptBase": "A chest-up studio portrait with a dramatic dual-lighting setup. An intense electric blue light shines from the left, and a vibrant amber-orange light shines from the right, casting sharp contrasting highlights on the subject's face and plain white t-shirt. Layered with vertical motion-blur streaks and double-exposed light ghosting of cyan and orange. Deep navy blue seamless background. Shot on 85mm lens at f/1.8, shallow depth of field. Camera at eye level. Introspective, solemn expression, head tilted slightly down. High contrast, highly saturated dual-tone color grading, blacks slightly lifted with subtle film grain.",
+      "assinatura": "A young man with an introspective expression, short styled dark hair, wearing a clean white t-shirt",
+      "figura": "Young male model",
+      "gancho": "A estética cyberpunk encontra o retrato editorial de alta moda.",
+      "variacoes": [
+        "A young woman with sharp features and a high ponytail",
+        "A mature man with a short beard and intense gaze",
+        "An athletic woman with short cropped hair and a serious expression",
+        "A non-binary person with dyed silver hair and reflective expression"
+      ],
+      "etiqueta": "RETRATO GHOSTING EDITORIAL",
+      "slug": "retrato-ghosting-editorial",
+      "saves": 8,
+      "imagemRef": "https://i.pinimg.com/originals/2b/f5/43/2bf543ee0191352bf3314f71f44bd7bd.jpg",
+      "pinId": "653162752254136692",
+      "coletadoEm": "2026-08-27T16:26:11.445Z",
+      "figuras": [
+        "Cristiano Ronaldo",
+        "Lewis Hamilton",
+        "Serena Williams",
+        "Shohei Ohtani",
+        "Lionel Messi"
+      ],
+      "referenciaCultural": "Shubman Gill",
+      "permalink": "https://www.instagram.com/p/DczHLFUm3Yo/",
+      "publicadoEm": "2026-09-02T20:37:51.963Z"
     }
   ]
 }
