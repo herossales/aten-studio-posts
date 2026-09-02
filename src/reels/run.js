@@ -1,6 +1,7 @@
 import { appendFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { FAIXAS, faixaDaHora } from './conceitos.js'
+import { disponiveis } from './banco.js'
 import { gerarFotosDoReel, carregarReferencia } from './fotos.js'
 import { montarReel } from './montar.js'
 import { publicarReel } from './publicar.js'
@@ -33,7 +34,7 @@ const ler = () => (existsSync(ESTADO) ? JSON.parse(readFileSync(ESTADO, 'utf8'))
 function proximo(faixa, estado) {
   const usado = new Map()
   estado.publicados.forEach((p, i) => usado.set(p.slug, i))
-  return [...FAIXAS[faixa]].sort((a, b) => (usado.get(a.slug) ?? -1) - (usado.get(b.slug) ?? -1))[0]
+  return [...disponiveis(faixa)].sort((a, b) => (usado.get(a.slug) ?? -1) - (usado.get(b.slug) ?? -1))[0]
 }
 
 const faixa = arg('--faixa') || faixaDaHora()
@@ -42,7 +43,7 @@ if (!FAIXAS[faixa]) throw new Error(`faixa desconhecida: ${faixa}`)
 const estado = ler()
 const conceito = proximo(faixa, estado)
 console.log(`\nFaixa: ${faixa}`)
-console.log(`Conceito: ${conceito.slug} — "${conceito.gancho.linha1} ${conceito.gancho.linha2}"\n`)
+console.log(`Conceito: ${conceito.slug} [${conceito.origem}] — "${conceito.gancho.linha1} ${conceito.gancho.linha2}"\n`)
 
 const referencia = carregarReferencia(REF)
 
