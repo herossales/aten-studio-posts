@@ -18,7 +18,7 @@ const arg = (n) => { const i = process.argv.indexOf(n); return i > -1 ? process.
 const BASES = process.env.BASES_DIR || 'Referencia Reels/Bases Reels'
 const REF = process.env.REF_IMG || 'Referencia Reels/influencer/influencer-v1.png'
 const TRILHA = process.env.TRILHA || `${BASES}/Musicas/Audio 01.MP3`
-const ARTE_CAPA = process.env.ARTE_CAPA || `${BASES}/BG Capa Reels.png`
+const ARTE_CAPA = process.env.ARTE_CAPA || `${BASES}/Capa Reels.png`
 
 // Relativo ao modulo: rodar de outra pasta lia um historico vazio e repetia
 // o mesmo conceito todo dia.
@@ -71,7 +71,7 @@ const { capa } = await montarReel({
     gancho: `${BASES}/01 - Influencer - Gancho.mp4`,
     aponta: `${BASES}/02 - Influencer - Aponta Modelo.mp4`,
     selfie: `${BASES}/03 - Influencer - Selfie.mp4`,
-    tutorial: `${BASES}/06 - Tutorial App - 02.mp4`,
+    tutorial: `${BASES}/Tutorial Ferramenta - 02.mp4`,
     cta: `${BASES}/04 - Influencer - Finalização CTA.mp4`,
   },
   fotos: arqs,
@@ -81,8 +81,8 @@ const { capa } = await montarReel({
   cta: { linha1: 'Comenta PROMPT', linha2: 'e receba na DM' },
   trilha: TRILHA,
   arteCapa: ARTE_CAPA,
-  // O tutorial novo ja e curto e direto (9,6s contra 22,9s do anterior), entao
-  // acelerar de novo so atropelaria o que ele tem pra mostrar.
+  // Sem aceleracao: o tutorial ja esta em 7,3s, contra 22,9s da primeira
+  // versao. Acelerar agora atropelaria o pouco que ele mostra.
   tutorialFator: 1,
   saida: video,
   tmp: `${tmp}/montagem`,
