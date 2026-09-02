@@ -55,6 +55,11 @@ export const marca = {
   // quiser liberar.
   categoriasBloqueadas: ['politica', 'eleicao', 'religiao'],
 
+  // Nome da faixa embutida nos Reels. A API nao deixa escolher som do
+  // Instagram em nenhum formato, entao a trilha vai dentro do arquivo — e este
+  // nome faz todos os Reels caírem na mesma pagina de audio, que e da conta.
+  nomeDoAudio: 'Aten | Roube meu prompt',
+
   // Conceito vindo do Pinterest nao traz hashtag propria. Sem isso a
   // legenda sai sem nenhuma e o alcance morre.
   hashtagsPadrao: ['iageneration', 'nanobanana', 'promptdodia', 'aiphotography', 'direcaodearte'],

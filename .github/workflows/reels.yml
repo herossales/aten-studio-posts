@@ -1,0 +1,78 @@
+name: Reel diario
+
+# Sem `schedule`: o cron do Actions nunca entregou uma execucao neste repo.
+# Quem dispara e o cron-job.org, chamando este workflow_dispatch tres vezes
+# ao dia com a faixa correspondente ao horario.
+on:
+  workflow_dispatch:
+    inputs:
+      faixa:
+        description: 'Faixa do dia'
+        type: choice
+        options: [lifestyle, profissional, autoral]
+        default: lifestyle
+      publicar:
+        description: 'Publicar no Instagram (senao, so monta e guarda)'
+        type: boolean
+        default: false
+
+# Mesmo grupo do carrossel de proposito: os dois escrevem no repositorio e
+# rodam a geracao pesada. Serializar custa alguns minutos de espera e elimina
+# a chance de um sobrescrever o commit do outro.
+concurrency:
+  group: fila
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  reel:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+
+      - run: npm ci
+
+      # ffmpeg ja vem no runner do ubuntu; so confirma pra falhar cedo e claro
+      # se um dia a imagem mudar.
+      - name: Conferir o ffmpeg
+        run: ffmpeg -version | head -1
+
+      # ~30MB de clipe gravado e trilha. Ficam num Release em vez de commitados:
+      # binario no git fica no historico para sempre, e estes nunca mudam.
+      - name: Baixar as bases
+        run: |
+          curl -sL -o bases.zip \
+            https://github.com/${{ github.repository }}/releases/download/bases-reels/bases-reels.zip
+          unzip -q bases.zip -d bases
+          ls bases "bases/Bases Reels"
+
+      - name: Gerar e publicar
+        id: reel
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BASES_DIR: bases/Bases Reels
+          REF_IMG: bases/influencer-v1.png
+        run: |
+          if [ "${{ inputs.publicar }}" = "true" ]; then
+            node src/reels/run.js --faixa "${{ inputs.faixa }}" --publish
+          else
+            node src/reels/run.js --faixa "${{ inputs.faixa }}"
+          fi
+
+      - name: Guardar o Reel como artefato
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reel-${{ github.run_number }}
+          path: out/reels/*.mp4
+          retention-days: 14
