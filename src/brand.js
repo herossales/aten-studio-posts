@@ -55,6 +55,11 @@ export const marca = {
   // quiser liberar.
   categoriasBloqueadas: ['politica', 'eleicao', 'religiao'],
 
+  // Reel tambem no grid do perfil? Desligado: o feed e dos carrosseis, que
+  // sao o formato salvavel. Reel no grid empurra o carrossel pra baixo e
+  // mistura duas linguagens na mesma vitrine.
+  reelNoFeed: false,
+
   // Nome da faixa embutida nos Reels. A API nao deixa escolher som do
   // Instagram em nenhum formato, entao a trilha vai dentro do arquivo — e este
   // nome faz todos os Reels caírem na mesma pagina de audio, que e da conta.

@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs'
 import { basename } from 'node:path'
 import { cfg, exigir } from '../config.js'
+import { marca } from '../brand.js'
 
 const GH = 'https://api.github.com'
 const TAG = 'reels-staging'
@@ -101,7 +102,7 @@ export async function publicarReel({ arquivo, legenda, audioName }) {
     media_type: 'REELS',
     video_url: videoUrl,
     caption: legenda,
-    share_to_feed: 'true',
+    share_to_feed: marca.reelNoFeed ? 'true' : 'false',
     ...(audioName ? { audio_name: audioName } : {}),
   })
   console.log(`  container ${id}, processando...`)
