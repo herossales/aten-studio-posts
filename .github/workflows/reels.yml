@@ -39,10 +39,19 @@ jobs:
 
       - run: npm ci
 
-      # ffmpeg ja vem no runner do ubuntu; so confirma pra falhar cedo e claro
-      # se um dia a imagem mudar.
-      - name: Conferir o ffmpeg
-        run: ffmpeg -version | head -1
+      # O ffmpeg NAO vem no ubuntu-latest — o runner responde "command not
+      # found". Instalado do repositorio oficial do Ubuntu de proposito, em vez
+      # de action de terceiro ou binario baixado de fora: leva ~40s e nao mete
+      # codigo desconhecido no meio da publicacao.
+      #
+      # Sem pipe no version: `ffmpeg -version | head -1` devolve o codigo de
+      # saida do head, entao o passo passava mesmo com o ffmpeg ausente.
+      - name: Instalar o ffmpeg
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          ffmpeg -version > /tmp/ff.txt
+          head -1 /tmp/ff.txt
 
       # ~30MB de clipe gravado e trilha. Ficam num Release em vez de commitados:
       # binario no git fica no historico para sempre, e estes nunca mudam.
