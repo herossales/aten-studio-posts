@@ -11,6 +11,10 @@ import { gravarNoRepo } from '../storage.js'
 import { cfg } from '../config.js'
 
 const publicar = process.argv.includes('--publish')
+// Reaproveita o video ja montado em vez de gerar tudo de novo. Serve pra
+// retomar uma publicacao que falhou depois da montagem — sem isto, uma falha
+// no upload custaria cinco geracoes pagas pra refazer o que ja estava pronto.
+const reaproveitar = process.argv.includes('--reaproveitar')
 const arg = (n) => { const i = process.argv.indexOf(n); return i > -1 ? process.argv[i + 1] : null }
 
 // Assets fixos. Fora do repo por padrao (sao ~30MB de video que nunca mudam);
@@ -45,6 +49,16 @@ const conceito = proximo(faixa, estado)
 console.log(`\nFaixa: ${faixa}`)
 console.log(`Conceito: ${conceito.slug} [${conceito.origem}] — "${conceito.gancho.linha1} ${conceito.gancho.linha2}"\n`)
 
+const video = `out/reels/reel-${conceito.slug}.mp4`
+const capaPronta = video.replace(/\.mp4$/, '-capa.jpg')
+const reusar = reaproveitar && existsSync(video)
+
+let capa
+if (reusar) {
+  capa = existsSync(capaPronta) ? capaPronta : undefined
+  console.log(`Reaproveitando ${video}${capa ? ' + capa' : ''}\n`)
+} else {
+
 const referencia = carregarReferencia(REF)
 
 console.log('1. Gerando as fotos dela...')
@@ -65,8 +79,7 @@ const arqSelfie = `${tmp}/selfie.png`
 writeFileSync(arqSelfie, selfie[0])
 
 console.log('\n2. Montando o Reel...')
-const video = `out/reels/reel-${conceito.slug}.mp4`
-const { capa } = await montarReel({
+;({ capa } = await montarReel({
   bases: {
     gancho: `${BASES}/01 - Influencer - Gancho.mp4`,
     aponta: `${BASES}/02 - Influencer - Aponta Modelo.mp4`,
@@ -86,8 +99,9 @@ const { capa } = await montarReel({
   tutorialFator: 1,
   saida: video,
   tmp: `${tmp}/montagem`,
-})
+}))
 console.log(`  ${video}`)
+}
 
 let texto = `${conceito.gancho.linha1} ${conceito.gancho.linha2}.`
 try {
