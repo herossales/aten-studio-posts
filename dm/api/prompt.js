@@ -26,16 +26,25 @@ async function porUsuario(usuario, publicados) {
   const u = process.env.IG_USER_ID
   if (!t || !u) return null
 
-  const midia = await json(`${API}/${u}/media?fields=id,permalink,comments_count&limit=12&access_token=${t}`)
-  // A lista vem do mais novo pro mais antigo: o primeiro que casar e o certo.
-  for (const post of midia.data ?? []) {
-    if (!post.comments_count) continue
-    const c = await json(`${API}/${post.id}/comments?fields=username&access_token=${t}`)
-    if ((c.data ?? []).some((x) => limpar(x.username) === usuario)) {
-      return publicados.find((p) => p.permalink === post.permalink) ?? null
-    }
-  }
-  return null
+  const midia = await json(`${API}/${u}/media?fields=id,permalink,comments_count&limit=8&access_token=${t}`)
+  const comComentario = (midia.data ?? []).filter((p) => p.comments_count)
+
+  // Em paralelo, nao em sequencia: o External Request do ManyChat corta em 10
+  // segundos e nao da pra aumentar. Oito idas e voltas enfileiradas estouram
+  // isso com folga; em paralelo o custo vira o da mais lenta.
+  const listas = await Promise.all(
+    comComentario.map((post) =>
+      json(`${API}/${post.id}/comments?fields=username&access_token=${t}`)
+        .then((c) => ({ post, autores: (c.data ?? []).map((x) => limpar(x.username)) }))
+        // Um post que falha nao pode derrubar a busca inteira.
+        .catch(() => ({ post, autores: [] })),
+    ),
+  )
+
+  // A midia vem do mais novo pro mais antigo e o Promise.all preserva a ordem,
+  // entao o primeiro que casar e o comentario mais recente da pessoa.
+  const achou = listas.find((x) => x.autores.includes(usuario))
+  return achou ? publicados.find((p) => p.permalink === achou.post.permalink) ?? null : null
 }
 
 export default async function handler(req, res) {
