@@ -45,24 +45,6 @@
   ],
   "fila": [
     {
-      "promptBase": "A black and white cinematic chest-up portrait of a person walking through a crowded city street at night. The subject is in razor-sharp focus, while the surrounding crowd of pedestrians is heavily blurred in dynamic motion. Soft frontal overhead street lighting casts deep shadows under the eyes and jaw. The background features soft, glowing white bokeh circles from distant city lights. Shot on an 85mm lens at f/1.4, shallow depth of field, at eye-level. Pure monochrome grading, deep rich blacks, clean highlights, neutral grey balance with no color tint. The subject has an introspective, somber expression, looking slightly downward.",
-      "assinatura": "a young man in his early twenties, tousled dark hair, lean build, wearing a dark open overcoat over a dark button-down shirt",
-      "figura": "Timothée Chalamet",
-      "gancho": "A solidão no meio da multidão urbana.",
-      "variacoes": [
-        "a young woman in her late twenties with a sharp bob haircut, wearing a structured trench coat, looking thoughtfully into the distance",
-        "a mature man in his late forties with salt-and-pepper stubble, wearing a wool coat, with a contemplative expression",
-        "a young woman of East Asian descent, with long dark hair, wearing a dark leather jacket, looking downcast",
-        "a man in his thirties with short curly hair, wearing a heavy tweed coat, looking lost in thought"
-      ],
-      "etiqueta": "RETRATO URBANO PB",
-      "slug": "solidao-urbana-preto-e-branco",
-      "saves": 7,
-      "imagemRef": "https://i.pinimg.com/originals/b0/ee/1a/b0ee1ae19286d5c769a87ba7c18b58da.jpg",
-      "pinId": "653162752254136721",
-      "coletadoEm": "2026-08-27T16:26:01.779Z"
-    },
-    {
       "promptBase": "A chest-up studio portrait with a dramatic dual-lighting setup. An intense electric blue light shines from the left, and a vibrant amber-orange light shines from the right, casting sharp contrasting highlights on the subject's face and plain white t-shirt. Layered with vertical motion-blur streaks and double-exposed light ghosting of cyan and orange. Deep navy blue seamless background. Shot on 85mm lens at f/1.8, shallow depth of field. Camera at eye level. Introspective, solemn expression, head tilted slightly down. High contrast, highly saturated dual-tone color grading, blacks slightly lifted with subtle film grain.",
       "assinatura": "A young man with an introspective expression, short styled dark hair, wearing a clean white t-shirt",
       "figura": "Young male model",
@@ -987,6 +969,34 @@
       "referenciaCultural": "Oppenheimer",
       "permalink": "https://www.instagram.com/p/Dcx7XDYEWTg/",
       "publicadoEm": "2026-09-02T09:35:22.800Z"
+    },
+    {
+      "promptBase": "A black and white cinematic chest-up portrait of a person walking through a crowded city street at night. The subject is in razor-sharp focus, while the surrounding crowd of pedestrians is heavily blurred in dynamic motion. Soft frontal overhead street lighting casts deep shadows under the eyes and jaw. The background features soft, glowing white bokeh circles from distant city lights. Shot on an 85mm lens at f/1.4, shallow depth of field, at eye-level. Pure monochrome grading, deep rich blacks, clean highlights, neutral grey balance with no color tint. The subject has an introspective, somber expression, looking slightly downward.",
+      "assinatura": "a young man in his early twenties, tousled dark hair, lean build, wearing a dark open overcoat over a dark button-down shirt",
+      "figura": "Timothée Chalamet",
+      "gancho": "A solidão no meio da multidão urbana.",
+      "variacoes": [
+        "a young woman in her late twenties with a sharp bob haircut, wearing a structured trench coat, looking thoughtfully into the distance",
+        "a mature man in his late forties with salt-and-pepper stubble, wearing a wool coat, with a contemplative expression",
+        "a young woman of East Asian descent, with long dark hair, wearing a dark leather jacket, looking downcast",
+        "a man in his thirties with short curly hair, wearing a heavy tweed coat, looking lost in thought"
+      ],
+      "etiqueta": "RETRATO URBANO PB",
+      "slug": "solidao-urbana-preto-e-branco",
+      "saves": 7,
+      "imagemRef": "https://i.pinimg.com/originals/b0/ee/1a/b0ee1ae19286d5c769a87ba7c18b58da.jpg",
+      "pinId": "653162752254136721",
+      "coletadoEm": "2026-08-27T16:26:01.779Z",
+      "figuras": [
+        "Zendaya",
+        "Keanu Reeves",
+        "Michelle Yeoh",
+        "Paul Mescal",
+        "Andrew Garfield"
+      ],
+      "referenciaCultural": null,
+      "permalink": "https://www.instagram.com/p/DcycBlQm4s6/",
+      "publicadoEm": "2026-09-02T14:20:47.415Z"
     }
   ]
 }
