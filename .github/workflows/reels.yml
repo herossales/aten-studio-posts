@@ -53,6 +53,14 @@ jobs:
           unzip -q bases.zip -d bases
           ls bases "bases/Bases Reels"
 
+      # Exercita ffmpeg e sharp com as bases reais antes de gastar geracao:
+      # a execucao anterior falhou na montagem DEPOIS de pagar cinco chamadas
+      # ao Nano Banana. Aqui falha em segundos e de graca.
+      - name: Checar a montagem
+        env:
+          BASES_DIR: bases/Bases Reels
+        run: node src/reels/checar.js
+
       - name: Gerar e publicar
         id: reel
         env:

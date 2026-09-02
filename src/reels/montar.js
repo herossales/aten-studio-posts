@@ -9,10 +9,17 @@ import { camadaDeTexto, L, A } from './texto.js'
 const FFMPEG = process.env.FFMPEG_BIN || 'ffmpeg'
 const ff = (args) => {
   try {
-    return execFileSync(FFMPEG, ['-y', '-v', 'error', ...args], { stdio: ['ignore', 'ignore', 'pipe'] })
+    return execFileSync(FFMPEG, ['-y', '-v', 'error', ...args], { stdio: ['ignore', 'ignore', 'pipe'], maxBuffer: 32 * 1024 * 1024 })
   } catch (e) {
     // Sem isto o ffmpeg falha so com um codigo de saida e a mensagem se perde.
-    throw new Error(`ffmpeg falhou (${e.status}):\n${e.stderr?.toString().trim() || 'sem saida'}`)
+    // status null sem stderr nao diz nada: pode ser binario ausente (ENOENT),
+    // morte por sinal, ou estouro do buffer de saida. Reporta os tres.
+    const causa = [
+      e.code && `code=${e.code}`,
+      e.signal && `signal=${e.signal}`,
+      e.status != null && `status=${e.status}`,
+    ].filter(Boolean).join(' ') || 'sem causa reportada'
+    throw new Error(`ffmpeg falhou [${causa}] binario=${FFMPEG}\n${e.stderr?.toString().trim() || '(stderr vazio)'}`)
   }
 }
 
