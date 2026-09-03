@@ -68,6 +68,11 @@ export const marca = {
   // aparecendo na aba de Reels do perfil.
   reelNoFeed: false,
 
+  // Perfis convidados como coautores de todo Reel. Ate 3, e cada um precisa
+  // ACEITAR o convite — enquanto nao aceita, o post sai so aqui. Conta privada
+  // nao pode ser convidada. Vazio desliga.
+  colaboradores: [],
+
   // Nome da faixa embutida nos Reels. A API nao deixa escolher som do
   // Instagram em nenhum formato, entao a trilha vai dentro do arquivo — e este
   // nome faz todos os Reels caírem na mesma pagina de audio, que e da conta.

@@ -141,6 +141,7 @@ const { permalink } = await publicarReel({
   capa,
   legenda,
   audioName: marca.nomeDoAudio,
+  colaboradores: marca.colaboradores,
 })
 
 // So agora entra no historico: se qualquer passo acima falhar, o conceito

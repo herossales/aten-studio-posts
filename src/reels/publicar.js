@@ -92,7 +92,7 @@ async function esperarPronto(id, tentativas = 60) {
  * mesma pagina de audio da conta. A API nao permite escolher som do Instagram
  * em nenhum formato, e Reel nao aceita troca de audio depois de publicado.
  */
-export async function publicarReel({ arquivo, capa, legenda, audioName }) {
+export async function publicarReel({ arquivo, capa, legenda, audioName, colaboradores }) {
   exigir('igUserId', 'metaToken', 'ghToken', 'ghRepo')
 
   const videoUrl = await subirParaRelease(arquivo)
@@ -108,14 +108,24 @@ export async function publicarReel({ arquivo, capa, legenda, audioName }) {
     caption: legenda,
     share_to_feed: marca.reelNoFeed ? 'true' : 'false',
     ...(capaUrl ? { cover_url: capaUrl } : {}),
+    // Ate 3, so em Reels e imagem unica — carrossel nao aceita. E convite:
+    // o post so aparece no perfil do outro depois que ele aceitar, e a conta
+    // dele precisa ser publica. Enquanto nao aceita, sai normal so aqui.
+    ...(colaboradores?.length ? { collaborators: JSON.stringify(colaboradores.slice(0, 3)) } : {}),
     ...(audioName ? { audio_name: audioName } : {}),
   })
   console.log(`  container ${id}, processando...`)
   await esperarPronto(id)
 
   const { id: mediaId } = await meta(`${cfg.igUserId}/media_publish`, { creation_id: id })
-  const r = await fetch(`${cfg.api}/${mediaId}?fields=permalink&access_token=${cfg.metaToken}`)
-  const { permalink } = await r.json()
+  const r = await fetch(`${cfg.api}/${mediaId}?fields=permalink,collaborators&access_token=${cfg.metaToken}`)
+  const { permalink, collaborators } = await r.json()
+  if (colaboradores?.length) {
+    // Confirma o que a Meta realmente gravou: a API ignora em silencio
+    // parametro que nao entende, entao "nao deu erro" nao prova nada.
+    const gravados = collaborators?.data?.map((c) => c.username) ?? []
+    console.log(`  colaboradores: pedidos ${colaboradores.join(', ')} | gravados ${gravados.join(', ') || 'nenhum'}`)
+  }
 
   // O arquivo ja cumpriu o papel: a Meta baixou e guardou. Nao deixa lixo.
   await apagarDoRelease(arquivo)
