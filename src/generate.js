@@ -1,9 +1,11 @@
 import { GoogleGenAI } from '@google/genai'
 import { cfg, exigir } from './config.js'
 
-// Pro: texto melhor e consistencia de estilo entre laminas.
-// Trocar por 'gemini-2.5-flash-image' se o custo apertar.
-const MODELO = 'gemini-3-pro-image'
+// Nano Banana 2: metade do preco do Pro por imagem ($0.067 contra $0.134 a
+// 1K), com a mesma fidelidade de identidade. Testado contra o 2.5-flash-image,
+// que e mais barato ainda e foi reprovado: o rosto deriva entre geracoes.
+// Os carrosseis estao pausados, mas se voltarem voltam pelo preco certo.
+const MODELO = 'gemini-3.1-flash-image'
 
 // O SDK documenta só 1:1/3:4/4:3/9:16/16:9, mas a doc do Nano Banana Pro
 // anuncia 4:5. Tentamos o ideal e caimos no mais proximo se ele recusar.

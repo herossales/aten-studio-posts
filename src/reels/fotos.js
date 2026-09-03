@@ -2,7 +2,11 @@ import { readFileSync } from 'node:fs'
 import { GoogleGenAI } from '@google/genai'
 import { cfg, exigir } from '../config.js'
 
-const MODELO = 'gemini-3-pro-image'
+// Nano Banana 2 em vez do Pro: metade do preco por imagem ($0.067 contra
+// $0.134 a 1K) e a identidade dela se mantem igual. O Nano Banana 2.5, mais
+// barato ainda, foi testado e reprovado — o rosto deriva, e num formato que
+// depende de ser sempre a mesma pessoa isso invalida o post.
+const MODELO = 'gemini-3.1-flash-image'
 
 // O Reel inteiro depende disso: ela tira a selfie, o app transforma, o
 // resultado aparece. Se o rosto do resultado nao for o dela, a demonstracao
@@ -12,7 +16,14 @@ const IDENTIDADE =
   'Keep her identity exactly: the same face, the same wild red curls, the same ' +
   'bright blue eyes, the same freckles, the same fair skin tone. She must be ' +
   'immediately recognisable as the same person. Change her clothing, pose, ' +
-  'setting and lighting as described below — never her face.'
+  'setting and lighting as described below — never her face.\n\n' +
+  // O Nano Banana 2 copiou o gesto de maos abertas da referencia em vez de
+  // seguir a pose pedida. A referencia existe para o ROSTO; tudo o mais nela
+  // e ruido que precisa ser dito explicitamente para ser ignorado.
+  'Use the attached image ONLY as a facial identity reference. Ignore ' +
+  'everything else about it: ignore its pose, its hand gestures, its framing, ' +
+  'its clothing, its background and its lighting. Those come exclusively from ' +
+  'the art direction and the pose described in this prompt.'
 
 const FOTOREALISMO =
   'This is a real photograph captured on a physical camera. It is NOT an ' +
