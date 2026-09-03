@@ -88,7 +88,7 @@ function segmentoAcelerado(saida, entrada, fator) {
  */
 export async function montarReel({
   bases, fotos, selfie, gancho, textoSelfie, cta, trilha, arteCapa,
-  tutorialFator = 1, segundosPorInsert = 2.5, saida, tmp,
+  tutorialFator = 1, segundosPorInsert = 1.5, saida, tmp,
 }) {
   mkdirSync(tmp, { recursive: true })
   const p = (n) => join(tmp, n)
@@ -120,9 +120,10 @@ export async function montarReel({
   segmentoDeVideo(p('4.mp4'), bases.selfie, p('t-selfie.png')); add('4.mp4')
   segmentoDeFoto(p('5.mp4'), selfie, 1); add('5.mp4')
   segmentoAcelerado(p('6.mp4'), bases.tutorial, tutorialFator); add('6.mp4')
-  // Os tres inserts do ensaio sao o pagamento do video — a 1s cada nao dava
-  // tempo de olhar a foto antes de ela sumir.
-  fotos.slice(1).forEach((f, i) => { segmentoDeFoto(p(`7${i}.mp4`), f, segundosPorInsert); add(`7${i}.mp4`) })
+  // TODAS as fotos entram nos inserts, inclusive a heroina — ela ja apareceu
+  // em quadrado e em tela cheia antes do tutorial, e revê-la no fim fecha o
+  // ciclo em vez de exigir uma geracao a mais so pro final.
+  fotos.forEach((f, i) => { segmentoDeFoto(p(`7${i}.mp4`), f, segundosPorInsert); add(`7${i}.mp4`) })
   segmentoDeVideo(p('8.mp4'), bases.cta, p('t-cta.png')); add('8.mp4')
 
   // Caminho absoluto: o concat resolve o que esta na lista em relacao a pasta

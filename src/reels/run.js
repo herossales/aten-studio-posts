@@ -1,4 +1,5 @@
-import { appendFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { appendFileSync, existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
+import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { FAIXAS, faixaDaHora } from './conceitos.js'
 import { disponiveis } from './banco.js'
@@ -23,6 +24,7 @@ const BASES = process.env.BASES_DIR || 'Referencia Reels/Bases Reels'
 const REF = process.env.REF_IMG || 'Referencia Reels/influencer/influencer-v1.png'
 const TRILHA = process.env.TRILHA || `${BASES}/Musicas/Audio 01.MP3`
 const ARTE_CAPA = process.env.ARTE_CAPA || `${BASES}/Capa Reels.png`
+const SELFIES = process.env.SELFIES || `${BASES}/Selfies`
 
 // Relativo ao modulo: rodar de outra pasta lia um historico vazio e repetia
 // o mesmo conceito todo dia.
@@ -62,11 +64,15 @@ if (reusar) {
 const referencia = carregarReferencia(REF)
 
 console.log('1. Gerando as fotos dela...')
-const [fotos, selfie] = await Promise.all([
-  gerarFotosDoReel({ direcao: conceito.direcao, poses: conceito.poses, referencia }),
-  gerarFotosDoReel({ direcao: conceito.selfie.direcao, poses: [conceito.selfie.pose], referencia }),
-])
-console.log(`  ${fotos.length} do ensaio + 1 selfie`)
+// Tres poses, nao quatro: a que ela aponta e a mesma que abre os inserts do
+// final, e tambem vira a capa. Reaproveitar em tres lugares custa uma geracao
+// so — e a diferenca visual entre quatro e tres fotos no fim e nenhuma.
+const fotos = await gerarFotosDoReel({
+  direcao: conceito.direcao,
+  poses: conceito.poses.slice(0, 3),
+  referencia,
+})
+console.log(`  ${fotos.length} do ensaio`)
 
 const tmp = `out/reels/${conceito.slug}`
 mkdirSync(tmp, { recursive: true })
@@ -75,8 +81,13 @@ const arqs = fotos.map((b, i) => {
   writeFileSync(a, b)
   return a
 })
-const arqSelfie = `${tmp}/selfie.png`
-writeFileSync(arqSelfie, selfie[0])
+// A selfie do "antes" nao e gerada: e sempre a mesma pessoa tirando selfie em
+// casa, entao um acervo fixo entrega a mesma coisa de graca. Roda pelo total
+// ja publicado pra nao cair sempre na mesma.
+const acervo = readdirSync(SELFIES).filter((f) => /\.(png|jpe?g)$/i.test(f)).sort()
+if (!acervo.length) throw new Error(`nenhuma selfie em ${SELFIES}`)
+const arqSelfie = join(SELFIES, acervo[estado.publicados.length % acervo.length])
+console.log(`  selfie do acervo: ${acervo[estado.publicados.length % acervo.length]}`)
 
 console.log('\n2. Montando o Reel...')
 ;({ capa } = await montarReel({
@@ -97,6 +108,8 @@ console.log('\n2. Montando o Reel...')
   // Sem aceleracao: o tutorial ja esta em 7,3s, contra 22,9s da primeira
   // versao. Acelerar agora atropelaria o pouco que ele mostra.
   tutorialFator: 1,
+  // 1,5s por insert. A 1s nao dava tempo de olhar; a 2,5s o final arrastava.
+  segundosPorInsert: 1.5,
   saida: video,
   tmp: `${tmp}/montagem`,
 }))
