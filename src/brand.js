@@ -55,10 +55,18 @@ export const marca = {
   // quiser liberar.
   categoriasBloqueadas: ['politica', 'eleicao', 'religiao'],
 
-  // Reel tambem no grid do perfil. Ligado de novo agora que os carrosseis
-  // pararam: sem eles o feed ficaria vazio. Vai com capa propria (cover_url),
-  // entao o grid mostra a arte da marca e nao um quadro qualquer do video.
-  reelNoFeed: true,
+  // Reel NAO vai pro grid do perfil. Medido em 02–03/09/2026, mesma conta,
+  // mesmo conteudo, cadencia controlada:
+  //
+  //   no feed = false  ->  140 de alcance
+  //   no feed = true   ->  7, 12, 13, 16
+  //
+  // Quatro seguidos no feed ficaram na mesma faixa dos carrosseis, que e onde
+  // essa conta vai mal. A leitura e que marcar share_to_feed manda o Reel pro
+  // ranking de feed em vez da esteira de recomendacao de Reels, e ele herda o
+  // desempenho de la. O grid fica sem post novo, mas os Reels continuam
+  // aparecendo na aba de Reels do perfil.
+  reelNoFeed: false,
 
   // Nome da faixa embutida nos Reels. A API nao deixa escolher som do
   // Instagram em nenhum formato, entao a trilha vai dentro do arquivo — e este
