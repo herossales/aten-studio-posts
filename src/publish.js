@@ -52,6 +52,10 @@ export async function publicarCarrossel(urls, legenda) {
     media_type: 'CAROUSEL',
     children: filhos.join(','),
     caption: legenda,
+    // Autodeclaracao de IA. Vai SO no container pai: a doc da Meta diz que
+    // por no filho devolve erro. Desde 31/08/2026 conteudo com pessoas
+    // geradas por IA sem rotulo perde alcance e sai das recomendacoes.
+    is_ai_generated: 'true',
   })
   console.log(`  container pai → ${pai.id}`)
 

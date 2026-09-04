@@ -107,6 +107,11 @@ export async function publicarReel({ arquivo, capa, legenda, audioName, colabora
     video_url: videoUrl,
     caption: legenda,
     share_to_feed: marca.reelNoFeed ? 'true' : 'false',
+    // Autodeclaracao de IA, documentada pela Meta em content-publishing.
+    // Nao e opcional na pratica: desde 31/08/2026 o Instagram reduz alcance e
+    // tira das recomendacoes conteudo com pessoas geradas por IA sem rotulo —
+    // e a personagem deste formato e exatamente isso.
+    is_ai_generated: 'true',
     ...(capaUrl ? { cover_url: capaUrl } : {}),
     // Ate 3, so em Reels e imagem unica — carrossel nao aceita. E convite:
     // o post so aparece no perfil do outro depois que ele aceitar, e a conta
@@ -118,8 +123,11 @@ export async function publicarReel({ arquivo, capa, legenda, audioName, colabora
   await esperarPronto(id)
 
   const { id: mediaId } = await meta(`${cfg.igUserId}/media_publish`, { creation_id: id })
-  const r = await fetch(`${cfg.api}/${mediaId}?fields=permalink,collaborators&access_token=${cfg.metaToken}`)
-  const { permalink, collaborators } = await r.json()
+  const r = await fetch(`${cfg.api}/${mediaId}?fields=permalink,collaborators,is_ai_generated&access_token=${cfg.metaToken}`)
+  const { permalink, collaborators, is_ai_generated } = await r.json()
+  // Confere o que a Meta gravou: a Graph API ignora em silencio parametro que
+  // nao entende, entao ausencia de erro nao prova que o rotulo pegou.
+  console.log(`  rotulo de IA: ${is_ai_generated === true ? 'aplicado' : `NAO aplicou (${is_ai_generated})`}`)
   if (colaboradores?.length) {
     // Confirma o que a Meta realmente gravou: a API ignora em silencio
     // parametro que nao entende, entao "nao deu erro" nao prova nada.
