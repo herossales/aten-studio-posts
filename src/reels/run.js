@@ -22,7 +22,7 @@ const arg = (n) => { const i = process.argv.indexOf(n); return i > -1 ? process.
 // no runner o workflow baixa do Release e aponta BASES_DIR pra ca.
 const BASES = process.env.BASES_DIR || 'Referencia Reels/Bases Reels'
 const REF = process.env.REF_IMG || 'Referencia Reels/influencer/influencer-v1.png'
-const TRILHA = process.env.TRILHA || `${BASES}/Musicas/Audio 01.MP3`
+const TRILHAS = process.env.TRILHAS || `${BASES}/Trilhas`
 const ARTE_CAPA = process.env.ARTE_CAPA || `${BASES}/Capa Reels.png`
 const SELFIES = process.env.SELFIES || `${BASES}/Selfies`
 
@@ -86,8 +86,16 @@ const arqs = fotos.map((b, i) => {
 // ja publicado pra nao cair sempre na mesma.
 const acervo = readdirSync(SELFIES).filter((f) => /\.(png|jpe?g)$/i.test(f)).sort()
 if (!acervo.length) throw new Error(`nenhuma selfie em ${SELFIES}`)
-const arqSelfie = join(SELFIES, acervo[estado.publicados.length % acervo.length])
-console.log(`  selfie do acervo: ${acervo[estado.publicados.length % acervo.length]}`)
+const selfieEscolhida = acervo[estado.publicados.length % acervo.length]
+const arqSelfie = join(SELFIES, selfieEscolhida)
+console.log(`  selfie do acervo: ${selfieEscolhida}`)
+
+const trilhas = readdirSync(TRILHAS).filter((f) => /\.(mp3|m4a|aac|wav)$/i.test(f)).sort()
+if (!trilhas.length) throw new Error(`nenhuma trilha em ${TRILHAS}`)
+// Deslocado em relacao a selfie: com 7 de cada, o mesmo indice faria a mesma
+// selfie sair sempre com a mesma musica, e o par nunca mudaria.
+const trilha = trilhas[(estado.publicados.length + 3) % trilhas.length]
+console.log(`  trilha: ${trilha}`)
 
 console.log('\n2. Montando o Reel...')
 ;({ capa } = await montarReel({
@@ -103,7 +111,7 @@ console.log('\n2. Montando o Reel...')
   gancho: conceito.gancho,
   textoSelfie: 'Tire uma selfie',
   cta: { linha1: 'Comenta PROMPT', linha2: 'e receba na DM' },
-  trilha: TRILHA,
+  trilha: join(TRILHAS, trilha),
   arteCapa: ARTE_CAPA,
   // Sem aceleracao: o tutorial ja esta em 7,3s, contra 22,9s da primeira
   // versao. Acelerar agora atropelaria o pouco que ele mostra.
