@@ -25,7 +25,10 @@ const ff = (args) => {
 
 // Todo segmento sai identico: mesmo tamanho, mesma taxa, sem audio. E o que
 // permite concatenar sem reencodar duas vezes e sem dessincronizar.
-const PADRAO = ['-an', '-c:v', 'libx264', '-preset', 'medium', '-crf', '19', '-pix_fmt', 'yuv420p', '-r', '30']
+// crf 17 e preset slow: o gargalo aqui e nitidez, nao tempo de render — sao
+// 20 segundos de video montados uma vez por post. O arquivo cresce, mas o
+// Instagram recomprime de qualquer jeito e entrega melhor partindo de melhor.
+const PADRAO = ['-an', '-c:v', 'libx264', '-preset', 'slow', '-crf', '17', '-pix_fmt', 'yuv420p', '-r', '30']
 // force_original_aspect_ratio=increase, nao scale pela largura: fonte alguns
 // pixels mais larga que 9:16 (a selfie e 1520x2688) escalava para uma altura
 // menor que o corte e o ffmpeg abortava. Assim sempre cobre e depois corta.

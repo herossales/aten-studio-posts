@@ -46,7 +46,15 @@ export async function gerarFotosDoReel({ direcao, poses, referencia }) {
     const r = await ai.models.generateContent({
       model: MODELO,
       contents: [{ role: 'user', parts: [ref, { text: texto }] }],
-      config: { responseModalities: ['IMAGE'], imageConfig: { aspectRatio: '9:16' } },
+      config: {
+        responseModalities: ['IMAGE'],
+        // imageSize 2K devolve 1536x2752. Sem ele vem 768x1376, e o Reel e
+        // 1080x1920 — a foto era ampliada 1,4x e o zoom dos inserts esticava
+        // pixel em cima disso. Com 2K a montagem passa a REDUZIR, que e onde
+        // imagem nao perde. Cuidado: `resolution` e ignorado em silencio, o
+        // nome do campo e imageSize mesmo.
+        imageConfig: { aspectRatio: '9:16', imageSize: '2K' },
+      },
     })
     const parte = r.candidates?.[0]?.content?.parts?.find((p) => p.inlineData)
     if (!parte) throw new Error(`foto ${i + 1}: ${r.candidates?.[0]?.finishReason || 'sem imagem'}`)
