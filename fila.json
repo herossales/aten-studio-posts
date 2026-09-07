@@ -41,7 +41,9 @@
     "653162752254139322",
     "653162752254139328",
     "653162752254139680",
-    "653162752254139677"
+    "653162752254139677",
+    "653162752254246429",
+    "653162752254246426"
   ],
   "fila": [
     {
@@ -403,6 +405,42 @@
       "imagemRef": "https://i.pinimg.com/originals/b6/d9/85/b6d985f7b61fa326f6389caf82cd87c2.jpg",
       "pinId": "653162752254139677",
       "coletadoEm": "2026-08-31T19:13:51.081Z"
+    },
+    {
+      "promptBase": "A monochrome vertical portrait of [SUBJECT] crouched on a simple wooden chair. She hugs her knee, with one hand resting gently near her lips in a pensive expression. She wears a vintage-style floral print short-sleeved dress. Lit by a single soft key light from 45 degrees front-right, creating dramatic shadows. Deep solid black studio background. Shot on 85mm lens at f/2.8, camera slightly below eye level. High-contrast black and white film style, rich neutral grey tones, deep crushed blacks, and subtle silver highlights.",
+      "assinatura": "An elegant Mediterranean woman in her late 20s with long dark hair, soft natural features, and a pensive look",
+      "figura": "Monica Bellucci",
+      "gancho": "A melancolia clássica e intimista capturada em preto e branco.",
+      "variacoes": [
+        "a French woman in her early 30s, wavy shoulder-length dark hair, wearing a dark silk slip dress",
+        "an Italian woman in her late 20s, long straight black hair, wearing a simple linen dress",
+        "a Brazilian woman in her mid 20s, curly dark brown hair, wearing a sleeveless cotton dress",
+        "a Spanish woman in her early 30s, sleek low bun, wearing a knitted summer dress"
+      ],
+      "etiqueta": "RETRATO MONOCROMÁTICO",
+      "slug": "retrato-monocromatico-melancolico",
+      "saves": 589,
+      "imagemRef": "https://i.pinimg.com/originals/53/a7/6a/53a76a89ad4837f233b7ee63f6d7d56a.jpg",
+      "pinId": "653162752254246429",
+      "coletadoEm": "2026-09-07T17:53:02.193Z"
+    },
+    {
+      "promptBase": "Tight close-up studio portrait of [SUBJECT] looking down at the camera with a confident, intense expression. Camera positioned at a low angle. The lighting is highly dramatic, with a strong, warm orange-red light hitting the side of the face as a sharp rim light, casting deep shadows across the features. The background is a solid, seamless vibrant orange backdrop. Shot on an 85mm lens at f/2.2 for a shallow depth of field. Warm white balance at 3200K, rich saturated orange-red tones, with deep blacks and high color contrast. The subject wears a simple dark grey hoodie.",
+      "assinatura": "A young modern urban athlete or creative with an intense, confident gaze, curly dark hair, and subtle facial hair",
+      "figura": "Marcus Rashford",
+      "gancho": "Estética urbana marcante com iluminação dramática em tons quentes de laranja.",
+      "variacoes": [
+        "A young female boxer with braided dark hair, looking determined, wearing a black athletic hoodie",
+        "A young East Asian man with sharp features and short cropped hair, wearing a dark grey hoodie",
+        "A Latin American creative with short curls and a goatee, looking confident, wearing a charcoal hoodie",
+        "A young athletic blonde woman with a high ponytail, looking intense, wearing a dark hoodie"
+      ],
+      "etiqueta": "Retrato Editorial Urbano",
+      "slug": "retrato-estudio-laranja-dramatico",
+      "saves": 25,
+      "imagemRef": "https://i.pinimg.com/originals/e1/79/b1/e179b1b157c7cd8b258763668dc10b13.jpg",
+      "pinId": "653162752254246426",
+      "coletadoEm": "2026-09-07T17:53:10.159Z"
     }
   ],
   "publicados": [
