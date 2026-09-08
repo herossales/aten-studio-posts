@@ -59,8 +59,12 @@ jobs:
       - name: Rodar
         env:
           IG_USER_ID:        ${{ secrets.BN_IG_USER_ID }}
-          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
-          GH_TOKEN:          ${{ secrets.GH_ASSETS_TOKEN }}
+          # Token próprio: o META_ACCESS_TOKEN deste repositório é do
+          # @atenstudio.ai e sobrescrevê-lo derrubaria o projeto irmão.
+          META_ACCESS_TOKEN: ${{ secrets.BN_META_ACCESS_TOKEN }}
+          # O token nativo do Actions já basta para subir asset no Release
+          # deste mesmo repositório — não precisa de PAT.
+          GH_TOKEN:          ${{ secrets.GITHUB_TOKEN }}
           GH_REPO:           ${{ github.repository }}
           ELEVEN_API_KEY:    ${{ secrets.ELEVEN_API_KEY }}
         run: node src/run.js ${{ inputs.seco && '--seco' || '' }}
