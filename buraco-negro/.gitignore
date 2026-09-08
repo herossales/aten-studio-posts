@@ -1,0 +1,16 @@
+.env
+node_modules/
+out/
+.DS_Store
+
+# A trilha não vai para o git: o repositório é público e commitar a faixa é
+# redistribuí-la. Ela é entregue ao runner por Release, como os assets fixos
+# do projeto irmão. Suba com: npm run subir-trilha
+Trilha.mp3
+
+# Retratos das lendas: enviados pelo Heros, fora do git porque o repositório
+# é público. Entregues ao runner pelo Release de assets, como a trilha.
+assets/lendas/
+
+# Retratos enviados pelo Heros; o JSON aponta para assets/lendas/
+lendas.json

@@ -1,0 +1,942 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Buraco Negro — cena 9:16</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;700&family=Oswald:wght@200;300;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#f2ede3;
+    --dim:#8f887c;
+    --ember:#f0a860;
+    --line:rgba(242,237,227,.16);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#0a0a0a;height:100%;overflow:hidden}
+  body{display:grid;place-items:center}
+
+  /* o quadro é sempre 1080x1920; na pré-visualização ele é escalado para caber */
+  #quadro{
+    position:relative;width:1080px;height:1920px;background:#000;color:var(--ink);
+    font-family:Inter,system-ui,sans-serif;transform-origin:center center;overflow:hidden;
+  }
+
+  /* ---------- faixa de cima ---------- */
+  .dia{position:absolute;left:0;right:0;top:126px;text-align:center;z-index:6;
+       font-family:Oswald,sans-serif;font-weight:300;font-size:46px;letter-spacing:.07em}
+  .titulo{position:absolute;left:90px;right:90px;top:196px;text-align:center;z-index:6;
+          font-weight:700;font-size:60px;line-height:1.16;letter-spacing:-.02em}
+
+  /* ---------- faixa da simulação ---------- */
+  /* Sem faixa preta: o céu ocupa os 1080x1920 inteiros e o texto vive sobre ele.
+   Quem separa um do outro são os dois véus, não uma borda. */
+  #palco{position:absolute;inset:0;overflow:hidden;background:#000}
+  #gl{position:absolute;inset:0;width:100%;height:100%;display:block}
+  #veuTopo,#veuBase{position:absolute;left:0;right:0;z-index:2;pointer-events:none}
+  #veuTopo{top:0;height:540px;
+    background:linear-gradient(to bottom,rgba(0,0,0,.94) 0%,rgba(0,0,0,.80) 24%,rgba(0,0,0,.34) 64%,transparent 100%)}
+  #veuBase{bottom:0;height:1010px;
+    background:linear-gradient(to top,rgba(0,0,0,.86) 0%,rgba(0,0,0,.82) 26%,rgba(0,0,0,.45) 62%,transparent 100%)}
+
+  /* ---------- HUD ---------- */
+  /* Coluna estreita à esquerda: além de ficar mais delicado, sai de baixo da
+     coluna de botões do Reels, que fica encostada na direita. */
+  #hud{position:absolute;left:60px;top:1044px;width:600px;z-index:5}
+  .contador{font-family:"Oswald",sans-serif;font-weight:200;font-size:78px;line-height:.9;
+            font-variant-numeric:tabular-nums;letter-spacing:-.005em}
+  .rotulo{font-size:22px;font-weight:300;color:var(--dim);letter-spacing:.05em;margin-top:7px}
+  .rotulo .delta{color:var(--ember);letter-spacing:.02em;opacity:0}
+  .rotulo .delta::before{content:"·";margin:0 11px;color:var(--dim)}
+  .leitura{margin-top:22px;padding-top:17px;border-top:1px solid var(--line)}
+  .leitura .linha{display:flex;align-items:baseline;gap:18px;padding:6px 0}
+  .leitura .rot{flex:0 0 246px;font-size:20px;font-weight:300;color:var(--dim);
+                letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .leitura .val{font-size:25px;font-weight:400;color:var(--ink);
+                font-variant-numeric:tabular-nums;white-space:nowrap}
+
+  /* ---------- faixa de baixo ---------- */
+  .cta{position:absolute;left:60px;right:60px;top:1420px;text-align:center;z-index:6;
+       font-family:Anton,Impact,sans-serif;font-size:44px;line-height:1.18;letter-spacing:.01em}
+  .cta .chave{color:var(--ember)}
+
+
+  /* ---------- legenda: sincronizada palavra a palavra pelo áudio ---------- */
+  .legenda{position:absolute;left:120px;right:120px;top:1330px;text-align:center;z-index:5;
+    font-size:24px;font-weight:600;line-height:1.3;color:#fff;letter-spacing:.005em;
+    text-shadow:0 3px 24px rgba(0,0,0,.96),0 0 64px rgba(0,0,0,.8);opacity:0}
+  .legenda .ativa{color:var(--ember)}
+
+  /* ---------- participantes: retrato redondo, @ embaixo ---------- */
+  #cards{position:absolute;inset:0;z-index:4;pointer-events:none}
+  .card{position:absolute;left:0;top:0;width:290px;text-align:center;
+        will-change:transform,opacity;transform-origin:center 75px}
+  .card .foto{width:150px;height:150px;border-radius:50%;object-fit:cover;display:block;
+    margin:0 auto;border:2px solid #fff;background:#131110;
+    box-shadow:0 0 30px rgba(0,0,0,.8),0 0 64px rgba(240,168,96,.12)}
+  .card .ini{display:grid;place-items:center;font-weight:500;font-size:52px;color:#fff}
+  .card.lenda .foto{border-color:var(--ember);
+    box-shadow:0 0 30px rgba(0,0,0,.8),0 0 70px rgba(240,168,96,.30)}
+  .card .selo{margin-top:9px;font-family:Oswald,sans-serif;font-weight:300;font-size:17px;
+    letter-spacing:.18em;color:var(--ember);text-transform:uppercase;
+    text-shadow:0 2px 14px rgba(0,0,0,.95)}
+  .card .nome{margin-top:16px;font-size:27px;font-weight:500;color:#fff;letter-spacing:.005em;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 2px 20px rgba(0,0,0,.95)}
+
+  /* fagulhas da desintegração: a pessoa não some, ela se desfaz para dentro */
+  #fagulhas{position:absolute;inset:0;z-index:4;pointer-events:none}
+  .fagulha{position:absolute;left:0;top:0;border-radius:50%;will-change:transform,opacity}
+
+  /* ---------- enxame ---------- */
+  #enxame{position:absolute;inset:0;z-index:3;pointer-events:none}
+  .grao{position:absolute;left:0;top:0;border-radius:50%;will-change:transform,opacity;object-fit:cover}
+  img.grao{border:1px solid rgba(242,237,227,.3);background:#1a1815}
+</style>
+</head>
+<body>
+
+<div id="quadro">
+  <div class="dia" id="dia">#Dia 01</div>
+  <div class="titulo" id="titulo">Criando um Buraco Negro<br>com Futuros Milionários</div>
+
+  <div id="palco">
+    <canvas id="gl"></canvas>
+    <div id="veuTopo"></div>
+    <div id="veuBase"></div>
+    <div id="enxame"></div>
+    <div id="fagulhas"></div>
+    <div id="cards"></div>
+    <div class="legenda" id="legenda"></div>
+    <div id="hud">
+      <div class="contador"><span id="contador">0</span></div>
+      <div class="rotulo"><span id="rotuloTxt">pessoas dentro</span><span class="delta" id="delta"></span></div>
+      <div class="leitura">
+        <div class="linha"><span class="rot">massa</span><span class="val" id="massa">—</span></div>
+        <div class="linha"><span class="rot" id="rotRaio">estágio</span><span class="val" id="raio">—</span></div>
+        <div class="linha"><span class="rot" id="rotProx">próximo marco</span><span class="val" id="prox">—</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta" id="cta"></div>
+</div>
+
+<script type="module">
+import R from '../regua.js';
+/* ===========================================================================
+   CENA — 1080x1920, determinística.
+
+   Render: nada depende de relógio. `window.__cena.seek(t)` desenha o quadro
+   exato do instante t. O gravador chama seek(n/fps) e tira o screenshot.
+   Na pré-visualização um requestAnimationFrame chama seek com o tempo real.
+=========================================================================== */
+
+/* ---------------- roteiro (segundos) ---------------- */
+const ROTEIRO = {
+  fps: 30,
+  abertura: 6.0,        // a câmera chega de longe, girando: nada entra ainda
+  passoCard: 1.20,      // de quanto em quanto tempo entra um participante
+  nCards: 24,           // teto de retratos em close; num dia fraco cai sozinho
+  enxame: 4.7,          // corrida do resto dos participantes do dia
+  fecho: 2.5,           // estado final respirando
+};
+const FECHO_BASE = ROTEIRO.fecho;
+let CONTEUDO = null;   // duração do miolo, preenchida por ajusta()
+const recalcula = () => {
+  ROTEIRO.duracao = (CONTEUDO ?? (ROTEIRO.abertura + ROTEIRO.cards + ROTEIRO.enxame)) + ROTEIRO.fecho;
+};
+
+/* Um participante tem uma trajetória só, sem fases: entra de fora do quadro,
+   atravessa o primeiro plano e some dentro do astro. Vive mais que o passo
+   entre dois, de propósito — assim há sempre dois em cena e o que se vê é um
+   fluxo de gente, não uma fila de pop-ups. */
+const CARD = { vida: 2.4 };
+
+/* Perfil de velocidade ao longo do caminho.
+   Até 55% do tempo ele anda a velocidade CONSTANTE e cobre 30% do trajeto.
+   Depois acelera, chegando ao astro ~6,5x mais rápido do que entrou.
+   A constante C casa as duas velocidades na emenda: sem ela haveria um
+   solavanco no meio do percurso. */
+const TAU_LIN = 0.55, S_LIN = 0.30;
+const C_EMENDA = (S_LIN/TAU_LIN) * (1 - TAU_LIN) / (1 - S_LIN);
+function percurso(tau){
+  if (tau <= TAU_LIN) return (S_LIN/TAU_LIN) * tau;
+  const u = (tau - TAU_LIN) / (1 - TAU_LIN);
+  return S_LIN + (1 - S_LIN) * (C_EMENDA*u + (1 - C_EMENDA)*u*u*u);
+}
+/* Bézier quadrática, com o ponto de controle resolvido para a curva passar
+   exatamente pela pose de primeiro plano na metade do caminho. */
+const bez = (a, b, c, s) => { const m = 1 - s; return m*m*a + 2*m*s*b + s*s*c; };
+
+/* ---------------- dados ---------------- */
+const DEMO_NOMES = ['Bruno Lucialdo','Miller Santt','Cláudio','Vinícius Martins','Ana Prado','Rafael Nunes',
+  'Letícia Faro','Diego Amaral','Camila Rocha','Tiago Bastos','Marina Lisboa','Igor Serra','Paula Reis',
+  'Henrique Vaz','Sofia Andrade','Lucas Moreira','Beatriz Cunha','Otávio Lins'];
+
+function dadosDemo(){
+  const novos = [];
+  for (let i = 0; i < 148; i++){
+    const nome = DEMO_NOMES[i % DEMO_NOMES.length] + (i >= DEMO_NOMES.length ? ' ' + (i+1) : '');
+    novos.push({ username: nome.toLowerCase().replace(/[^a-z]+/g,'.').replace(/^\.|\.$/g,''), nome, foto: null });
+  }
+  return { dia: 1, titulo: 'Criando um Buraco Negro<br>com Futuros Milionários',
+           cta: ['Você fará <span class="chave">1 MILHÃO</span> de Reais',
+                 'esse ano! Comente <span class="chave">EU DETERMINO</span>',
+                 'para se juntar a nós.'],
+           antes: 0, novos };
+}
+
+const D = window.__DADOS || dadosDemo();
+const ANTES  = D.antes || 0;
+const NOVOS  = D.novos || [];
+const DEPOIS = ANTES + NOVOS.length;
+/* -------------------------------------------------------------------------
+   PRÉVIA — só no vídeo de estreia
+   No dia 1 não há ninguém para entrar, e uma anã vermelha parada por trinta
+   segundos não é vídeo. Em vez disso o vídeo mostra a viagem inteira: a
+   estrela percorre os estágios, colapsa numa supernova e vira o buraco negro
+   no tamanho que ele terá com um milhão de pessoas. É o trailer da série.
+------------------------------------------------------------------------- */
+const PREVIA_ATIVA = !!D.previa;
+const PREVIA = {
+  espera: 1.2,        // a contagem começa quase junto com o vídeo
+  subida: 15.8,       // percorre a escada de estágios, devagar e acelerando
+  colapso: 4.2,       // contração, supernova, nascimento
+  nascimento: 5.0,    // o buraco negro cresce até a massa da meta
+};
+/* Expoente da contagem. O número anda quase parado no começo e dispara no fim,
+   que é como se sente crescimento exponencial.
+   O valor não é livre: ele precisa manter a estrela em "anã vermelha" até o
+   segundo em que a locução diz "anã vermelha" — hoje por volta dos 9,7s. Se o
+   texto de estreia mudar de tamanho, este expoente muda junto, senão a imagem
+   desmente a voz. */
+const PREVIA_CURVA = 3.4;
+/* A contemplação final não entra nesta soma: quem a fornece é o `fecho` do
+   roteiro, que já existe e é o mesmo em todos os vídeos. Somar aqui também
+   contava o mesmo tempo duas vezes e estourava o teto de 30s. */
+PREVIA.duracao = PREVIA.espera + PREVIA.subida + PREVIA.colapso + PREVIA.nascimento;
+/* Instante em que o horizonte de eventos aparece (c = 0,52 do colapso). É este
+   segundo que o ápice da trilha tem de encontrar. */
+PREVIA.climax = PREVIA.espera + PREVIA.subida + PREVIA.colapso * 0.52;
+
+function estadoPrevia(t) {
+  const P = PREVIA;
+  if (t < P.espera) return { n: ANTES, c: 0, projecao: false };
+  const t1 = t - P.espera;
+  if (t1 < P.subida) {
+    const p = Math.pow(t1 / P.subida, PREVIA_CURVA);
+    return { n: Math.min(R.nDaFracao(p), R.COLAPSO - 1), c: 0, projecao: true };
+  }
+  const t2 = t1 - P.subida;
+  if (t2 < P.colapso) {
+    const c = t2 / P.colapso;
+    return { n: c < 0.5 ? R.COLAPSO - 1 : R.COLAPSO, c, projecao: true };
+  }
+  const t3 = Math.min(1, (t2 - P.colapso) / P.nascimento);
+  return { n: R.COLAPSO + (R.META - R.COLAPSO) * suave(t3), c: 1, projecao: true };
+}
+
+/* Num dia fraco não há doze pessoas para mostrar. Sem isto o vídeo reservaria
+   catorze segundos para retratos que não existem. */
+ROTEIRO.nCards = Math.min(ROTEIRO.nCards, NOVOS.length);
+
+const PASSO_MAX = ROTEIRO.passoCard;
+const PASSO_MIN = 0.55;      // abaixo disto vira borrão, não fluxo
+const ENXAME_MAX = ROTEIRO.enxame;
+const FECHO_MIN = ROTEIRO.fecho;
+const CAUDA_MUSICA = 3.0;    // segundos de trilha sozinha depois da voz
+
+/* Quanto menor o passo, mais retratos ficam em cena ao mesmo tempo. Encolhê-los
+   um pouco evita que o empilhamento tape a estrela. */
+let ESCALA_RETRATO = 1;
+
+/* -------------------------------------------------------------------------
+   AJUSTE DA LINHA DO TEMPO
+   Reel não pode passar de 30 segundos. Conforme a série cresce entra mais
+   gente por dia, e a saída não é vídeo mais longo: é gente entrando mais
+   rápido e mais empilhada. Quem cede espaço primeiro é o passo entre retratos,
+   depois o enxame — nunca a abertura nem a voz.
+------------------------------------------------------------------------- */
+function ajusta({ vozFim = 0, teto = 30 } = {}) {
+  let passo = PASSO_MAX;
+  let enxame = NOVOS.length > ROTEIRO.nCards ? ENXAME_MAX : 0;
+
+  const janela = teto - ROTEIRO.abertura - FECHO_MIN;
+  if (ROTEIRO.nCards * passo + enxame > janela) {
+    passo = Math.max(PASSO_MIN, (janela - enxame) / Math.max(1, ROTEIRO.nCards));
+    if (ROTEIRO.nCards * passo + enxame > janela) {
+      enxame = Math.max(0, janela - ROTEIRO.nCards * passo);
+    }
+  }
+
+  ROTEIRO.passoCard = passo;
+  ROTEIRO.cards = ROTEIRO.nCards * passo;
+  ROTEIRO.enxame = enxame;
+
+  const conteudo = PREVIA_ATIVA
+    ? PREVIA.duracao
+    : ROTEIRO.abertura + ROTEIRO.cards + ROTEIRO.enxame;
+  if (PREVIA_ATIVA) { ROTEIRO.cards = 0; ROTEIRO.enxame = 0; ROTEIRO.nCards = 0; }
+  CONTEUDO = conteudo;
+  const minimo = vozFim > 0 ? vozFim + CAUDA_MUSICA : 0;
+  ROTEIRO.fecho = Math.max(FECHO_MIN, minimo - conteudo);
+  ESCALA_RETRATO = passo < 0.90 ? 0.82 : 1;
+  recalcula();
+  return ROTEIRO.duracao;
+}
+ajusta();
+
+const HEROIS = NOVOS.slice(0, ROTEIRO.nCards);
+const RESTO  = Math.max(0, NOVOS.length - HEROIS.length);
+
+/* ---------------- avatar de reserva ----------------
+   business_discovery não responde para conta pessoal. Em vez de quebrar o
+   vídeo, a pessoa entra com as iniciais num disco de cor derivada do @. */
+function hashStr(s){ let h = 2166136261; for (let i=0;i<s.length;i++){ h ^= s.charCodeAt(i); h = Math.imul(h,16777619);} return (h>>>0); }
+function corDe(u){ return `hsl(${hashStr(u)%360} 62% 66%)`; }
+/* avatar de reserva: disco escuro com um leve viés de cor, para não brigar
+   com a paleta nem parecer um adesivo colorido */
+function corReserva(u){ const h = hashStr(u)%360;
+  return `linear-gradient(155deg, hsl(${h} 22% 26%), hsl(${h} 26% 13%))`; }
+/* grãos do enxame ficam numa faixa quente e clara: leem como fagulhas caindo,
+   não como confete colorido */
+function corBrasa(u){ const h = 18 + hashStr(u)%44; return `hsl(${h} 78% 76%)`; }
+function iniciais(nome, user){
+  const base = (nome || user || '?').trim();
+  const p = base.split(/\s+/).filter(Boolean);
+  return ((p[0]?.[0] || '?') + (p.length > 1 ? p[p.length-1][0] : '')).toUpperCase();
+}
+
+/* ---------------- textos fixos ---------------- */
+const $ = id => document.getElementById(id);
+$('dia').textContent = '#Dia ' + String(D.dia ?? 1).padStart(2,'0');
+if (D.titulo) $('titulo').innerHTML = D.titulo;
+$('cta').innerHTML = (D.cta || dadosDemo().cta).join('<br>');
+
+/* ===========================================================================
+   WEBGL — o mesmo traçado de raios do simulador, com dois acréscimos:
+   uAbsorve (clarão quando alguém é engolido) e uSobe (deslocamento vertical,
+   porque o astro fica acima do HUD, não no meio do quadro).
+=========================================================================== */
+const VS = `#version 300 es
+in vec2 a; void main(){ gl_Position = vec4(a,0.,1.); }`;
+
+const SCENE_FS = `#version 300 es
+precision highp float;
+uniform vec2 uRes; uniform float uTime,uRs,uStar,uFlash,uRing,uDisk,uAz,uEl,uDist,uTemp,uGran,uAbsorve,uSobe;
+out vec4 o;
+
+vec3 bbStar(float t){
+  vec3 c=mix(vec3(1.,.32,.10),vec3(1.,.60,.33),smoothstep(3000.,4500.,t));
+  c=mix(c,vec3(1.,.90,.72),smoothstep(4500.,5800.,t));
+  c=mix(c,vec3(1.,.99,.96),smoothstep(5800.,8000.,t));
+  c=mix(c,vec3(.80,.87,1.),smoothstep(8000.,12000.,t));
+  c=mix(c,vec3(.58,.70,1.),smoothstep(12000.,26000.,t));
+  return c;
+}
+float hash(vec3 p){ p=fract(p*0.3183099+.1); p*=17.0; return fract(p.x*p.y*p.z*(p.x+p.y+p.z)); }
+float noise(vec3 x){ vec3 i=floor(x), f=fract(x); f=f*f*(3.-2.*f);
+  return mix(mix(mix(hash(i),hash(i+vec3(1,0,0)),f.x),mix(hash(i+vec3(0,1,0)),hash(i+vec3(1,1,0)),f.x),f.y),
+             mix(mix(hash(i+vec3(0,0,1)),hash(i+vec3(1,0,1)),f.x),mix(hash(i+vec3(0,1,1)),hash(i+vec3(1,1,1)),f.x),f.y),f.z); }
+float fbm(vec3 p){ float a=.5,s=0.; for(int i=0;i<5;i++){ s+=a*noise(p); p=p*2.03+1.7; a*=.5; } return s; }
+vec3 blackbody(float t){
+  float x=clamp((t-1000.)/9000.,0.,1.);
+  vec3 c=mix(vec3(1.,.22,.02),vec3(1.,.52,.14),smoothstep(0.,.25,x));
+  c=mix(c,vec3(1.,.84,.58),smoothstep(.25,.5,x));
+  c=mix(c,vec3(1.),smoothstep(.5,.7,x));
+  c=mix(c,vec3(.72,.8,1.),smoothstep(.7,1.,x));
+  return c;
+}
+vec3 starLayer(vec3 d,float scale,float density,float size){
+  vec3 p=d*scale, c=floor(p), f=fract(p)-.5;
+  float h=hash(c); if(h>density) return vec3(0.);
+  vec3 off=(vec3(hash(c+7.1),hash(c+3.3),hash(c+9.7))-.5)*.8;
+  float dist=length(f-off);
+  float b=smoothstep(size,0.,dist)*(.4+.6*hash(c+1.3));
+  vec3 col=mix(vec3(1.,.82,.6),vec3(.7,.8,1.),hash(c+5.5));
+  return col*b*b*2.2;
+}
+vec3 sky(vec3 d){
+  // três camadas de estrelas, das grandes às poeirinhas do fundo
+  vec3 col=starLayer(d,140.,.075,.10)*1.55
+          +starLayer(d,320.,.060,.085)*.95
+          +starLayer(d,700.,.045,.09)*.55;
+
+  /* Nébula. Uma faixa larga de poeira atravessando o céu, mais uma nuvem
+     difusa fora dela para o resto não ficar liso. Amplitude contida de
+     propósito: ela é fundo, não assunto — se subir demais, briga com o disco
+     de acreção e o preto do horizonte deixa de ser preto. */
+  vec3 bn=normalize(vec3(.35,1.,.2));
+  float faixa=exp(-pow(dot(d,bn),2.)*7.);
+  float n1=fbm(d*2.2+vec3(2.));
+  float n2=fbm(d*5.5-vec3(1.3));
+  float n3=fbm(d*11.);
+  col+=faixa*(vec3(.085,.10,.17)*n1*2.0
+             +vec3(.13,.075,.05)*smoothstep(.50,.85,n1)*n2*2.2);
+  col+=vec3(.030,.034,.055)*smoothstep(.42,.86,n1)*(.35+.65*n3);
+  col+=vec3(.016,.017,.026);
+  return col;
+}
+
+void main(){
+  vec2 uv=(gl_FragCoord.xy-.5*uRes)/uRes.y;
+  uv.y-=uSobe;
+  vec3 ro=uDist*vec3(cos(uEl)*sin(uAz),sin(uEl),cos(uEl)*cos(uAz));
+  vec3 fw=normalize(-ro), rt=normalize(cross(fw,vec3(0,1,0))), up=cross(rt,fw);
+  vec3 rd=normalize(fw*1.6+rt*uv.x+up*uv.y);
+
+  float rIn=3.*uRs, rOut=min(13.*uRs,26.);
+  vec3 p=ro, v=rd, col=vec3(0.); float alpha=1.;
+  int hit=0;
+  for(int i=0;i<220;i++){
+    float r=length(p);
+    if(r<uRs){hit=1;break;}
+    if(r<uStar){hit=2;break;}
+    if(r>60.&&dot(p,v)>0.) break;
+    float dt=clamp(.075*r,.02,3.0);
+    vec3 h=cross(p,v); float h2=dot(h,h);
+    vec3 a=-1.5*uRs*h2*p/pow(r,5.);
+    vec3 vn=normalize(v+a*dt); vec3 pn=p+vn*dt;
+    if(p.y*pn.y<0. && uDisk>0.){
+      float t=p.y/(p.y-pn.y); vec3 hp=mix(p,pn,t); float hr=length(hp.xz);
+      if(hr>rIn&&hr<rOut){
+        float ang=atan(hp.z,hp.x)-uTime*1.8/pow(hr,1.5)*pow(uRs,1.5);
+        vec3 np=vec3(cos(ang),sin(ang),0.)*hr*.75+vec3(0.,0.,hr*.9);
+        float dens=fbm(np*1.15); dens=smoothstep(.32,.78,dens);
+        float radial=smoothstep(rIn,rIn*1.25,hr)*smoothstep(rOut,rOut*.5,hr);
+        float T=9500.*pow(rIn/hr,.75);
+        float beta=sqrt(uRs/(2.*hr)); float gam=1./sqrt(1.-beta*beta);
+        vec3 tdir=normalize(cross(vec3(0,1,0),hp));
+        float g=sqrt(max(0.,1.-uRs/hr))/(gam*(1.-beta*dot(tdir,-v)));
+        vec3 e=blackbody(T*g)*pow(g,3.)*(.35+dens*1.1)*1.6*(1.+uAbsorve*0.8);
+        float opac=clamp(radial*(.45+dens*.75),0.,1.)*uDisk;
+        col+=e*opac*alpha; alpha*=(1.-opac*.9);
+      }
+    }
+    p=pn; v=vn;
+  }
+
+  if(hit==2){
+    vec3 n=normalize(p);
+    float gran=fbm(n*(7.-uGran*3.)+vec3(uTime*.04)); float gran2=fbm(n*22.-vec3(uTime*.08));
+    float limb=pow(max(dot(n,-v),0.),mix(.35,.75,uGran));
+    vec3 base=bbStar(uTemp);
+    vec3 sc=mix(base*vec3(1.,.42,.24),base*1.10,limb)*(.72+gran*.62*uGran+gran2*.30*uGran);
+    col+=sc*alpha*(1.+uAbsorve*0.85);
+  } else if(hit==0){
+    col+=sky(v)*alpha;
+  }
+
+  float b=length(cross(ro,rd));
+  if(uStar>0.){ col+=bbStar(uTemp)*exp(-(b-uStar)*2.6/max(uStar,.05))
+                     *mix(.35,.8,smoothstep(3000.,20000.,uTemp))*step(uStar,b)*(1.+uAbsorve*0.75); }
+  if(uFlash>0.){
+    col+=vec3(1.,.93,.85)*uFlash*3.*exp(-b*b*.25);
+    col+=vec3(.9,.7,.55)*uFlash*smoothstep(.9,0.,abs(b-uRing))*1.2;
+  }
+  o=vec4(col,1.);
+}`;
+
+const BRIGHT_FS = `#version 300 es
+precision highp float; uniform sampler2D uTex; uniform vec2 uRes; out vec4 o;
+void main(){ vec3 c=texture(uTex,gl_FragCoord.xy/uRes).rgb; float l=dot(c,vec3(.3,.59,.11)); o=vec4(c*smoothstep(.55,1.6,l),1.); }`;
+
+const BLUR_FS = `#version 300 es
+precision highp float; uniform sampler2D uTex; uniform vec2 uRes,uDir; out vec4 o;
+void main(){ vec2 uv=gl_FragCoord.xy/uRes; vec2 px=uDir/uRes;
+  float w[5]=float[](.227,.194,.121,.054,.016); vec3 c=texture(uTex,uv).rgb*w[0];
+  for(int i=1;i<5;i++){ c+=texture(uTex,uv+px*float(i)*1.5).rgb*w[i]; c+=texture(uTex,uv-px*float(i)*1.5).rgb*w[i]; }
+  o=vec4(c,1.); }`;
+
+const FINAL_FS = `#version 300 es
+precision highp float; uniform sampler2D uScene,uBloom; uniform vec2 uRes; uniform float uTime; out vec4 o;
+vec3 aces(vec3 x){ return clamp((x*(2.51*x+.03))/(x*(2.43*x+.59)+.14),0.,1.); }
+void main(){ vec2 uv=gl_FragCoord.xy/uRes;
+  vec3 c=texture(uScene,uv).rgb+texture(uBloom,uv).rgb*.9;
+  vec2 q=uv-.5; c*=1.-dot(q,q)*.55;
+  c=aces(c*1.05); c=pow(c,vec3(1./1.05));
+  float g=fract(sin(dot(gl_FragCoord.xy+uTime*60.,vec2(12.9898,78.233)))*43758.5453);
+  c+=(g-.5)/255.*2.;
+  o=vec4(c,1.); }`;
+
+const PALCO_W = 1080, PALCO_H = 1920;
+const canvas = $('gl');
+canvas.width = PALCO_W; canvas.height = PALCO_H;
+const gl = canvas.getContext('webgl2',{antialias:false,alpha:false,preserveDrawingBuffer:true});
+if(!gl) throw new Error('WebGL2 indisponível');
+gl.getExtension('EXT_color_buffer_float');
+
+function prog(fs){
+  const p = gl.createProgram();
+  for(const [t,s] of [[gl.VERTEX_SHADER,VS],[gl.FRAGMENT_SHADER,fs]]){
+    const sh = gl.createShader(t); gl.shaderSource(sh,s); gl.compileShader(sh);
+    if(!gl.getShaderParameter(sh,gl.COMPILE_STATUS)) console.error(gl.getShaderInfoLog(sh));
+    gl.attachShader(p,sh);
+  }
+  gl.linkProgram(p); return p;
+}
+const P = { scene:prog(SCENE_FS), bright:prog(BRIGHT_FS), blur:prog(BLUR_FS), final:prog(FINAL_FS) };
+const quad = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,quad);
+gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+for(const p of Object.values(P)){ const l=gl.getAttribLocation(p,'a'); gl.enableVertexAttribArray(l); gl.vertexAttribPointer(l,2,gl.FLOAT,false,0,0); }
+const U = (p,n) => gl.getUniformLocation(p,n);
+
+function makeFBO(w,h){
+  const tex = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D,tex);
+  gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA16F,w,h,0,gl.RGBA,gl.HALF_FLOAT,null);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+  const fb = gl.createFramebuffer(); gl.bindFramebuffer(gl.FRAMEBUFFER,fb);
+  gl.framebufferTexture2D(gl.FRAMEBUFFER,gl.COLOR_ATTACHMENT0,gl.TEXTURE_2D,tex,0);
+  return {fb,tex,w,h};
+}
+/* Resolução do traçado de raios, como fração do quadro. Em 1 a estrela e as
+   estrias do disco saem na definição nativa; cada degrau abaixo disso é
+   ~quadraticamente mais rápido, e serve para conferir enquadramento sem
+   esperar o render inteiro. */
+const ESCALA_RENDER = window.__ESCALA ?? 1.0;
+const F = {
+  scene: makeFBO(PALCO_W*ESCALA_RENDER|0, PALCO_H*ESCALA_RENDER|0),
+  b1: makeFBO(PALCO_W*0.30|0, PALCO_H*0.30|0),
+  b2: makeFBO(PALCO_W*0.30|0, PALCO_H*0.30|0),
+};
+
+/* O astro não fica no meio do palco: sobe, porque a metade de baixo é do HUD.
+   uSobe desloca o raio no shader. Cards e grãos vivem dentro do palco, então
+   estas coordenadas são relativas a ele, não ao quadro. */
+/* Quanto o astro sobe em relação ao centro do quadro: 0,104 põe o centro dele
+   em y=760, acima do bloco de legenda e HUD. */
+const SOBE = 0.1042;
+const CENTRO = { x: PALCO_W/2, y: PALCO_H/2 - SOBE*PALCO_H };
+
+/* ===========================================================================
+   CARDS E ENXAME
+=========================================================================== */
+const elCards = $('cards'), elEnxame = $('enxame'), elFagulhas = $('fagulhas');
+
+function fazCard(p, i, lenda = false){
+  const d = document.createElement('div'); d.className = lenda ? 'card lenda' : 'card';
+  let av;
+  if (p.foto){ av = document.createElement('img'); av.className = 'foto';
+               av.src = p.foto; av.crossOrigin = 'anonymous'; }
+  else { av = document.createElement('div'); av.className = 'foto ini';
+         // conta pessoal não responde ao business_discovery: entra assim mesmo
+         av.style.background = corReserva(p.username || p.nome || ''+i);
+         av.textContent = iniciais(p.nome, p.username); }
+  const nome = document.createElement('div'); nome.className = 'nome';
+  nome.textContent = lenda ? (p.nome || p.username) : '@' + (p.username || '');
+  d.append(av, nome);
+  if (lenda) {
+    /* Marcação obrigatória. Sem ela o vídeo afirmaria que estas pessoas
+       comentaram para entrar, o que é falso — e endosso fabricado de gente
+       famosa não é licença poética, é problema. Aqui elas são o destino, não
+       os participantes: por isso também não entram na contagem. */
+    const selo = document.createElement('div'); selo.className = 'selo';
+    selo.textContent = 'já chegou lá';
+    d.append(selo);
+  }
+  d.style.opacity = '0';
+  elCards.append(d);
+  return d;
+}
+const CARD_R = 75;     // metade do retrato; o transform-origin é o centro dele
+const N_FAG = 26;      // fagulhas por retrato
+
+/* Monta um elenco: os retratos, onde cada um assenta, e as fagulhas presas ao
+   aro de cada um. Serve tanto para os participantes quanto para as lendas —
+   a animação é a mesma, o que muda é o tratamento e o calendário. */
+function montaElenco(lista, lenda, sal) {
+  const cards = lista.map((p, i) => fazCard(p, i, lenda));
+
+  /* Coordenadas do CENTRO do retrato, alternando os lados para dois seguidos
+     nunca colidirem. As pistas ficam fora da faixa horizontal da estrela, que
+     vai de x=390 a x=690 — por isso um retrato nunca a tapa. */
+  const poses = lista.map((_, i) => {
+    const r = s => (hashStr(sal + 'pose' + i + s) % 1000) / 1000;
+    const esq = i % 2 === 0;
+    return {
+      esq,
+      cx: esq ? 246 + r('x')*66 : PALCO_W - 246 - r('x')*66,
+      /* Mais alto do que parece necessário: a Bézier mergulha um pouco abaixo
+         da pose no meio do caminho, e lá embaixo está o HUD. */
+      cy: 898 + r('y')*30,
+      deriva: (r('d') - .5) * 48,
+    };
+  });
+
+  const fagulhas = cards.map((_, i) => Array.from({ length: N_FAG }, (_, j) => {
+    const r = s => (hashStr(sal + 'fag' + i + 'x' + j + s) % 1000) / 1000;
+    const e = document.createElement('div'); e.className = 'fagulha';
+    const tam = 7 + Math.round(r('t')*13);
+    e.style.width = e.style.height = tam + 'px';
+    e.style.background = `radial-gradient(circle, #fff 12%, rgba(255,222,178,.85) 45%, rgba(255,170,90,0) 76%)`;
+    e.style.opacity = '0';
+    elFagulhas.append(e);
+    return { el: e, tam,
+      ang: (j / N_FAG) * Math.PI * 2 + (r('a') - .5) * 0.5,
+      raio: CARD_R * (0.74 + r('r') * 0.40),
+      inicio: 0.44 + r('i') * 0.30,
+      vel: 0.70 + r('v') * 0.55,
+    };
+  }));
+  return { cards, poses, fagulhas };
+}
+
+const ELENCO = montaElenco(HEROIS, false, 'h');
+
+/* As lendas. Não são participantes: não comentaram, não contam no contador e
+   entram com selo próprio. Elas existem para dar a escala do destino. */
+const LENDAS = montaElenco(D.lendas || [], true, 'l');
+const LENDA_T = { inicio: 1.4, passo: 1.9 };
+/* Todas precisam ter entrado antes de a estrela explodir: uma lenda cortada
+   no meio da queda pela supernova fica parecendo defeito, não montagem. */
+if (PREVIA_ATIVA && LENDAS.cards.length > 1) {
+  const janela = PREVIA.espera + PREVIA.subida - LENDA_T.inicio - CARD.vida;
+  LENDA_T.passo = Math.min(LENDA_T.passo, janela / (LENDAS.cards.length - 1));
+}
+
+/* enxame: grãos que entram das bordas e caem em espiral */
+const N_GRAOS = Math.min(RESTO, 90);
+const graos = [];
+for (let i = 0; i < N_GRAOS; i++){
+  const p = NOVOS[HEROIS.length + (i % Math.max(1,RESTO))] || {};
+  const g = document.createElement(p.foto ? 'img' : 'div');
+  g.className = 'grao';
+  const tam = 15 + (hashStr('t'+i) % 17);
+  g.style.width = g.style.height = tam + 'px';
+  if (p.foto) { g.src = p.foto; g.crossOrigin='anonymous'; }
+  else {
+    // sem foto o grão vira um ponto de luz, não um adesivo colorido
+    const c = corBrasa(p.username || 'g'+i);
+    g.style.background = `radial-gradient(circle at 38% 34%, ${c}, transparent 72%)`;
+  }
+  g.style.opacity = '0';
+  elEnxame.append(g);
+  const r = s => (hashStr('g'+i+s) % 1000) / 1000;
+  graos.push({ el: g, tam,
+    atraso: r('a') * 0.86,                 // fração da fase de enxame em que ele nasce
+    dur:    0.30 + r('d') * 0.42,          // quanto tempo leva para cair
+    ang:    r('n') * Math.PI * 2,          // de onde vem
+    dist:   420 + r('r') * 560,
+    voltas: 0.7 + r('v') * 1.1,
+  });
+}
+
+/* ===========================================================================
+   HUD
+=========================================================================== */
+const elContador = $('contador'), elDelta = $('delta'), elRotuloTxt = $('rotuloTxt'),
+      elMassa = $('massa'), elRaio = $('raio'), elProx = $('prox'),
+      elRotRaio = $('rotRaio'), elRotProx = $('rotProx');
+
+function pintaHUD(n, novosAteAgora, projecao = false){
+  n = Math.round(n);
+  elContador.textContent = R.fmt(n);
+  /* Na prévia o número não é o de hoje, é o de onde vamos chegar. O rótulo
+     precisa dizer isso — número grande sem ressalva é mentira. */
+  elRotuloTxt.textContent = projecao ? 'se chegarmos a um milhão' : 'pessoas dentro';
+  elDelta.textContent = !projecao && novosAteAgora > 0 ? '+' + R.fmt(novosAteAgora) + ' hoje' : '';
+  elDelta.style.opacity = !projecao && novosAteAgora > 0 ? '1' : '0';
+  elMassa.textContent = R.fmtMassa(R.massa(n));
+
+  if (R.fase(n) === 'estrela'){
+    const e = R.estrela(n);
+    elRotRaio.textContent = 'estágio';
+    elRaio.textContent = e.estagio.nome;
+  } else {
+    elRotRaio.textContent = 'raio do horizonte';
+    elRaio.textContent = R.fmtKm(R.raioHorizonteKm(n));
+  }
+  const m = R.proximoMarco(n);
+  elRotProx.textContent = m ? 'faltam para ' + m.nota : 'meta';
+  elProx.textContent = m ? R.fmt(m.n - n) : 'atingida';
+}
+
+/* ===========================================================================
+   LEGENDA
+   Os tempos vêm do próprio áudio (endpoint /with-timestamps do ElevenLabs),
+   já deslocados pelo atraso com que a voz entra no vídeo. A palavra que está
+   sendo dita acende.
+=========================================================================== */
+const LEGENDAS = window.__LEGENDAS || D.legendas || [];
+const elLegenda = $('legenda');
+let blocoNaTela = -1;
+const escapaHTML = t => t.replace(/[&<>]/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;' }[c]));
+
+function pintaLegenda(t) {
+  if (!LEGENDAS.length) return;
+  let i = -1;
+  for (let k = 0; k < LEGENDAS.length; k++) {
+    if (t >= LEGENDAS[k].t0 - 0.08 && t <= LEGENDAS[k].t1 + 0.20) { i = k; break; }
+  }
+  if (i < 0) { elLegenda.style.opacity = '0'; blocoNaTela = -1; return; }
+  const b = LEGENDAS[i];
+  if (i !== blocoNaTela) {   // só remonta o HTML quando o bloco muda
+    blocoNaTela = i;
+    elLegenda.innerHTML = b.palavras.map(w => `<span>${escapaHTML(w.p)}</span>`).join(' ');
+  }
+  elLegenda.style.opacity = '1';
+  for (let k = 0; k < elLegenda.children.length; k++) {
+    const w = b.palavras[k];
+    elLegenda.children[k].className = (t >= w.t0 && t <= w.t1 + 0.06) ? 'ativa' : '';
+  }
+}
+
+/* ===========================================================================
+   SEEK — desenha o quadro do instante t
+=========================================================================== */
+const clamp = (x,a,b) => Math.min(b, Math.max(a,x));
+const suave = t => t*t*(3-2*t);
+const saiRapido = t => 1 - Math.pow(1-t, 3);
+const entraRapido = t => t*t*t;
+
+function seek(t){
+  t = clamp(t, 0, ROTEIRO.duracao);
+  const T = ROTEIRO;
+
+  /* ---- quantas pessoas já entraram neste instante ---- */
+  let engolidos = 0;
+  if (t > T.abertura){
+    const tc = t - T.abertura;
+    // cada card conta quando termina de cair
+    for (let i = 0; i < HEROIS.length; i++){
+      if (tc >= i*T.passoCard + CARD.vida) engolidos++;
+    }
+    if (tc > T.cards){
+      const te = clamp((tc - T.cards) / T.enxame, 0, 1);
+      engolidos += Math.round(RESTO * saiRapido(te));
+    }
+  }
+  const previa = PREVIA_ATIVA ? estadoPrevia(t) : null;
+  const n = previa ? previa.n : ANTES + engolidos;
+  pintaHUD(n, engolidos, previa?.projecao);
+  pintaLegenda(t);
+
+  /* ---- absorção: clarão curto a cada pessoa engolida ---- */
+  let absorve = 0;
+  if (t > T.abertura){
+    const tc = t - T.abertura;
+    for (let i = 0; i < HEROIS.length; i++){
+      const dt = tc - (i*T.passoCard + CARD.vida);
+      if (dt >= 0 && dt < 0.5) absorve = Math.max(absorve, Math.exp(-dt*9));
+    }
+    if (tc > T.cards){
+      const te = clamp((tc - T.cards)/T.enxame, 0, 1);
+      absorve = Math.max(absorve, 0.35 * Math.exp(-Math.pow((te-0.55)/0.34, 2)));
+    }
+  }
+
+  /* ---- astro ----
+     Vem antes dos cards porque eles somem ao entrar na sombra, e para isso
+     precisam saber o raio do astro na tela. */
+  let star = 1, rs = 0.02, disk = 0, temp = 3200, gran = 1, flash = 0, ring = 0;
+  let distFinal;
+  const c = previa ? previa.c : 0;
+
+  if (c > 0 && c < 1) {
+    /* A SUPERNOVA, em frações de c:
+       0    – 0,45  a supergigante treme e se contrai, esquentando ao comprimir
+       0,45 – 0,52  o núcleo despenca
+       0,50 – 1,00  o clarão e a onda de choque abrindo
+       0,52 – 0,74  o horizonte de eventos aparece e cresce
+       0,68 – 1,00  o disco de acreção se forma                                */
+    const sg = R.estrela(R.COLAPSO - 1);
+    const encolhe = suave(Math.min(1, c / 0.45));
+    temp = sg.temp + encolhe * 2600;
+    gran = sg.gran;
+    star = sg.raio * (1 - 0.72 * encolhe) * (1 + 0.05 * Math.sin(t * 9) * encolhe);
+    if (c > 0.45) star = sg.raio * 0.30 * Math.pow(1 - Math.min(1, (c - 0.45) / 0.07), 2);
+    if (c > 0.52) star = 0;
+    const f = Math.max(0, c - 0.5) / 0.5;
+    flash = Math.exp(-Math.pow((f - 0.12) / 0.22, 2)) * 1.5;
+    ring = f * 46;
+    const rsNovo = R.raioCena(R.COLAPSO);
+    rs = c < 0.52 ? 0.02 : rsNovo * Math.min(1, (c - 0.52) / 0.22);
+    disk = Math.max(0, Math.min(1, (c - 0.68) / 0.32));
+    /* A câmera atravessa do enquadramento da supergigante para o do buraco
+       negro recém-nascido. Sem isto ela daria um salto no instante da
+       explosão, que é justamente o quadro que não pode ter salto. */
+    const dEstrela = 19.45 * Math.pow(sg.raio, 0.666);
+    const dBuraco = 48.40 * Math.pow(rsNovo, 0.605);
+    distFinal = dEstrela + (dBuraco - dEstrela) * suave(c);
+  } else if (R.fase(n) === 'estrela') {
+    const e = R.estrela(n);
+    star = e.raio; temp = e.temp; gran = e.gran;
+    if (e.ultimo) star *= 1 + 0.03*e.fracao*Math.sin(t*(2 + 4*e.fracao));
+    distFinal = 19.45 * Math.pow(star, 0.666);
+  } else {
+    star = 0; rs = R.raioCena(n); disk = 1;
+    distFinal = 48.40 * Math.pow(rs, 0.605);
+  }
+  /* Abertura: a câmera chega de muito longe, girando, com o campo de estrelas
+     passando de lado. Só quando ela assenta é que as pessoas começam a entrar. */
+  const chegada = 1 - Math.pow(1 - clamp(t / T.abertura, 0, 1), 3);
+  const dist = distFinal * (1 + 2.6 * (1 - chegada));
+  // raio aparente do astro, em pixels do palco (1.6 é a focal do shader)
+  const raioPx = (R.fase(n)==='estrela' ? star : 2.6*rs) * 1.6 / dist * PALCO_H;
+  /* Dentro da sombra do buraco negro nada é visível: quem entra tem que sumir,
+     senão fica um adesivo colado no vazio. Na frente de uma estrela é o
+     contrário — ela é luz de fundo, a pessoa aparece recortada nela. */
+  const engolido = R.fase(n) === 'estrela'
+    ? () => 1
+    : (cx, cy) => clamp((Math.hypot(cx - CENTRO.x, cy - CENTRO.y) - raioPx*1.02)
+                        / (raioPx*0.38), 0, 1);
+
+  /* ---- retratos ---- */
+  const some = e => { e.style.opacity = '0'; e.style.transform = 'translate(-9999px,0)'; };
+
+  function animaRetrato(el, pose, fags, tc, engolido) {
+    if (tc < 0 || tc > CARD.vida) { some(el); fags.forEach(f => some(f.el)); return; }
+
+    // trecho do caminho já percorrido: linear no começo, acelerando no fim
+    const cam = percurso(clamp(tc / CARD.vida, 0, 1));
+
+    const foraX = pose.esq ? -260 : PALCO_W + 260;
+    const foraY = pose.cy + pose.deriva;
+    // ponto de controle resolvido para B(0,5) cair em cima da pose
+    const ctlX = 2*pose.cx - 0.5*foraX - 0.5*CENTRO.x;
+    const ctlY = 2*pose.cy - 0.5*foraY - 0.5*CENTRO.y;
+    const cx = bez(foraX, ctlX, CENTRO.x, cam);
+    const cy = bez(foraY, ctlY, CENTRO.y, cam);
+
+    const dep = Math.max(0, (cam - 0.50) / 0.50);      // quanto já passou da pose
+    const esc = cam < 0.5 ? 0.90 + 0.20*cam : 1 - 0.55*Math.pow(dep, 1.6);
+    const op  = Math.min(1, cam/0.06) * clamp(1 - Math.pow(Math.max(0,(cam-0.56))/0.34, 2.2), 0, 1);
+    const giro = 46 * dep * dep;
+    const borr = 6 * dep * dep;
+
+    el.style.opacity = String(op * engolido(cx, cy));
+    el.style.filter = borr > 0.15 ? `blur(${borr.toFixed(2)}px)` : 'none';
+    const escFinal = esc * ESCALA_RETRATO;
+    el.style.transform = `translate(${(cx-145).toFixed(2)}px,${(cy-CARD_R).toFixed(2)}px) `
+      + `scale(${escFinal.toFixed(4)}) rotate(${giro.toFixed(2)}deg)`;
+
+    // fagulhas: desgarram do aro na segunda metade e chegam antes da pessoa
+    for (const f of fags) {
+      const pj = clamp((cam - f.inicio) / (1 - f.inicio) * f.vel, 0, 1);
+      if (pj <= 0) { some(f.el); continue; }
+      const solta = pj * pj;
+      const raio = f.raio * esc * ESCALA_RETRATO * (1 + pj*0.55);
+      const bx = cx + Math.cos(f.ang) * raio;
+      const by = cy + Math.sin(f.ang) * raio;
+      const fx = bx + (CENTRO.x - bx) * solta;
+      const fy = by + (CENTRO.y - by) * solta;
+      const dir = Math.atan2(CENTRO.y - fy, CENTRO.x - fx) * 180 / Math.PI;
+      f.el.style.opacity = String((1 - pj*pj) * 0.95 * engolido(fx, fy));
+      f.el.style.transform = `translate(${(fx - f.tam/2).toFixed(2)}px,${(fy - f.tam/2).toFixed(2)}px) `
+        + `rotate(${dir.toFixed(1)}deg) scale(${(1 + pj*3.4).toFixed(2)},${(1 - pj*0.5).toFixed(2)})`;
+    }
+  }
+
+  for (let i = 0; i < ELENCO.cards.length; i++) {
+    animaRetrato(ELENCO.cards[i], ELENCO.poses[i], ELENCO.fagulhas[i],
+                 t - T.abertura - i*T.passoCard, engolido);
+  }
+  /* As lendas têm calendário próprio: entram quase junto com o vídeo, para a
+     sensação de "é lá que eu quero estar" chegar antes de qualquer número. */
+  for (let i = 0; i < LENDAS.cards.length; i++) {
+    animaRetrato(LENDAS.cards[i], LENDAS.poses[i], LENDAS.fagulhas[i],
+                 t - LENDA_T.inicio - i*LENDA_T.passo, engolido);
+  }
+
+  /* ---- enxame ---- */
+  const tEnx = t - T.abertura - T.cards;
+  for (const g of graos){
+    const f0 = (tEnx / T.enxame - g.atraso) / g.dur;
+    if (!(f0 > 0 && f0 < 1)){ g.el.style.opacity = '0'; g.el.style.transform = 'translate(-9999px,0)'; continue; }
+    const f = entraRapido(f0);
+    const raio = g.dist * (1 - f);
+    const ang = g.ang + g.voltas * Math.PI * 2 * f;
+    const x = CENTRO.x + Math.cos(ang)*raio - g.tam/2;
+    const y = CENTRO.y + Math.sin(ang)*raio*0.62 - g.tam/2;
+    g.el.style.opacity = String(Math.min(1, f0*4) * (1 - f0*f0) * 0.85
+                                 * engolido(x + g.tam/2, y + g.tam/2));
+    g.el.style.transform = `translate(${x.toFixed(2)}px,${y.toFixed(2)}px) scale(${(1-f*0.7).toFixed(3)})`;
+  }
+
+  const az = 0.35 + t*0.021 + (1 - chegada) * 2.2;
+  const el = (R.fase(n)==='estrela' ? 0.17 : 0.13) + (1 - chegada) * 0.30;
+
+  gl.bindFramebuffer(gl.FRAMEBUFFER,F.scene.fb); gl.viewport(0,0,F.scene.w,F.scene.h);
+  gl.useProgram(P.scene);
+  gl.uniform2f(U(P.scene,'uRes'),F.scene.w,F.scene.h);
+  gl.uniform1f(U(P.scene,'uTime'),t);
+  gl.uniform1f(U(P.scene,'uRs'),rs);       gl.uniform1f(U(P.scene,'uStar'),star);
+  gl.uniform1f(U(P.scene,'uTemp'),temp);   gl.uniform1f(U(P.scene,'uGran'),gran);
+  gl.uniform1f(U(P.scene,'uFlash'),flash); gl.uniform1f(U(P.scene,'uRing'),ring);
+  gl.uniform1f(U(P.scene,'uDisk'),disk);   gl.uniform1f(U(P.scene,'uAbsorve'),absorve);
+  gl.uniform1f(U(P.scene,'uSobe'),SOBE);
+  gl.uniform1f(U(P.scene,'uAz'),az); gl.uniform1f(U(P.scene,'uEl'),el); gl.uniform1f(U(P.scene,'uDist'),dist);
+  gl.drawArrays(gl.TRIANGLES,0,3);
+
+  gl.bindFramebuffer(gl.FRAMEBUFFER,F.b1.fb); gl.viewport(0,0,F.b1.w,F.b1.h);
+  gl.useProgram(P.bright); gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D,F.scene.tex);
+  gl.uniform1i(U(P.bright,'uTex'),0); gl.uniform2f(U(P.bright,'uRes'),F.b1.w,F.b1.h);
+  gl.drawArrays(gl.TRIANGLES,0,3);
+  for(let i=0;i<2;i++){
+    gl.bindFramebuffer(gl.FRAMEBUFFER,F.b2.fb); gl.useProgram(P.blur); gl.bindTexture(gl.TEXTURE_2D,F.b1.tex);
+    gl.uniform1i(U(P.blur,'uTex'),0); gl.uniform2f(U(P.blur,'uRes'),F.b1.w,F.b1.h);
+    gl.uniform2f(U(P.blur,'uDir'),1,0); gl.drawArrays(gl.TRIANGLES,0,3);
+    gl.bindFramebuffer(gl.FRAMEBUFFER,F.b1.fb); gl.bindTexture(gl.TEXTURE_2D,F.b2.tex);
+    gl.uniform2f(U(P.blur,'uDir'),0,1); gl.drawArrays(gl.TRIANGLES,0,3);
+  }
+
+  gl.bindFramebuffer(gl.FRAMEBUFFER,null); gl.viewport(0,0,canvas.width,canvas.height);
+  gl.useProgram(P.final);
+  gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D,F.scene.tex); gl.uniform1i(U(P.final,'uScene'),0);
+  gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D,F.b1.tex);    gl.uniform1i(U(P.final,'uBloom'),1);
+  gl.uniform2f(U(P.final,'uRes'),canvas.width,canvas.height);
+  gl.uniform1f(U(P.final,'uTime'),t);
+  gl.drawArrays(gl.TRIANGLES,0,3);
+  gl.finish();
+}
+
+/* ===========================================================================
+   PRONTA / PRÉ-VISUALIZAÇÃO
+=========================================================================== */
+function esperaImagens(){
+  const imgs = [...document.images].filter(i => !i.complete);
+  return Promise.all(imgs.map(i => new Promise(ok => { i.onload = i.onerror = ok; })));
+}
+const pronta = Promise.all([
+  document.fonts ? document.fonts.ready : Promise.resolve(),
+  esperaImagens(),
+]).then(() => {
+  seek(0);
+});
+
+window.__cena = {
+  seek, pronta, roteiro: ROTEIRO,
+  // diagnóstico: em que resolução o traçado de raios está realmente rodando
+  resolucao: () => `${F.scene.w}x${F.scene.h}`,
+  /* Segundo do vídeo em que a trilha deve estar no ápice. Só a prévia tem um. */
+  climax: PREVIA_ATIVA ? PREVIA.climax : null,
+  dados: { antes: ANTES, depois: DEPOIS, novos: NOVOS.length },
+  /* O gravador mede a narração e devolve aqui o instante em que a voz acaba.
+     A cena recalcula a linha do tempo inteira sob o teto de 30s. Fica aqui, e
+     não numa conta duplicada no gravador, para os dois nunca divergirem. */
+  ajusta,
+};
+
+/* na pré-visualização o quadro é escalado para caber na janela e o tempo corre */
+if (!window.__GRAVANDO){
+  const quadro = $('quadro');
+  const ajusta = () => {
+    const s = Math.min(innerWidth/1080, innerHeight/1920);
+    quadro.style.transform = `scale(${s})`;
+  };
+  addEventListener('resize', ajusta); ajusta();
+  pronta.then(() => {
+    const t0 = performance.now();
+    (function laco(now){
+      seek(((now - t0)/1000) % ROTEIRO.duracao);
+      requestAnimationFrame(laco);
+    })(t0);
+  });
+}
+</script>
+</body>
+</html>

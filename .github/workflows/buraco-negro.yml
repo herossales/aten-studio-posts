@@ -1,0 +1,90 @@
+name: Buraco Negro — publica o Reel do dia
+
+# NÃO existe `schedule` aqui de propósito.
+#
+# No projeto irmão foram três janelas agendadas em dois dias, com toda a
+# configuração correta, e ZERO execuções com event=schedule. O
+# workflow_dispatch do mesmo arquivo respondeu 100% das vezes. Quem dispara é
+# um agendador externo (cron-job.org) chamando a API do GitHub.
+on:
+  workflow_dispatch:
+    inputs:
+      seco:
+        description: 'Gravar sem publicar'
+        type: boolean
+        default: false
+
+concurrency:
+  # Duas rodadas ao mesmo tempo publicariam o mesmo dia duas vezes e
+  # embaralhariam o estado.
+  group: buraco-negro
+  cancel-in-progress: false
+
+defaults:
+  run:
+    # O projeto vive numa subpasta do repositório do Aten, para não abrir um
+    # repositório novo só para ele.
+    working-directory: buraco-negro
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: write        # commitar o estado.json de volta
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # O ffmpeg NÃO vem no ubuntu-latest. Aqui ele chega pelo pacote
+      # ffmpeg-static, junto das dependências — não pelo apt. E nunca confira
+      # binário com pipe: `ffmpeg -version | head -1` devolve o código de saída
+      # do head e passa até com o binário ausente.
+      - name: Dependências
+        run: npm ci --no-audit --no-fund
+
+      - name: Navegador
+        run: npx playwright install --with-deps chromium
+
+      # A trilha não está no git (repositório público). Vem do Release de assets.
+      - name: Trilha
+        run: |
+          curl -fsSL -o Trilha.mp3 \
+            "https://github.com/${{ github.repository }}/releases/download/buraco-negro-assets/Trilha.mp3"
+          test -s Trilha.mp3
+
+      - name: Rodar
+        env:
+          IG_USER_ID:        ${{ secrets.BN_IG_USER_ID }}
+          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+          GH_TOKEN:          ${{ secrets.GH_ASSETS_TOKEN }}
+          GH_REPO:           ${{ github.repository }}
+          ELEVEN_API_KEY:    ${{ secrets.ELEVEN_API_KEY }}
+        run: node src/run.js ${{ inputs.seco && '--seco' || '' }}
+
+      # O estado é o que faz a estrela ser cumulativa. Sem este commit, a
+      # próxima rodada recomeçaria do zero e regeraria as mesmas pessoas.
+      - name: Guardar o estado
+        if: ${{ !inputs.seco }}
+        run: |
+          if git diff --quiet estado.json; then
+            echo "estado inalterado"
+          else
+            git config user.name  "buraco-negro"
+            git config user.email "noreply@github.com"
+            git add estado.json
+            git commit -m "buraco negro · dia $(node -p "require('./estado.json').dia") · $(node -p "require('./estado.json').participantes.length") dentro"
+            git push
+          fi
+
+      - name: Guardar o vídeo como artefato
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reel
+          path: buraco-negro/out/*.mp4
+          retention-days: 7
+          if-no-files-found: ignore

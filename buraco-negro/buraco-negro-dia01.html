@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dia 01 — de estrela a buraco negro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#e8e2d6;      /* texto principal, branco quente */
+    --dim:#8a8479;      /* texto secundário */
+    --ember:#f0a860;    /* laranja do disco, usado com parcimônia */
+    --line:rgba(232,226,214,.14);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;background:#000;color:var(--ink);font-family:Inter,system-ui,sans-serif;overflow:hidden}
+  canvas#gl{position:fixed;inset:0;width:100%;height:100%;display:block}
+
+  .hud{position:fixed;inset:0;pointer-events:none;transition:opacity .6s}
+  .hud.hidden{opacity:0}
+  .hud > *{pointer-events:auto}
+
+  .title{position:fixed;left:40px;top:36px;font-family:"Cormorant Garamond",serif;font-weight:300;font-size:22px;letter-spacing:.02em;color:var(--dim)}
+  .title b{font-weight:400;color:var(--ink)}
+
+  .panel{position:fixed;left:40px;bottom:40px;width:min(420px,calc(100vw - 80px))}
+  .count{font-family:"Cormorant Garamond",serif;font-weight:300;font-size:clamp(64px,9vw,112px);line-height:.9;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+  .count small{display:block;font-family:Inter,system-ui,sans-serif;font-weight:300;font-size:14px;letter-spacing:0;color:var(--dim);margin-top:10px}
+  .phase{margin-top:18px;font-size:14px;color:var(--dim);min-height:20px}
+  .phase em{font-style:normal;color:var(--ink)}
+
+  .track{position:relative}
+  .ticks{position:absolute;left:7px;right:7px;top:33px;height:1px;pointer-events:none}
+  .ticks i{position:absolute;top:-4px;width:1px;height:9px;background:var(--dim);opacity:.7}
+  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:24px;background:transparent;margin:22px 0 6px;cursor:pointer}
+  input[type=range]::-webkit-slider-runnable-track{height:1px;background:var(--line)}
+  input[type=range]::-moz-range-track{height:1px;background:var(--line)}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:var(--ink);margin-top:-6.5px;border:0}
+  input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--ink);border:0}
+  input[type=range]:focus-visible{outline:1px solid var(--ink);outline-offset:6px}
+
+  .readout{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:22px;padding-top:16px;border-top:1px solid var(--line)}
+  .readout div{font-size:12px;color:var(--dim);line-height:1.5}
+  .readout strong{display:block;font-weight:400;font-size:15px;color:var(--ink);font-variant-numeric:tabular-nums}
+
+  .actions{display:flex;gap:10px;margin-top:22px}
+  button{font:inherit;font-size:13px;color:var(--ink);background:transparent;border:1px solid var(--line);padding:9px 14px;border-radius:999px;cursor:pointer;transition:border-color .2s,background .2s}
+  button:hover{border-color:var(--ink)}
+  button:focus-visible{outline:1px solid var(--ink);outline-offset:3px}
+  button.primary{background:var(--ink);color:#000;border-color:var(--ink)}
+  button.primary:hover{background:#fff}
+
+  .hint{position:fixed;right:40px;bottom:40px;font-size:12px;color:var(--dim);text-align:right;line-height:1.7}
+  .hint kbd{font:inherit;color:var(--ink)}
+
+  @media (max-width:640px){
+    .title{left:22px;top:22px}
+    .panel{left:22px;bottom:22px}
+    .hint{display:none}
+    .readout{grid-template-columns:1fr 1fr}
+  }
+</style>
+</head>
+<body>
+<canvas id="gl"></canvas>
+
+<div class="hud" id="hud">
+  <div class="title"><b>Dia 01</b> · de estrela a buraco negro</div>
+
+  <div class="panel">
+    <div class="count"><span id="count">0</span><small>seguidores</small></div>
+    <div class="phase" id="phase">Uma anã vermelha. Pequena, fria, quase invisível. Ninguém olhando ainda.</div>
+
+    <div class="track">
+      <input type="range" id="slider" min="0" max="1" step="0.0005" value="0" aria-label="Número de seguidores">
+      <div class="ticks" id="ticks"></div>
+    </div>
+
+    <div class="readout">
+      <div>massa<strong id="mass">0,10 M☉</strong></div>
+      <div>raio do horizonte<strong id="rs">—</strong></div>
+      <div><span id="perfl">próximo estágio em</span><strong id="perf">—</strong></div>
+    </div>
+
+    <div class="actions">
+      <button class="primary" id="play">Simular crescimento</button>
+      <button id="reset">Voltar à estrela</button>
+    </div>
+  </div>
+
+  <div class="hint">
+    <kbd>H</kbd> esconde a interface para gravar<br>
+    <kbd>espaço</kbd> pausa a órbita da câmera<br>
+    arraste para girar a câmera
+  </div>
+</div>
+
+<script>
+/* ---------------- parâmetros que você vai querer mexer ---------------- */
+const CFG = {
+  massaInicial: 0.1,        // M☉ da anã vermelha com 0 seguidores
+  seguidoresColapso: 1000000, // quantos seguidores até a supernova
+  massaColapso: 25,         // M☉ em que a estrela não se sustenta mais
+  massaMinimaBN: 3,         // M☉ do buraco negro recém-nascido ("o menor possível")
+  expoente: 0.4,            // 1 = cada seguidor vale a mesma massa; <1 = os primeiros pesam mais (estágios ficam visíveis no slider)
+  maxSeguidores: 10000000,  // topo do slider
+  duracaoSimulacao: 90,     // segundos até chegar ao topo no modo automático
+};
+CFG.k=(CFG.massaColapso-CFG.massaInicial)/Math.pow(CFG.seguidoresColapso,CFG.expoente);
+
+// estágios da estrela, por massa (M☉). raio em unidades de cena, temp em K, gran = granulação/textura
+const STAGES=[
+  {nome:'anã vermelha',          ate:0.5, raio:0.85, temp:3200,  gran:1.0, desc:'Uma anã vermelha. Pequena, fria, quase invisível. Ninguém olhando ainda.'},
+  {nome:'anã laranja',           ate:0.9, raio:1.15, temp:4500,  gran:0.9, desc:'Anã laranja. Um pouco mais quente, um pouco mais brilhante. As primeiras pessoas chegaram.'},
+  {nome:'estrela tipo Sol',      ate:1.6, raio:1.45, temp:5800,  gran:0.8, desc:'Uma estrela como o Sol. Amarela, estável, no meio da vida.'},
+  {nome:'estrela branca',        ate:3,   raio:1.8,  temp:8500,  gran:0.55,desc:'Estrela branca. Queima rápido o combustível que tem.'},
+  {nome:'estrela azul-branca',   ate:8,   raio:2.3,  temp:13000, gran:0.4, desc:'Azul-branca. Centenas de vezes mais luminosa que o Sol.'},
+  {nome:'gigante azul',          ate:18,  raio:3.0,  temp:24000, gran:0.3, desc:'Gigante azul. Quanto mais massa, menos tempo de vida.'},
+  {nome:'supergigante vermelha', ate:25,  raio:5.4,  temp:3600,  gran:1.2, desc:'Supergigante vermelha. Inchou e esfriou. É o último estágio antes do fim.'},
+];
+
+/* ---------------- shaders ---------------- */
+const VS = `#version 300 es
+in vec2 a; void main(){ gl_Position = vec4(a,0.,1.); }`;
+
+const SCENE_FS = `#version 300 es
+precision highp float;
+uniform vec2 uRes; uniform float uTime, uRs, uStar, uFlash, uRing, uDisk, uAz, uEl, uDist, uTemp, uGran;
+out vec4 o;
+
+vec3 bbStar(float t){ // cor aparente de uma estrela pela temperatura (3000–30000 K)
+  vec3 c=mix(vec3(1.,.32,.10),vec3(1.,.60,.33),smoothstep(3000.,4500.,t));
+  c=mix(c,vec3(1.,.90,.72),smoothstep(4500.,5800.,t));
+  c=mix(c,vec3(1.,.99,.96),smoothstep(5800.,8000.,t));
+  c=mix(c,vec3(.80,.87,1.),smoothstep(8000.,12000.,t));
+  c=mix(c,vec3(.58,.70,1.),smoothstep(12000.,26000.,t));
+  return c;
+}
+
+float hash(vec3 p){ p=fract(p*0.3183099+.1); p*=17.0; return fract(p.x*p.y*p.z*(p.x+p.y+p.z)); }
+float noise(vec3 x){ vec3 i=floor(x), f=fract(x); f=f*f*(3.-2.*f);
+  return mix(mix(mix(hash(i),hash(i+vec3(1,0,0)),f.x),mix(hash(i+vec3(0,1,0)),hash(i+vec3(1,1,0)),f.x),f.y),
+             mix(mix(hash(i+vec3(0,0,1)),hash(i+vec3(1,0,1)),f.x),mix(hash(i+vec3(0,1,1)),hash(i+vec3(1,1,1)),f.x),f.y),f.z); }
+float fbm(vec3 p){ float a=.5,s=0.; for(int i=0;i<5;i++){ s+=a*noise(p); p=p*2.03+1.7; a*=.5; } return s; }
+
+vec3 blackbody(float t){
+  float x=clamp((t-1000.)/9000.,0.,1.);
+  vec3 c=mix(vec3(1.,.22,.02),vec3(1.,.52,.14),smoothstep(0.,.25,x));
+  c=mix(c,vec3(1.,.84,.58),smoothstep(.25,.5,x));
+  c=mix(c,vec3(1.),smoothstep(.5,.7,x));
+  c=mix(c,vec3(.72,.8,1.),smoothstep(.7,1.,x));
+  return c;
+}
+
+vec3 starLayer(vec3 d,float scale,float density,float size){
+  vec3 p=d*scale, c=floor(p), f=fract(p)-.5;
+  float h=hash(c); if(h>density) return vec3(0.);
+  vec3 off=(vec3(hash(c+7.1),hash(c+3.3),hash(c+9.7))-.5)*.8;
+  float dist=length(f-off);
+  float b=smoothstep(size,0.,dist)*(.4+.6*hash(c+1.3));
+  float tint=hash(c+5.5);
+  vec3 col=mix(vec3(1.,.82,.6),vec3(.7,.8,1.),tint);
+  return col*b*b*2.2;
+}
+vec3 sky(vec3 d){
+  vec3 col=starLayer(d,140.,.06,.09)+starLayer(d,320.,.05,.08)*.6+starLayer(d,700.,.035,.09)*.35;
+  vec3 bn=normalize(vec3(.35,1.,.2));
+  float band=exp(-pow(dot(d,bn),2.)*14.);
+  float n=fbm(d*3.5+vec3(2.));
+  float n2=fbm(d*9.);
+  col+=band*(vec3(.08,.09,.14)*n*1.6+vec3(.10,.07,.05)*smoothstep(.55,.8,n)*n2*1.8);
+  col+=vec3(.012,.013,.02);
+  return col;
+}
+
+void main(){
+  vec2 uv=(gl_FragCoord.xy-.5*uRes)/uRes.y;
+  vec3 ro=uDist*vec3(cos(uEl)*sin(uAz),sin(uEl),cos(uEl)*cos(uAz));
+  vec3 fw=normalize(-ro), rt=normalize(cross(fw,vec3(0,1,0))), up=cross(rt,fw);
+  vec3 rd=normalize(fw*1.6+rt*uv.x+up*uv.y);
+
+  float rIn=3.*uRs, rOut=min(13.*uRs,26.);
+  vec3 p=ro, v=rd, col=vec3(0.); float alpha=1.;
+  int hit=0;
+  for(int i=0;i<220;i++){
+    float r=length(p);
+    if(r<uRs){hit=1;break;}
+    if(r<uStar){hit=2;break;}
+    if(r>60.&&dot(p,v)>0.) break;
+    float dt=clamp(.075*r,.02,1.4);
+    vec3 h=cross(p,v); float h2=dot(h,h);
+    vec3 a=-1.5*uRs*h2*p/pow(r,5.);
+    vec3 vn=normalize(v+a*dt); vec3 pn=p+vn*dt;
+    if(p.y*pn.y<0. && uDisk>0.){
+      float t=p.y/(p.y-pn.y); vec3 hp=mix(p,pn,t); float hr=length(hp.xz);
+      if(hr>rIn&&hr<rOut){
+        float ang=atan(hp.z,hp.x)-uTime*1.8/pow(hr,1.5)*pow(uRs,1.5);
+        vec3 np=vec3(cos(ang),sin(ang),0.)*hr*.75+vec3(0.,0.,hr*.9);
+        float dens=fbm(np*1.15); dens=smoothstep(.32,.78,dens);
+        float radial=smoothstep(rIn,rIn*1.25,hr)*smoothstep(rOut,rOut*.5,hr);
+        float T=9500.*pow(rIn/hr,.75);
+        float beta=sqrt(uRs/(2.*hr)); float gam=1./sqrt(1.-beta*beta);
+        vec3 tdir=normalize(cross(vec3(0,1,0),hp));
+        float g=sqrt(max(0.,1.-uRs/hr))/(gam*(1.-beta*dot(tdir,-v)));
+        vec3 e=blackbody(T*g)*pow(g,3.)*(.35+dens*1.1)*1.6;
+        float opac=clamp(radial*(.45+dens*.75),0.,1.)*uDisk;
+        col+=e*opac*alpha; alpha*=(1.-opac*.9);
+      }
+    }
+    p=pn; v=vn;
+  }
+
+  if(hit==2){
+    vec3 n=normalize(p);
+    float gran=fbm(n*(7.-uGran*3.)+vec3(uTime*.04)); float gran2=fbm(n*22.-vec3(uTime*.08));
+    float limb=pow(max(dot(n,-v),0.),mix(.35,.75,uGran));
+    vec3 base=bbStar(uTemp);
+    vec3 sc=mix(base*vec3(1.,.55,.35),base*1.15,limb)*(1.5+gran*1.2*uGran+gran2*.5*uGran);
+    col+=sc*alpha;
+  } else if(hit==0){
+    col+=sky(v)*alpha;
+  }
+
+  // brilho da estrela / flash do colapso (sem lente, só glow no raio original)
+  float b=length(cross(ro,rd));
+  if(uStar>0.){ col+=bbStar(uTemp)*exp(-(b-uStar)*2.6/max(uStar,.05))*mix(.35,.8,smoothstep(3000.,20000.,uTemp))*step(uStar,b); }
+  if(uFlash>0.){
+    col+=vec3(1.,.93,.85)*uFlash*3.*exp(-b*b*.25);
+    col+=vec3(.9,.7,.55)*uFlash*smoothstep(.9,0.,abs(b-uRing))*1.2;
+  }
+  o=vec4(col,1.);
+}`;
+
+const BRIGHT_FS = `#version 300 es
+precision highp float; uniform sampler2D uTex; uniform vec2 uRes; out vec4 o;
+void main(){ vec3 c=texture(uTex,gl_FragCoord.xy/uRes).rgb; float l=dot(c,vec3(.3,.59,.11)); o=vec4(c*smoothstep(.55,1.6,l),1.); }`;
+
+const BLUR_FS = `#version 300 es
+precision highp float; uniform sampler2D uTex; uniform vec2 uRes, uDir; out vec4 o;
+void main(){ vec2 uv=gl_FragCoord.xy/uRes; vec2 px=uDir/uRes;
+  float w[5]=float[](.227,.194,.121,.054,.016); vec3 c=texture(uTex,uv).rgb*w[0];
+  for(int i=1;i<5;i++){ c+=texture(uTex,uv+px*float(i)*1.5).rgb*w[i]; c+=texture(uTex,uv-px*float(i)*1.5).rgb*w[i]; }
+  o=vec4(c,1.); }`;
+
+const FINAL_FS = `#version 300 es
+precision highp float; uniform sampler2D uScene, uBloom; uniform vec2 uRes; uniform float uTime; out vec4 o;
+vec3 aces(vec3 x){ return clamp((x*(2.51*x+.03))/(x*(2.43*x+.59)+.14),0.,1.); }
+void main(){ vec2 uv=gl_FragCoord.xy/uRes;
+  vec3 c=texture(uScene,uv).rgb+texture(uBloom,uv).rgb*.9;
+  vec2 q=uv-.5; c*=1.-dot(q,q)*.9;
+  c=aces(c*1.05); c=pow(c,vec3(1./1.05));
+  float g=fract(sin(dot(gl_FragCoord.xy+uTime*60.,vec2(12.9898,78.233)))*43758.5453);
+  c+=(g-.5)/255.*2.;
+  o=vec4(c,1.); }`;
+
+/* ---------------- WebGL ---------------- */
+const canvas=document.getElementById('gl');
+const gl=canvas.getContext('webgl2',{antialias:false,alpha:false});
+if(!gl){ document.body.innerHTML='<p style="padding:40px;color:#e8e2d6">Este navegador não suporta WebGL2. Tente Chrome, Edge ou Safari 15+.</p>'; throw new Error('no webgl2'); }
+gl.getExtension('EXT_color_buffer_float');
+
+function prog(fs){ const p=gl.createProgram();
+  for(const [t,s] of [[gl.VERTEX_SHADER,VS],[gl.FRAGMENT_SHADER,fs]]){ const sh=gl.createShader(t); gl.shaderSource(sh,s); gl.compileShader(sh);
+    if(!gl.getShaderParameter(sh,gl.COMPILE_STATUS)) console.error(gl.getShaderInfoLog(sh)); gl.attachShader(p,sh); }
+  gl.linkProgram(p); return p; }
+const P={scene:prog(SCENE_FS),bright:prog(BRIGHT_FS),blur:prog(BLUR_FS),final:prog(FINAL_FS)};
+const quad=gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,quad);
+gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+for(const p of Object.values(P)){ const loc=gl.getAttribLocation(p,'a'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0); }
+const U=(p,n)=>gl.getUniformLocation(p,n);
+
+function makeFBO(w,h){ const tex=gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D,tex);
+  gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA16F,w,h,0,gl.RGBA,gl.HALF_FLOAT,null);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR); gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE); gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+  const fb=gl.createFramebuffer(); gl.bindFramebuffer(gl.FRAMEBUFFER,fb); gl.framebufferTexture2D(gl.FRAMEBUFFER,gl.COLOR_ATTACHMENT0,gl.TEXTURE_2D,tex,0);
+  return {fb,tex,w,h}; }
+let F={};
+function resize(){
+  const dpr=Math.min(window.devicePixelRatio||1,1.5);
+  const W=Math.floor(innerWidth*dpr), H=Math.floor(innerHeight*dpr);
+  canvas.width=W; canvas.height=H;
+  const s=0.5; // cena renderizada em meia resolução (custo do ray tracing)
+  F.scene=makeFBO(Math.floor(W*s),Math.floor(H*s));
+  F.b1=makeFBO(Math.floor(W*.25),Math.floor(H*.25));
+  F.b2=makeFBO(Math.floor(W*.25),Math.floor(H*.25));
+}
+addEventListener('resize',resize); resize();
+
+/* ---------------- estado ---------------- */
+const S={
+  followers:0, phase:'estrela', collapseT0:null,
+  az:0.35, el:0.16, dist:30, orbit:true, dragging:false, lastX:0, lastY:0,
+  playing:false, playT0:null, time:0,
+};
+const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(reduceMotion) S.orbit=false;
+
+const fmt=n=>Math.round(n).toLocaleString('pt-BR');
+const fmtM=(m,d=2)=>m.toLocaleString('pt-BR',{minimumFractionDigits:d,maximumFractionDigits:d})+' M☉';
+const el=id=>document.getElementById(id);
+const slider=el('slider');
+const sliderToFollowers=x=>Math.round(Math.pow(10,x*Math.log10(CFG.maxSeguidores+1))-1);
+const followersToSlider=n=>Math.log10(n+1)/Math.log10(CFG.maxSeguidores+1);
+
+function massStar(n){ return CFG.massaInicial+CFG.k*Math.pow(n,CFG.expoente); }
+function massBN(){ return CFG.massaMinimaBN+CFG.k*(Math.pow(S.followers,CFG.expoente)-Math.pow(CFG.seguidoresColapso,CFG.expoente)); }
+function rsScene(){ // escala visual logarítmica: cresce sempre, mas fica no quadro
+  return 1.0+0.28*Math.log10(1+Math.max(0,S.followers-CFG.seguidoresColapso)); }
+function followersFor(m){ return Math.ceil(Math.pow((m-CFG.massaInicial)/CFG.k,1/CFG.expoente)); }
+
+// parâmetros visuais da estrela para uma massa: interpola suavemente entre estágios
+function starParams(m){
+  let i=0; while(i<STAGES.length-1&&m>=STAGES[i].ate) i++;
+  const cur=STAGES[i], prev=i>0?STAGES[i-1]:null;
+  const lo=prev?prev.ate:CFG.massaInicial, hi=cur.ate;
+  const f=Math.min(1,Math.max(0,(m-lo)/(hi-lo)));
+  const nxt=STAGES[i+1]||cur;
+  const t=f*f*(3-2*f);
+  // no último estágio ela incha rumo ao colapso
+  const swell=i===STAGES.length-1?1+0.25*f:1;
+  return { i, f, raio:(cur.raio*(1-t)+nxt.raio*t)*swell, temp:cur.temp*(1-t)+nxt.temp*t, gran:cur.gran*(1-t)+nxt.gran*t, stage:cur };
+}
+
+function setFollowers(n){
+  n=Math.max(0,Math.min(CFG.maxSeguidores,n)); S.followers=n;
+  if(n>=CFG.seguidoresColapso && S.phase==='estrela'){ S.phase='colapso'; S.collapseT0=S.time; }
+  if(n<CFG.seguidoresColapso && S.phase!=='estrela'){ S.phase='estrela'; S.collapseT0=null; }
+  updateHUD();
+}
+function updateHUD(){
+  el('count').textContent=fmt(S.followers);
+  if(S.phase==='estrela'){
+    const m=massStar(S.followers), sp=starParams(m);
+    el('mass').textContent=fmtM(m,2); el('rs').textContent='—';
+    const nextM=sp.stage.ate, nextN=followersFor(nextM);
+    el('perf').textContent=nextN>S.followers?fmt(nextN)+' seguidores':'—';
+    el('perfl').textContent=sp.i===STAGES.length-1?'supernova em':'próximo estágio em';
+    el('phase').innerHTML=`<em>${sp.stage.nome[0].toUpperCase()+sp.stage.nome.slice(1)}.</em> ${sp.stage.desc.replace(/^[^.]*\.\s*/,'')}`;
+  } else {
+    const m=massBN(); el('mass').textContent=fmtM(m,3);
+    el('rs').textContent=(2.95*m).toLocaleString('pt-BR',{maximumFractionDigits:2})+' km';
+    el('perfl').textContent='sobrou da estrela'; el('perf').textContent=fmtM(CFG.massaMinimaBN,0);
+    el('phase').innerHTML=S.phase==='colapso'?'<em>Supernova.</em> O núcleo cede e quase toda a massa é expelida. Sobra só o mínimo.'
+      :`<em>Buraco negro.</em> Nasceu com ${fmtM(CFG.massaMinimaBN,0)} e cresce a cada pessoa que chega.`;
+  }
+}
+// marcas dos estágios no slider
+(function ticks(){ const box=el('ticks');
+  STAGES.forEach(s=>{ const n=followersFor(s.ate); if(n>CFG.maxSeguidores) return;
+    const d=document.createElement('i'); d.style.left=(followersToSlider(n)*100)+'%'; d.title=s.nome; box.appendChild(d); }); })();
+slider.addEventListener('input',()=>{ S.playing=false; el('play').textContent='Simular crescimento'; setFollowers(sliderToFollowers(+slider.value)); });
+el('play').addEventListener('click',()=>{
+  S.playing=!S.playing; el('play').textContent=S.playing?'Pausar':'Simular crescimento';
+  if(S.playing){ if(S.followers>=CFG.maxSeguidores) setFollowers(0);
+    // retoma de onde está na curva exponencial
+    S.playT0=S.time-followersToSlider(S.followers)*CFG.duracaoSimulacao; }
+});
+el('reset').addEventListener('click',()=>{ S.playing=false; el('play').textContent='Simular crescimento'; slider.value=0; setFollowers(0); });
+addEventListener('keydown',e=>{
+  if(e.key==='h'||e.key==='H') el('hud').classList.toggle('hidden');
+  if(e.code==='Space'&&e.target.tagName!=='BUTTON'){ e.preventDefault(); S.orbit=!S.orbit; }
+});
+canvas.addEventListener('pointerdown',e=>{S.dragging=true;S.lastX=e.clientX;S.lastY=e.clientY;});
+addEventListener('pointerup',()=>S.dragging=false);
+addEventListener('pointermove',e=>{ if(!S.dragging) return;
+  S.az-=(e.clientX-S.lastX)*0.005; S.el=Math.max(-0.6,Math.min(1.2,S.el+(e.clientY-S.lastY)*0.004));
+  S.lastX=e.clientX; S.lastY=e.clientY; });
+canvas.addEventListener('wheel',e=>{ S.dist=Math.max(12,Math.min(60,S.dist*(1+e.deltaY*0.001))); },{passive:true});
+updateHUD();
+
+/* ---------------- loop ---------------- */
+const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+let t0=performance.now();
+function frame(now){
+  S.time=(now-t0)/1000;
+  if(S.playing){
+    const x=Math.min(1,(S.time-S.playT0)/CFG.duracaoSimulacao);
+    slider.value=x; setFollowers(sliderToFollowers(x));
+    if(x>=1){ S.playing=false; el('play').textContent='Simular crescimento'; }
+  }
+  if(S.orbit&&!S.dragging&&!reduceMotion) S.az+=0.0025;
+
+  // parâmetros visuais por fase
+  let star=1, rs=0.02, flash=0, ring=0, disk=0, temp=3200, gran=1;
+  if(S.phase==='estrela'){
+    const sp=starParams(massStar(S.followers));
+    star=sp.raio; temp=sp.temp; gran=sp.gran;
+    // a supergigante pulsa, cada vez mais instável perto do fim
+    if(sp.i===STAGES.length-1) star*=1+0.03*sp.f*Math.sin(S.time*(2+4*sp.f));
+  } else {
+    const last=STAGES[STAGES.length-1];
+    const c=Math.min(1,(S.time-S.collapseT0)/7.0);
+    if(c>=1&&S.phase==='colapso'){ S.phase='buraco'; updateHUD(); }
+    temp=last.temp; gran=last.gran;
+    // 0–0.45: a supergigante tremula e se contrai; 0.45–0.52: o núcleo despenca
+    const shrink=ease(Math.min(1,c/0.45));
+    star=last.raio*1.25*(1-0.72*shrink)*(1+0.05*Math.sin(S.time*9)*shrink);
+    temp=last.temp+shrink*2500; // esquenta ao comprimir
+    if(c>0.45) star=last.raio*0.35*Math.pow(1-Math.min(1,(c-0.45)/0.07),2);
+    if(c>0.52) star=0;
+    const f=Math.max(0,c-0.5)/0.5;
+    flash=Math.exp(-Math.pow((f-0.12)/0.22,2))*1.4;
+    ring=f*46;
+    rs=c<0.52?0.02:rsScene()*Math.min(1,(c-0.52)/0.22);
+    disk=Math.max(0,Math.min(1,(c-0.68)/0.32));
+    if(c>=1){ rs=rsScene(); disk=1; flash=0; }
+  }
+
+  // 1. cena
+  gl.bindFramebuffer(gl.FRAMEBUFFER,F.scene.fb); gl.viewport(0,0,F.scene.w,F.scene.h);
+  gl.useProgram(P.scene);
+  gl.uniform2f(U(P.scene,'uRes'),F.scene.w,F.scene.h);
+  gl.uniform1f(U(P.scene,'uTime'),S.time);
+  gl.uniform1f(U(P.scene,'uRs'),rs); gl.uniform1f(U(P.scene,'uStar'),star);
+  gl.uniform1f(U(P.scene,'uTemp'),temp); gl.uniform1f(U(P.scene,'uGran'),gran);
+  gl.uniform1f(U(P.scene,'uFlash'),flash); gl.uniform1f(U(P.scene,'uRing'),ring); gl.uniform1f(U(P.scene,'uDisk'),disk);
+  gl.uniform1f(U(P.scene,'uAz'),S.az); gl.uniform1f(U(P.scene,'uEl'),S.el); gl.uniform1f(U(P.scene,'uDist'),S.dist);
+  gl.drawArrays(gl.TRIANGLES,0,3);
+
+  // 2. bloom
+  gl.bindFramebuffer(gl.FRAMEBUFFER,F.b1.fb); gl.viewport(0,0,F.b1.w,F.b1.h);
+  gl.useProgram(P.bright); gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D,F.scene.tex);
+  gl.uniform1i(U(P.bright,'uTex'),0); gl.uniform2f(U(P.bright,'uRes'),F.b1.w,F.b1.h); gl.drawArrays(gl.TRIANGLES,0,3);
+  for(let i=0;i<2;i++){
+    gl.bindFramebuffer(gl.FRAMEBUFFER,F.b2.fb); gl.useProgram(P.blur); gl.bindTexture(gl.TEXTURE_2D,F.b1.tex);
+    gl.uniform1i(U(P.blur,'uTex'),0); gl.uniform2f(U(P.blur,'uRes'),F.b1.w,F.b1.h); gl.uniform2f(U(P.blur,'uDir'),1,0); gl.drawArrays(gl.TRIANGLES,0,3);
+    gl.bindFramebuffer(gl.FRAMEBUFFER,F.b1.fb); gl.bindTexture(gl.TEXTURE_2D,F.b2.tex);
+    gl.uniform2f(U(P.blur,'uDir'),0,1); gl.drawArrays(gl.TRIANGLES,0,3);
+  }
+
+  // 3. composição
+  gl.bindFramebuffer(gl.FRAMEBUFFER,null); gl.viewport(0,0,canvas.width,canvas.height);
+  gl.useProgram(P.final);
+  gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D,F.scene.tex); gl.uniform1i(U(P.final,'uScene'),0);
+  gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D,F.b1.tex); gl.uniform1i(U(P.final,'uBloom'),1);
+  gl.uniform2f(U(P.final,'uRes'),canvas.width,canvas.height); gl.uniform1f(U(P.final,'uTime'),S.time);
+  gl.drawArrays(gl.TRIANGLES,0,3);
+
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>
