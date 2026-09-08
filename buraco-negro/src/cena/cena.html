@@ -134,7 +134,12 @@ import R from '../regua.js';
 
 /* ---------------- roteiro (segundos) ---------------- */
 const ROTEIRO = {
-  fps: 30,
+  /* 24 quadros por segundo, não 30. O Reels aceita, o movimento aqui é
+     contínuo e lento (câmera orbitando, retratos em trajetória), então a
+     diferença não aparece — e são 20% menos quadros para traçar. No runner do
+     GitHub, que roda WebGL por software em dois núcleos, isso é o que separa
+     um render confortável de um que raspa o teto de tempo. */
+  fps: 24,
   abertura: 6.0,        // a câmera chega de longe, girando: nada entra ainda
   passoCard: 1.20,      // de quanto em quanto tempo entra um participante
   nCards: 24,           // teto de retratos em close; num dia fraco cai sozinho
