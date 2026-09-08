@@ -7,6 +7,15 @@ export const marca = {
     'milionário de sua família.',
     'Comente <span class="chave">EU CREIO</span> para se juntar a nós.',
   ],
+  /* Quantas pessoas novas justificam um vídeo. Com 0, a rodada não publica
+     nada e o dia não é consumido — "Dia N" é o N-ésimo VÍDEO, não o N-ésimo
+     dia do calendário, então a numeração continua colada.
+     Publicar um vídeo idêntico ao de ontem dizendo que ninguém entrou não
+     parece constância, parece série morta — e ainda divide o alcance entre
+     dois posts. Os comentários seguem chegando no post que já está no ar, e a
+     coleta lê as últimas 12 publicações: ninguém se perde esperando. */
+  minimoParaPublicar: 1,
+
   /* A trilha. `apice` é o segundo em que ela chega no êxtase; o gravador
      recua o início para que esse instante caia exatamente no clímax do vídeo
      — o nascimento do buraco negro. `padrao` é onde ela começa nos vídeos que

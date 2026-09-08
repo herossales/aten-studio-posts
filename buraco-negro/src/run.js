@@ -43,6 +43,13 @@ if (SO_COLETAR) {
   process.exit(0);
 }
 
+if (novos.length < marca.minimoParaPublicar && !flag('forcar')) {
+  console.log(`nada a publicar: ${novos.length} pessoa(s) nova(s), mínimo é ${marca.minimoParaPublicar}.`);
+  console.log('o dia não foi consumido — os comentários continuam valendo na próxima rodada.');
+  console.log('(use --forcar para publicar mesmo assim)');
+  process.exit(0);
+}
+
 /* Quem tem foto vai para os retratos em close. Não é preferência: um rosto
    reconhecível é o que faz a pessoa compartilhar, e a foto é o que a série
    tem para oferecer. Quem não tem entra no enxame, e continua contando igual
