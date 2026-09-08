@@ -1,6 +1,55 @@
 {
-  "dia": 1,
-  "participantes": [],
+  "dia": 2,
+  "participantes": [
+    {
+      "username": "heros_sales",
+      "nome": "Heros Sales | Mente Generativa",
+      "foto": "https://scontent-iad3-2.xx.fbcdn.net/v/t51.2885-15/468539300_1314850416347247_2820675032829658058_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=7d201b&_nc_eui2=AeEjPQN8IS7C7ZvNhl4ey8dV-Bbabz2x81H4FtpvPbHzUcflO7vSVwqbJFVVBqYktHieOMHSxVzQGnPvjVZVwCB_&_nc_ohc=EdYgsRboMk0Q7kNvwHkOoLd&_nc_oc=AdrysbY7qOyH-sdd5oKhbUyTEEc3sVSDekIIOLoOFdmvVYCwXmSNuN4VwAsJjhbcXhw&_nc_zt=23&_nc_ht=scontent-iad3-2.xx&edm=AL-3X8kEAAAA&oh=00_AQIRISv3G9K4vSMssjB_RZWVBTFDVWAR4fy7_OmLi7CdDg&oe=6AA5B226",
+      "comentario": "18140951731594312",
+      "quando": "2026-09-05T22:06:27+0000",
+      "dia": 2
+    },
+    {
+      "username": "alisonoliveiraof",
+      "nome": "𝗔𝗹𝗶𝘀𝗼𝗻 𝗢𝗹𝗶𝘃𝗲𝗶𝗿𝗮",
+      "foto": "https://scontent-iad6-1.xx.fbcdn.net/v/t51.2885-15/418811674_3670418176570235_8028093690449837508_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=7d201b&_nc_eui2=AeG-gweYZ5u75jvso_h-g1zq6XOyLguhS0Xpc7IuC6FLRbEx5cCAnG_c7IBeCeivBO87w2xziDzo3fTQLXmyQiiL&_nc_ohc=Jx2P0Ro3DCQQ7kNvwFaBwj_&_nc_oc=Adr0D6VmWYbcz5y3KMpXa2rzmVJA1BaG249AGEJAynJqejZE4Wn82a7z9TpCEqrl7x8&_nc_zt=23&_nc_ht=scontent-iad6-1.xx&edm=AL-3X8kEAAAA&oh=00_AQKy4YhS5H1sMk_aYyKy90xpXP4VtFfJAdYSrJTHb3bxEA&oe=6AA5B838",
+      "comentario": "18193778524391159",
+      "quando": "2026-09-06T13:40:37+0000",
+      "dia": 2
+    },
+    {
+      "username": "marcosoeditor_",
+      "nome": null,
+      "foto": null,
+      "comentario": "18036383663831197",
+      "quando": "2026-09-08T01:26:54+0000",
+      "dia": 2
+    },
+    {
+      "username": "atilagomess",
+      "nome": "Atila Gomes",
+      "foto": "https://scontent-iad6-1.xx.fbcdn.net/v/t51.82787-15/788926438_18388661002201481_4615730034578689917_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=7d201b&_nc_eui2=AeHIKQM3uTOiqUWVZd80Y1vuGATLonVohnIYBMuidWiGcqkn24NTwdMATPOs6Eokyzdqr-0VfP837phUYTe67AtY&_nc_ohc=Yd-31SPxpRIQ7kNvwEAWkbi&_nc_oc=AdqFwICr2Ki39WUIN_-T_QxxewddG6V_9Z1klOgbtYDAInXF1roC7fu8s84CKf821Ic&_nc_zt=23&_nc_ht=scontent-iad6-1.xx&edm=AL-3X8kEAAAA&_nc_gid=5WQjXUAyyAlzkR0kmYNZHg&oh=00_AQJsgKbmudY4cI721MudF6BlO5zSfpL7ddCd6vzsYhf3kw&oe=6AA5C60C",
+      "comentario": "18149491411537565",
+      "quando": "2026-09-08T01:38:09+0000",
+      "dia": 2
+    },
+    {
+      "username": "millersantt",
+      "nome": "Carlos Miller",
+      "foto": "https://scontent-iad6-1.xx.fbcdn.net/v/t51.82787-15/793901963_18389381443204396_5815568323898296800_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7d201b&_nc_eui2=AeHS2LIL7fhGWKl4viACRXD7P3Us6k1OH00_dSzqTU4fTUXxdz0qpoNhTwlUxK4IJO6vKfs2oGzGsjM7Lj37kqiZ&_nc_ohc=RyC_Yp6LDGAQ7kNvwH8QOJW&_nc_oc=AdqU-7M89dYbLFcTOa7sQcb3juxKzkvZxn2aGT_sZBWmuFmzgoxRPILH0wCMDGtAqEg&_nc_zt=23&_nc_ht=scontent-iad6-1.xx&edm=AL-3X8kEAAAA&_nc_gid=ENBKBwRDWMthbmVprJPByw&oh=00_AQKMP8lKh_OAI9sJeWSw0lQ9sRUNGLkA-k27JCqouaxsYA&oe=6AA5C02E",
+      "comentario": "17967577341151103",
+      "quando": "2026-09-08T01:43:49+0000",
+      "dia": 2
+    },
+    {
+      "username": "vitorbsecco",
+      "nome": "Vitor Bigaton Secco™",
+      "foto": "https://scontent-iad6-1.xx.fbcdn.net/v/t51.82787-15/764005733_18113072402318995_8213469834697543620_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7d201b&_nc_eui2=AeGDtN_XNY6A929HoEuVqc_2MsteHWXPYtMyy14dZc9i0wxTiFY9U68cb0BN-NJdW2xlHdlegt82nIdQTGCB12Ce&_nc_ohc=ozMrBNU-nKgQ7kNvwGi-wYD&_nc_oc=AdpcAPvdNDspXh8w8uFLzF2VQHrdOpulKl3Wrl13nf_VKTWBy9ATmD9F6b92_butYTM&_nc_zt=23&_nc_ht=scontent-iad6-1.xx&edm=AL-3X8kEAAAA&_nc_gid=JfHoo_bKPu4PooRSQDUwwg&oh=00_AQLqUSu7pd3-gaHDikLFvBvseDz0dOCc2Vr--igUcMqU4g&oe=6AA5B838",
+      "comentario": "18109462777874915",
+      "quando": "2026-09-08T02:33:26+0000",
+      "dia": 2
+    }
+  ],
   "publicados": [
     {
       "dia": 1,
@@ -10,6 +59,16 @@
       "novos": 0,
       "total": 0,
       "massa": 0.1,
+      "fase": "estrela"
+    },
+    {
+      "dia": 2,
+      "mediaId": "18201379108374794",
+      "permalink": "https://www.instagram.com/reel/DdBcZmkApPx/",
+      "quando": "2026-09-08T10:13:15.630Z",
+      "novos": 6,
+      "total": 6,
+      "massa": 0.10024000000000001,
       "fase": "estrela"
     }
   ]
