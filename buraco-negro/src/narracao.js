@@ -21,11 +21,16 @@ export const CHAVE = 'EU CREIO';
 
 /* O dia 1 é o único que diz a chamada em voz alta: é ele que explica a
    mecânica, e não há ninguém dentro para receber boas-vindas ainda. */
+/* O convite. Aparece na estreia e em todo dia em que ninguém entrou — que é
+   justamente quando o vídeo mais precisa pedir alguma coisa. */
+export const CONVITE_FALADO =
+  'Se você acredita que será o primeiro milionário de sua família, ' +
+  `comente ${CHAVE} para se juntar a nós.`;
+
 export const estreiaFalada = n =>
   'Dia um, reunindo futuros milionários em uma estrela até ela se tornar um buraco negro. ' +
   `Status atual: ${R.porExtenso(n)} seguidores, anã vermelha. ` +
-  'Se você acredita que será o primeiro milionário de sua família, ' +
-  `comente ${CHAVE} para se juntar a nós. ` +
+  CONVITE_FALADO + ' ' +
   'Siga e mande esse reels para o seu sócio.';
 
 /* Do segundo vídeo em diante o fecho é este, e é ritual: a mesma frase toda
@@ -34,8 +39,10 @@ export const estreiaFalada = n =>
    segundos de vídeo sem acrescentar nada. */
 export const FECHO_FALADO = 'Aos que chegaram, sejam bem-vindos à Singularidade.';
 
-/* Dia sem ninguém entrando não tem a quem dar boas-vindas. */
-const FECHO_VAZIO = 'A Singularidade segue esperando.';
+/* Dia sem ninguém entrando não tem a quem dar boas-vindas — e constatar isso
+   ("a Singularidade segue esperando") é acusar o público em vez de convidar.
+   Fecha com o convite, que é o que esse vídeo precisa fazer. */
+const FECHO_VAZIO = CONVITE_FALADO;
 
 /* ---------------------------------------------------------------------------
    O ROTEIRO

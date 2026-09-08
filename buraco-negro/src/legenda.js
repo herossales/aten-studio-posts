@@ -17,8 +17,9 @@ export function legenda({ dia, antes, depois }) {
     l.push('');
     l.push('Meta: 1 milhão dentro. Hoje: 0.');
   } else {
+    const maiuscula = t => t[0].toUpperCase() + t.slice(1);
     const estado = R.fase(depois) === 'estrela'
-      ? `${R.estrela(depois).estagio.nome}, ${R.fmtMassa(R.massa(depois))}`
+      ? `${maiuscula(R.estrela(depois).estagio.nome)}, ${R.fmtMassa(R.massa(depois))}`
       : `${R.fmtMassa(R.massa(depois))}, horizonte de ${R.fmtKm(R.raioHorizonteKm(depois))}`;
     l.push(`${R.fmt(depois)} dentro${depois > antes ? `, ${R.fmt(depois - antes)} entraram hoje` : ''}. ${estado}.`);
     const m = R.proximoMarco(depois);
