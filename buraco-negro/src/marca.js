@@ -16,8 +16,10 @@ export const marca = {
   /* Colaboradores fixos da série. Até 3 — o limite é da API, e só vale em
      Reels e imagem única (carrossel recusa). É CONVITE: o post só aparece no
      perfil de cada um depois que ele aceitar, e a conta precisa ser pública.
-     Enquanto não aceitam, o Reel sai normal só aqui. */
-  colaboradores: ['heros_sales', 'millersantt', 'atilagomess'],
+     Enquanto não aceitam, o Reel sai normal só aqui.
+     Desligado por ora. Para religar, basta pôr os @ de volta na lista — a
+     publicação já tolera quem recusar o convite. */
+  colaboradores: [],
 
   /* Nomeia a trilha embutida. É o que faz todos os Reels da série caírem na
      mesma página de áudio da conta — a API não deixa escolher som do
