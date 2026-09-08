@@ -345,6 +345,10 @@ float noise(vec3 x){ vec3 i=floor(x), f=fract(x); f=f*f*(3.-2.*f);
   return mix(mix(mix(hash(i),hash(i+vec3(1,0,0)),f.x),mix(hash(i+vec3(0,1,0)),hash(i+vec3(1,1,0)),f.x),f.y),
              mix(mix(hash(i+vec3(0,0,1)),hash(i+vec3(1,0,1)),f.x),mix(hash(i+vec3(0,1,1)),hash(i+vec3(1,1,1)),f.x),f.y),f.z); }
 float fbm(vec3 p){ float a=.5,s=0.; for(int i=0;i<5;i++){ s+=a*noise(p); p=p*2.03+1.7; a*=.5; } return s; }
+/* Versão curta para o céu. A nébula é um véu de baixa frequência: as duas
+   últimas oitavas custam 40% do ruído e não aparecem. Sem a marcha de raios na
+   fase estrela, é o céu que passa a dominar o custo — a maioria dos pixels. */
+float fbm3(vec3 p){ float a=.5,s=0.; for(int i=0;i<3;i++){ s+=a*noise(p); p=p*2.03+1.7; a*=.5; } return s; }
 vec3 blackbody(float t){
   float x=clamp((t-1000.)/9000.,0.,1.);
   vec3 c=mix(vec3(1.,.22,.02),vec3(1.,.52,.14),smoothstep(0.,.25,x));
@@ -374,9 +378,9 @@ vec3 sky(vec3 d){
      de acreção e o preto do horizonte deixa de ser preto. */
   vec3 bn=normalize(vec3(.35,1.,.2));
   float faixa=exp(-pow(dot(d,bn),2.)*7.);
-  float n1=fbm(d*2.2+vec3(2.));
-  float n2=fbm(d*5.5-vec3(1.3));
-  float n3=fbm(d*11.);
+  float n1=fbm3(d*2.2+vec3(2.));
+  float n2=fbm3(d*5.5-vec3(1.3));
+  float n3=fbm3(d*11.);
   col+=faixa*(vec3(.085,.10,.17)*n1*2.0
              +vec3(.13,.075,.05)*smoothstep(.50,.85,n1)*n2*2.2);
   col+=vec3(.030,.034,.055)*smoothstep(.42,.86,n1)*(.35+.65*n3);
@@ -394,7 +398,22 @@ void main(){
   float rIn=3.*uRs, rOut=min(13.*uRs,26.);
   vec3 p=ro, v=rd, col=vec3(0.); float alpha=1.;
   int hit=0;
-  for(int i=0;i<220;i++){
+
+  /* Sem buraco negro em cena a luz anda reto, e marchar 220 passos por pixel
+     integrando uma curvatura de 0,02 é queimar tempo para chegar na mesma
+     imagem. Aqui a estrela é uma esfera e a interseção é uma equação de
+     segundo grau. É o caminho da maioria esmagadora dos vídeos da série —
+     ela só vira buraco negro lá na frente. */
+  bool reto = (uDisk < 0.5 && uRs < 0.05);
+  if(reto){
+    float bb=dot(ro,rd), cc=dot(ro,ro)-uStar*uStar, dd=bb*bb-cc;
+    if(uStar>0. && dd>0.){
+      float tt=-bb-sqrt(dd);
+      if(tt>0.){ p=ro+rd*tt; v=rd; hit=2; }
+    }
+  }
+
+  for(int i=0;i<220 && !reto;i++){
     float r=length(p);
     if(r<uRs){hit=1;break;}
     if(r<uStar){hit=2;break;}
