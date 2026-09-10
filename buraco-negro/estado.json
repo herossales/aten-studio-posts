@@ -1,5 +1,5 @@
 {
-  "dia": 2,
+  "dia": 3,
   "participantes": [
     {
       "username": "heros_sales",
@@ -48,6 +48,14 @@
       "comentario": "18109462777874915",
       "quando": "2026-09-08T02:33:26+0000",
       "dia": 2
+    },
+    {
+      "username": "marcilio_hbg",
+      "nome": "Henrique",
+      "foto": "https://scontent-iad3-1.xx.fbcdn.net/v/t51.82787-15/792407100_18132520756724949_5383316424220051758_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7d201b&_nc_eui2=AeFzwkyKaIUq2ydOsxy7SAChEnk1VD6VA9gSeTVUPpUD2Nn56Df2kWVm7WdXe-k6tSkuE_LEEc1aGcEp6-klNUfE&_nc_ohc=dMDJdcHjAFIQ7kNvwFfyi8X&_nc_oc=AdrOrNMyzGvnEjDdhcopc3RrkCMIKzT6J3OhzuoFRZdxZwGPRYKKt0fqG4IiT_tBHxw&_nc_zt=23&_nc_ht=scontent-iad3-1.xx&edm=AL-3X8kEAAAA&_nc_gid=WSy3vgNc4A3MbAhUd-sqIw&oh=00_AQJ8OL6SWzwjdc92kjkeGFA-OMjHmMPc-0CdrZHvQS69Og&oe=6AA84003",
+      "comentario": "18097881464319964",
+      "quando": "2026-09-08T16:45:40+0000",
+      "dia": 3
     }
   ],
   "publicados": [
@@ -69,6 +77,16 @@
       "novos": 6,
       "total": 6,
       "massa": 0.10024000000000001,
+      "fase": "estrela"
+    },
+    {
+      "dia": 3,
+      "mediaId": "17867955744647538",
+      "permalink": "https://www.instagram.com/reel/DdGmRnhDmEm/",
+      "quando": "2026-09-10T10:15:35.313Z",
+      "novos": 1,
+      "total": 7,
+      "massa": 0.10028000000000001,
       "fase": "estrela"
     }
   ]
