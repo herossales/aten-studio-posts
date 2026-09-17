@@ -1,5 +1,5 @@
 {
-  "dia": 9,
+  "dia": 10,
   "participantes": [
     {
       "username": "heros_sales",
@@ -56,6 +56,14 @@
       "comentario": "18097881464319964",
       "quando": "2026-09-08T16:45:40+0000",
       "dia": 3
+    },
+    {
+      "username": "mf_studio_ia",
+      "nome": "MF Studio Pro",
+      "foto": "https://scontent-dfw6-1.xx.fbcdn.net/v/t51.82787-15/572151680_18073041548464206_3265747496917493246_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=7d201b&_nc_eui2=AeGmnSNgYVdp9mtu6VoPTMiiMgx0GE0oCMoyDHQYTSgIyvtJ0xoSuMJN-G9_Yb-_W0YZyUbPpz_9K7DgpFrnkyf-&_nc_ohc=GW4K8lg7kfgQ7kNvwE_fQJr&_nc_oc=AdqigpUFvOAlL0fAZ68OJsa2cWsE1vVMlzyS-BloGskDUOu0S9243Efbe3p8DILE0FI&_nc_zt=23&_nc_ht=scontent-dfw6-1.xx&edm=AL-3X8kEAAAA&_nc_gid=2F-Qhez0IRhftwcTCrg0ww&oh=00_AQICRkoJRr_G6P5HIAC4vvMuGXi1EDCGD5rTxainH7lxxg&oe=6AB1735A",
+      "comentario": "18140589400593478",
+      "quando": "2026-09-16T14:20:35+0000",
+      "dia": 10
     }
   ],
   "publicados": [
@@ -147,6 +155,16 @@
       "novos": 0,
       "total": 7,
       "massa": 0.10028000000000001,
+      "fase": "estrela"
+    },
+    {
+      "dia": 10,
+      "mediaId": "18102457376193063",
+      "permalink": "https://www.instagram.com/reel/DdYnLGIgqqb/",
+      "quando": "2026-09-17T10:09:46.521Z",
+      "novos": 1,
+      "total": 8,
+      "massa": 0.10032,
       "fase": "estrela"
     }
   ]
