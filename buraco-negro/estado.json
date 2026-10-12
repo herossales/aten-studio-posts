@@ -1,5 +1,5 @@
 {
-  "dia": 33,
+  "dia": 34,
   "participantes": [
     {
       "username": "heros_sales",
@@ -392,6 +392,16 @@
       "mediaId": "18128297878796739",
       "permalink": "https://www.instagram.com/reel/DeWadIDjDB0/",
       "quando": "2026-10-11T10:11:27.602Z",
+      "novos": 0,
+      "total": 8,
+      "massa": 0.10032,
+      "fase": "estrela"
+    },
+    {
+      "dia": 34,
+      "mediaId": "18189989101362677",
+      "permalink": "https://www.instagram.com/reel/DeY_okClLvE/",
+      "quando": "2026-10-12T10:14:47.527Z",
       "novos": 0,
       "total": 8,
       "massa": 0.10032,
